@@ -1,0 +1,140 @@
+---
+permalink: solaris/reference_some_configuration_commands.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, command 
+summary: Sono disponibili alcuni comandi che consentono di configurare SnapDrive per UNIX. 
+---
+= Alcuni comandi di configurazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sono disponibili alcuni comandi che consentono di configurare SnapDrive per UNIX.
+
+La seguente tabella riassume i comandi aggiuntivi utili per la configurazione di SnapDrive per UNIX:
+
+|===
+| Comando o azione | Descrizione 
+
+
+ a| 
+Configurazione e verifica della versione del software SnapDrive per UNIX in uso
+
+
+
+ a| 
+`*snapdrive config show*`
+ a| 
+Controllare i valori in `snapdrive.conf` file.
+
+
+
+ a| 
+`*snapdrive version*``
+ a| 
+Controllare la versione di SnapDrive per UNIX.
+
+
+
+ a| 
+`*snapdrived start*`
+ a| 
+Avviare il daemon SnapDrive per UNIX.
+
+
+
+ a| 
+`*snapdrive config prepare luns -count count_value*`
+
+[-devicetype {shared | dedicated}]
+ a| 
+Preparare l'host per la creazione di un numero specifico di LUN e per determinare il numero di LUN che è possibile creare.
+
+
+
+ a| 
+`*snapdrive config set -viadmin <user> <viadmin_name>*`
+ a| 
+Preparare il guest per la creazione del LUN RDM sul sistema operativo guest Solaris x86.
+
+
+NOTE: Questi comandi vengono utilizzati solo su host Solaris x86 utilizzando il protocollo FCP senza utility host.
+
+
+
+ a| 
+`*snapdrive clone split*`
+ a| 
+Stima, avvio, interruzione e query dello stato di split per un clone di volume o un clone di LUN.
+
+
+
+ a| 
+`*snapdrive config check cluster*`
+ a| 
+Verificare quanto segue nell'ambiente cluster SFRAC su un host Solaris:
+
+* SnapDrive per UNIX
+* Configurazione Group Membership Services/Atomic Broadcast (GAB)
+* Stato del cluster
+* Stato CVM (host Cluster Volume Manager)
+* Utilizzo di rsh o ssh per una comunicazione sicura all'interno dei nodi del cluster host
+* Differenze nell'impostazione dei seguenti valori delle variabili di configurazione in `snapdrive.conf` file:
++
+** `_default-transport= FCP_`
+** Multipathing-type=DMP
+
+
+
+
+
+
+ a| 
+Modificare le variabili in `snapdrive.conf` file.
+ a| 
+Modificare il nome del percorso e le opzioni per i file di log. SnapDrive per UNIX registra le informazioni su tre file:
+
+* Un file di audit
+* Un file di ripristino
+* Un file di traccia
+
+
+
+
+ a| 
+Impostazione e visualizzazione delle autorizzazioni di controllo degli accessi tra un host e un sistema storage.
+
+
+
+ a| 
+Modificare il file dei permessi di controllo degli accessi (sd `_hostname_`.prbac) sul sistema storage associato a tale host.
+ a| 
+Specificare le autorizzazioni di controllo degli accessi di cui dispone un host su un sistema storage. È possibile impostare i seguenti livelli di accesso per un host su un sistema storage:
+
+* NESSUNO--Nessun accesso.
+* CREAZIONE SNAP -- Crea copie Snapshot.
+* UTILIZZO DI SNAP: Consente di eliminare e rinominare le copie Snapshot.
+* SNAP ALL (CATTURA TUTTO): Consente di creare, ripristinare, eliminare e rinominare le copie Snapshot.
+* STORAGE CREATE DELETE--Crea, ridimensiona ed elimina lo storage.
+* UTILIZZO DELLO STORAGE: Collegare e scollegare lo storage.
+* STORAGE ALL (TUTTO STORAGE): Consente di creare, eliminare, connettere e disconnettere lo storage.
+* TUTTI GLI ACCESSI - tutte le operazioni.
+
+
+
+
+ a| 
+`*snapdrive config access show <filer_name>*`
+ a| 
+Visualizza informazioni sulle autorizzazioni di controllo degli accessi di un host a un sistema storage.
+
+
+
+ a| 
+`*snapdrive config delete <filername> [<filername> . . .]*`
+ a| 
+Rimuovere la coppia nome utente-password specificata da SnapDrive per UNIX.
+
+|===

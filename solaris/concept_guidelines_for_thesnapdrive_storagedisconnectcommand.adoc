@@ -1,0 +1,19 @@
+---
+permalink: solaris/concept_guidelines_for_thesnapdrive_storagedisconnectcommand.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, strorage, disconnect, command 
+summary: Seguire queste linee guida quando si utilizza il comando di disconnessione dello storage SnapDrive. 
+---
+= Linee guida per il comando di disconnessione dello storage SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire queste linee guida quando si utilizza `snapdrive storage disconnect` comando:
+
+* Quando si disconnette un file system, SnapDrive per UNIX rimuove sempre il punto di montaggio.
+* Se si utilizza `-lun` Opzione per specificare il nome di un LUN membro di un gruppo di dischi host o di un file system, la `snapdrive storage disconnect` comando non riuscito.
+* Se si utilizza `-lun` Opzione per specificare il nome del LUN non rilevato dal software multipathing sull'host, la `snapdrive storage disconnect` comando non riuscito.
+

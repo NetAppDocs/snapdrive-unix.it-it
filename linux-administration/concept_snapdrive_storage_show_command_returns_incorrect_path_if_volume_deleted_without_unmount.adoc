@@ -1,0 +1,25 @@
+---
+permalink: linux-administration/concept_snapdrive_storage_show_command_returns_incorrect_path_if_volume_deleted_without_unmount.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, delete, vserver, unmounting, host, storage, incorrect, show, command 
+summary: Se un volume viene cancellato sul Vserver senza smontare il volume sul sistema host e quando si esegue il comando show -v dello storage SnapDrive, il percorso effettivo non è corretto. 
+---
+= Se un volume viene cancellato sul Vserver senza smontare il volume sul sistema host, il comando SnapDrive storage show visualizza il percorso effettivo errato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se un volume viene cancellato sul Vserver senza smontare il volume sul sistema host e quando viene eseguito `snapdrive storage show -v` il percorso effettivo non è corretto.
+
+La stessa situazione potrebbe verificarsi anche quando il volume non è connesso al Vserver. Il seguente esempio mostra il percorso effettivo non corretto:
+
+[listing]
+----
+# snapdrive storage show -fs /mnt /file1 -v
+NFS device: vs1:/vol_test1 mount point: /mnt
+(non-persistent)
+Protocol: NFS Actual Path:
+vs1:/vol/roovol1/vol_test1
+----

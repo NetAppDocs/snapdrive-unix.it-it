@@ -1,0 +1,23 @@
+---
+permalink: aix/concept_application_consistentsnapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, application, consistent, snapshot, copy 
+summary: 'Per creare una copia Snapshot coerente con l"applicazione, arrestare l"applicazione prima dell"operazione Snapshot.' 
+---
+= Copie Snapshot coerenti con l'applicazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per creare una copia Snapshot coerente con l'applicazione, arrestare l'applicazione prima dell'operazione Snapshot.
+
+Per garantire che una copia Snapshot sia coerente con l'applicazione, potrebbe essere necessario interrompere o eseguire le operazioni necessarie per interrompere l'applicazione prima di eseguire la copia Snapshot. Si noti che le funzionalità di backup a caldo del database dipendono dai metodi utilizzati dal DBMS e non sempre rinunciano all'i/o nei file di database.
+
+Se l'applicazione non ha completato le transazioni e i dati scritti nel sistema di storage, la copia Snapshot risultante potrebbe non essere coerente con l'applicazione.
+
+
+NOTE: Se l'applicazione è in grado di eseguire il ripristino da una copia Snapshot coerente con il crash, non è necessario interromperla. Consultare la documentazione dell'applicazione. Per ulteriori informazioni sull'esecuzione di copie Snapshot coerenti con l'applicazione.
+
+È necessario eseguire una nuova copia Snapshot ogni volta che si aggiunge o rimuove un volume host, un LUN o un albero di directory NFS o si ridimensionano i volumi host o i file system. In questo modo si garantisce una copia coerente del gruppo di dischi appena configurato che è possibile utilizzare se è necessario ripristinare il gruppo di dischi.

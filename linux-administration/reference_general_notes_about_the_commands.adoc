@@ -1,0 +1,21 @@
+---
+permalink: linux-administration/reference_general_notes_about_the_commands.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, general, commands, dg, vg, lvol, hostvol, unix 
+summary: I comandi SnapDrive per UNIX hanno opzioni come -dg, -vg, -lvol e -hostvol. 
+---
+= Note generali sui comandi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I comandi di SnapDrive per UNIX dispongono di opzioni come `-dg`, `-vg`, `-lvol` e. `-hostvol`.
+
+Seguono alcune note generali sul comando:
+
+* Il `-dg` e. `-vg` le opzioni sono sinonimi che riflettono il fatto che alcuni sistemi operativi fanno riferimento a gruppi di dischi, mentre altri si riferiscono a gruppi di volumi. Questa guida utilizza -dg per fare riferimento sia ai gruppi di dischi che ai gruppi di volumi.
+* Il `-lvol` e. `-hostvol` le opzioni sono sinonimi che riflettono il fatto che alcuni sistemi operativi fanno riferimento a volumi logici, mentre altri si riferiscono a volumi host. Questa guida utilizza `-hostvol` fare riferimento sia ai volumi logici che ai volumi host.
+* È preferibile utilizzare il valore di default igroup e non specificare un igroup esplicitamente includendo il `-igroup` opzione.
+

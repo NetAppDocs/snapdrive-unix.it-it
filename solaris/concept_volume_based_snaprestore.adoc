@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_volume_based_snaprestore.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, snaprestore 
+summary: SnapDrive 4.0 per UNIX e versioni successive offre funzionalità di ripristino Snapshot a livello di volume. Questo spiega le varie operazioni di storage che è possibile eseguire utilizzando il ripristino Snapshot basato su volume. 
+---
+= SnapRestore basato su volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive 4.0 per UNIX e versioni successive offre funzionalità di ripristino Snapshot a livello di volume. Questo spiega le varie operazioni di storage che è possibile eseguire utilizzando il ripristino Snapshot basato su volume.

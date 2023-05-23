@@ -1,0 +1,48 @@
+---
+permalink: solaris/concept_migrating_to_new_vserver_name.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, vserver, migrate, name 
+summary: Se è stata eseguita la migrazione da un vecchio server virtuale a un nuovo server virtuale, è necessario assicurarsi che il nuovo nome del server virtuale sia configurato sul sistema host per eseguire le operazioni SnapDrive sul server virtuale. 
+---
+= Migrazione al nuovo nome Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se è stata eseguita la migrazione da un vecchio server virtuale a un nuovo server virtuale, è necessario assicurarsi che il nuovo nome del server virtuale sia configurato sul sistema host per eseguire le operazioni SnapDrive sul server virtuale.
+
+Ogni volta che si esegue la migrazione a un nuovo nome Vserver, è necessario eseguire le seguenti operazioni sul sistema host:
+
+.Fasi
+. Eliminare il vecchio nome del server virtuale configurato utilizzando il seguente comando:
++
+`*snapdrive config delete _appliance_name_*`
+
++
+Il vecchio nome del Vserver configurato viene rimosso dal sistema host.
+
+. Eliminare il set di porte assegnato al vecchio Vserver configurato utilizzando il seguente comando:
++
+`*snapdrive portset delete _filername_ [_filername..._]*`
+
+. Configurare il nuovo nome del server virtuale utilizzando il seguente comando:
++
+`*snapdrive config set _vsadmin filername_ [_filername..._]*`
+
+. Assegnare il set di porte utilizzando il seguente comando:
++
+`*snapdrive portset add _portset_name_ filername [_filername..._]*`
+
+. Eseguire la migrazione del nuovo nome del server virtuale utilizzando il seguente comando:
++
+`*snapdrive config migrate set _old_entry new_entry_*`
+
+
+
+Dopo aver eseguito la migrazione al nuovo Vserver, è possibile eseguire le operazioni SnapDrive nel sistema host per questo nuovo nome Vserver.
+
+*Informazioni correlate*
+
+xref:task_migrating_from_old_host_name_to_new_host_name.adoc[Migrazione dal vecchio sistema storage al nuovo sistema storage]

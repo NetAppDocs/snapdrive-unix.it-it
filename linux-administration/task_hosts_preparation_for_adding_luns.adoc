@@ -1,0 +1,18 @@
+---
+permalink: linux-administration/task_hosts_preparation_for_adding_luns.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, preparation, lun, add 
+summary: 'È necessario preparare l"host per aggiungere LUN.' 
+---
+= Preparazione dell'host per l'aggiunta di LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario preparare l'host per aggiungere LUN.
+
+*Informazioni correlate*
+
+xref:concept_storage_provisioning_for_rdm_luns.adoc[Supporto di VMware VMotion in SnapDrive per UNIX]

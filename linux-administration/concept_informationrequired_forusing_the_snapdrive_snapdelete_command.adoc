@@ -1,0 +1,72 @@
+---
+permalink: linux-administration/concept_informationrequired_forusing_the_snapdrive_snapdelete_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, command, copy, requirements 
+summary: 'Per eliminare una copia Snapshot, specificare il nome della copia Snapshot da eliminare. Il comando SnapDrive SNAP DELETE consente di visualizzare l"elenco delle copie Snapshot eliminate.' 
+---
+= Informazioni necessarie per l'utilizzo del comando SnapDrive SNAP DELETE
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per eliminare una copia Snapshot, specificare il nome della copia Snapshot da eliminare. Utilizzando il `snapdrive snap delete` Comando consente di visualizzare l'elenco delle copie Snapshot eliminate.
+
+La seguente tabella fornisce informazioni su `snapdrive snap delete` comando.
+
+|===
+| Requisito/opzione | Argomento 
+
+
+ a| 
+Specificare il nome della copia Snapshot. Utilizzare la forma lunga del nome della copia Snapshot in cui inserire il nome del sistema di storage, il volume e il nome della copia Snapshot. Di seguito viene riportato un esempio di nome di copia Snapshot lungo: `big_filer:/vol/account_vol:snap_20031115`
+
+Se si desidera specificare copie Snapshot aggiuntive, è possibile utilizzare la forma breve del nome se si trovano sullo stesso sistema di storage e volume della prima copia Snapshot. In caso contrario, utilizzare di nuovo la forma lunga del nome.
+
+
+
+ a| 
+Nome della copia Snapshot (`-snapname`)
+ a| 
+`_long_Snapshot copy_name_`
+
+
+
+ a| 
+Copie Snapshot aggiuntive
+ a| 
+`_Snapshot copy_name_` (forma lunga o breve)
+
+
+
+ a| 
+`-verbose`
+ a| 
+~
+
+
+
+ a| 
+Per visualizzare un elenco delle copie Snapshot eliminate, includere l'opzione -verbose. Questa opzione consente di inserire le informazioni sul sistema di storage e sul volume mancanti nel caso in cui sia stata utilizzata la forma breve del nome della copia Snapshot.
+
+
+
+ a| 
+`-force`
+ a| 
+~
+
+
+
+ a| 
+`-noprompt`
+ a| 
+~
+
+
+
+ a| 
+Facoltativo: Decidere se sovrascrivere una copia Snapshot esistente. Senza questa opzione, questa operazione si interrompe se si fornisce il nome di una copia Snapshot esistente. Quando si fornisce questa opzione e si specifica il nome di una copia Snapshot esistente, viene richiesto di confermare che si desidera sovrascrivere la copia Snapshot. Per impedire a SnapDrive per UNIX di visualizzare la richiesta, includere `-noprompt` opzione anche. (Includere sempre il `-force` se si desidera utilizzare `-noprompt` opzione).
+
+|===

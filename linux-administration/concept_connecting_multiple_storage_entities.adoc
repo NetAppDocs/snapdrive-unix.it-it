@@ -1,0 +1,23 @@
+---
+permalink: linux-administration/concept_connecting_multiple_storage_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, connect 
+summary: È possibile collegare una copia Snapshot contenente più entità di storage. 
+---
+= Connessione di più entità di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile collegare una copia Snapshot contenente più entità di storage.
+
+Per collegare una copia Snapshot contenente entità di storage che risiedono su più sistemi di storage di destinazione, è necessario soddisfare i seguenti requisiti:
+
+* Le entità di storage specificate al prompt dei comandi devono risiedere in un singolo sistema di storage o in una coppia ha.
+* Il nome del volume del sistema di storage di origine deve corrispondere al nome del volume del sistema di storage di destinazione.
+* È necessario impostare `_snapmirror-dest-multiple-filervolumes-enabled_` variabile nel file snapdrive.conf in "`on`".
+
+
+È possibile utilizzare un comando per connettere le entità di storage che risiedono su un singolo sistema storage o su una coppia ha.

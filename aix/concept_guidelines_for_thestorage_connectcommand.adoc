@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_guidelines_for_thestorage_connectcommand.html 
+sidebar: sidebar 
+keywords: guidelines, snap, snapdrive, storage, connect, command 
+summary: Per utilizzare il comando di connessione dello storage SnapDrive, è necessario seguire alcune linee guida. 
+---
+= Linee guida per il comando di connessione dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per utilizzare, è necessario seguire alcune linee guida `snapdrive storage connect` comando.
+
+Lo storage che include le entità LVM ha requisiti speciali. Per utilizzare `snapdrive storage connect` Comando per connettere le entità LVM, è necessario creare lo storage in modo che ogni entità nella gerarchia dello storage abbia esattamente un'istanza dell'entità successiva. Ad esempio, è possibile utilizzare `snapdrive storage connect` comando per connettere una gerarchia di storage che ha un gruppo di dischi (dg1) con un volume host (hostvol1) e un file system (fs1). Tuttavia, non è possibile utilizzare `snapdrive storage connect` comando per collegare una gerarchia che ha un gruppo di dischi (dg1) con due volumi host (hostvol1 e hostvol2) e due file system (fs1 e fs2).

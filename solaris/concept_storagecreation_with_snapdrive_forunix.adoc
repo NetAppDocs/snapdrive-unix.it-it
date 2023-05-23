@@ -1,0 +1,18 @@
+---
+permalink: solaris/concept_storagecreation_with_snapdrive_forunix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, create 
+summary: È possibile utilizzare SnapDrive per UNIX per creare LUN, un file system direttamente su LUN, gruppi di dischi, volumi host e file system creati su LUN. 
+---
+= Creazione di storage con SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare SnapDrive per UNIX per creare LUN, un file system direttamente su LUN, gruppi di dischi, volumi host e file system creati su LUN.
+
+SnapDrive per UNIX gestisce automaticamente tutte le attività necessarie per impostare le LUN associate a queste entità, tra cui la preparazione dell'host, l'esecuzione del mapping di rilevamento, la creazione dell'entità e la connessione all'entità creata. È inoltre possibile specificare quali LUN SnapDrive per UNIX utilizza per fornire storage per l'entità richiesta.
+
+Non è necessario creare le LUN e l'entità di storage contemporaneamente. Se si creano le LUN separatamente, è possibile creare l'entità di storage in un secondo momento utilizzando le LUN esistenti.

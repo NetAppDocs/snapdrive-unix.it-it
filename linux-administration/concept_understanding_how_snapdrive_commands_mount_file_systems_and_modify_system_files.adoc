@@ -1,0 +1,44 @@
+---
+permalink: linux-administration/concept_understanding_how_snapdrive_commands_mount_file_systems_and_modify_system_files.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, mount, file, modify, unmount, name 
+summary: 'Alcuni comandi di SnapDrive per UNIX possono causare il montaggio o il dismontaggio dei file system. Quando un comando esegue un"operazione che monta un file system, SnapDrive per UNIX aggiunge il nome del file system al file di sistema standard per la piattaforma host. Se un"operazione disinstalla un file system, SnapDrive per UNIX rimuove il nome dal file di sistema. Questo non dovrebbe rappresentare un problema; tuttavia, è utile sapere quando i file di sistema vengono modificati.' 
+---
+= I comandi di SnapDrive talvolta comportano il montaggio o lo smontaggio di file system e la modifica dei file di sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Alcuni comandi di SnapDrive per UNIX possono causare il montaggio o il dismontaggio dei file system. Quando un comando esegue un'operazione che monta un file system, SnapDrive per UNIX aggiunge il nome del file system al file di sistema standard per la piattaforma host. Se un'operazione disinstalla un file system, SnapDrive per UNIX rimuove il nome dal file di sistema. Questo non dovrebbe rappresentare un problema; tuttavia, è utile sapere quando i file di sistema vengono modificati.
+
+Il nome del file di sistema varia in base alla piattaforma host. La seguente tabella elenca le piattaforme host e i relativi file di sistema.
+
+|===
+| *Host* | *File di sistema* 
+
+
+ a| 
+Linux
+ a| 
+`etc/fstab`
+
+|===
+Uno qualsiasi dei seguenti comandi può montare file system:
+
+* `snapdrive snap restore`
+* `snapdrive snap connect`
+* `snapdrive storage create`
+* `snapdrive host connect`
+* `snapdrive storage connect`
+
+
+I seguenti comandi eseguono operazioni che possono smontare un file system:
+
+* `snapdrive snap restore`
+* `snapdrive snap disconnect`
+* `snapdrive storage disconnect`
+* `snapdrive storage delete`
+* `snapdrive host disconnect`
+

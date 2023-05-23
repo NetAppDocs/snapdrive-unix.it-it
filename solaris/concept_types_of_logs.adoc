@@ -1,0 +1,31 @@
+---
+permalink: solaris/concept_types_of_logs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, log, type 
+summary: SnapDrive per UNIX supporta diversi tipi di file di log, che consentono di risolvere i problemi quando SnapDrive per UNIX non funziona come previsto. 
+---
+= Tipi di log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX supporta diversi tipi di file di log, che consentono di risolvere i problemi quando SnapDrive per UNIX non funziona come previsto.
+
+* Log di audit
++
+SnapDrive per UNIX registra tutti i comandi e i relativi codici di ritorno in un registro di controllo. SnapDrive per UNIX crea una voce quando si avvia un comando e un'altra quando il comando è completo. La voce successiva include lo stato del comando e il tempo di completamento.
+
+* Log di recovery
++
+Alcune operazioni di SnapDrive per UNIX possono potenzialmente lasciare il sistema in uno stato incoerente o meno utilizzabile in caso di interruzione. Questa situazione potrebbe verificarsi se un utente termina il programma o se l'host si blocca durante un'operazione. Il registro di ripristino contiene le fasi di un'operazione di ripristino Snap. Documenta le fasi intraprese e i progressi compiuti in modo che il supporto tecnico possa assisterti nel processo di ripristino manuale.
+
+* Log di traccia
++
+SnapDrive per UNIX riporta informazioni utili per la diagnosi dei problemi. In caso di problemi, il supporto tecnico NetApp potrebbe richiedere questo file di log.
+
++
+SnapDrive 4.0 per UNIX ha introdotto il servizio daemon SnapDrive per UNIX. Per eseguire i comandi SnapDrive per UNIX, il daemon deve essere in esecuzione. Il tracciamento dei daemon deve essere eseguito su per ogni singolo comando, anche quando i comandi sono eseguiti in parallelo. La posizione e il nome del file di log sono `/var/log/sd-trace.log`. Questi file di traccia contengono solo le voci di traccia specifiche del comando. I log di traccia per l'esecuzione dei daemon vengono registrati in un file di traccia diverso `/var/log/sd-daemon-trace.log`.
+
+

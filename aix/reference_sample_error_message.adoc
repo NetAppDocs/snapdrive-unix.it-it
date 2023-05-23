@@ -1,0 +1,24 @@
+---
+permalink: aix/reference_sample_error_message.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, sample, error, message 
+summary: Questo è un messaggio di errore in SnapDrive per UNIX. 
+---
+= Esempio di messaggio di errore
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo è un messaggio di errore in SnapDrive per UNIX.
+
+Il seguente messaggio indica un problema al prompt dei comandi. L'ID del messaggio è 0001-377.
+
+[listing]
+----
+Return Code: 43
+
+0001-377 Command error: Disk group name dg2 is already in use or
+conflicts with another entity.
+----

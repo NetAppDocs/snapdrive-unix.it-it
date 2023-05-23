@@ -1,0 +1,19 @@
+---
+permalink: solaris/concept_how_snapdrive_for_unix_works_on_host_clustered_unix_systems.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, unix, host, cluster 
+summary: SnapDrive per UNIX supporta il provisioning dello storage e le opzioni di gestione Snapshot per gestire uno storage host a livello di cluster. Lo storage condiviso a livello di cluster host include gruppi di dischi e file system in un ambiente SFRAC su un host Solaris. Tutte le operazioni sono consentite da qualsiasi nodo del cluster host. 
+---
+= Funzionamento di SnapDrive per UNIX su sistemi UNIX in cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX supporta il provisioning dello storage e le opzioni di gestione Snapshot per gestire uno storage host a livello di cluster. Lo storage condiviso a livello di cluster host include gruppi di dischi e file system in un ambiente SFRAC su un host Solaris. Tutte le operazioni sono consentite da qualsiasi nodo del cluster host.
+
+È possibile eseguire operazioni SnapDrive per UNIX su un host Solaris dal nodo master. Nell'installazione del cluster host, i comandi devono essere eseguiti localmente sul nodo master del cluster host. A tale scopo, è necessario assicurarsi che `rsh` oppure `ssh access-without-password-prompt` per l'utente root deve essere configurato per tutti i nodi nel cluster host.
+
+
+NOTE: Se si utilizza SnapDrive per UNIX in un ambiente SFRAC, la shell di accesso predefinita dovrebbe essere `bash` per tutti gli utenti.

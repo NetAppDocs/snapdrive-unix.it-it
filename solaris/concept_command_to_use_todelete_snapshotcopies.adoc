@@ -1,0 +1,16 @@
+---
+permalink: solaris/concept_command_to_use_todelete_snapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, delete, snapshot, copy 
+summary: Utilizzare il comando SnapDrive SNAP DELETE per eliminare una copia Snapshot. 
+---
+= Comando da utilizzare per eliminare le copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare il comando SnapDrive SNAP DELETE per eliminare una copia Snapshot.
+
+Il comando SnapDrive SNAP DELETE rimuove le copie Snapshot specificate da un sistema di storage. Questo comando non esegue alcuna operazione sull'host. La copia Snapshot viene rimossa da un sistema di storage solo se si dispone dell'autorizzazione necessaria. (Se si desidera mantenere LUN e mappature).

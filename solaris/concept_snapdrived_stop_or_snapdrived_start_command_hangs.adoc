@@ -1,0 +1,19 @@
+---
+permalink: solaris/concept_snapdrived_stop_or_snapdrived_start_command_hangs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, stop, start, command, hang 
+summary: in alcuni casi, il comando stop o start snapdrived potrebbe bloccarsi. 
+---
+= il comando stop o start snapdrived si blocca
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+`snapdrived stop` oppure `snapdrived start` in alcuni casi, il comando potrebbe bloccarsi.
+
+Per risolvere il problema, eseguire `snapdrived status` per verificare quanti comandi sono in esecuzione e a quale ora sono stati avviati. `snapdrived stop` il comando attende il completamento di tutti i comandi in esecuzione. Se si ritiene che qualsiasi comando si blocchi, problema `snapdrived -force stop` oppure `snapdrived -force restart` comando.
+
+
+IMPORTANT: Il `-force` option uccide tutti i comandi in esecuzione e le interruzioni dei daemon. Questo può avere effetti collaterali sullo stato del sistema, come voci di dispositivi obsolete e avvii di daemon futuri.

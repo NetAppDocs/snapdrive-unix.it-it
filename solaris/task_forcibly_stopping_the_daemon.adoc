@@ -1,0 +1,23 @@
+---
+permalink: solaris/task_forcibly_stopping_the_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, forcibly, stop, daemon, command 
+summary: 'È possibile arrestare forzatamente il daemon quando non si desidera attendere il completamento dell"esecuzione di tutti i comandi. Una volta ricevuta la richiesta di arrestare forzatamente il daemon, SnapDrive per UNIX annulla tutti i comandi in esecuzione o in coda. Quando si arresta forzatamente il daemon, lo stato del sistema potrebbe non essere definito. Questo metodo non è consigliato.' 
+---
+= Arrestare il demone con la forza
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile arrestare forzatamente il daemon quando non si desidera attendere il completamento dell'esecuzione di tutti i comandi. Una volta ricevuta la richiesta di arrestare forzatamente il daemon, SnapDrive per UNIX annulla tutti i comandi in esecuzione o in coda. Quando si arresta forzatamente il daemon, lo stato del sistema potrebbe non essere definito. Questo metodo non è consigliato.
+
+Devi essere connesso come utente root.
+
+.Fasi
+. Arrestare il demone con la forza:
++
+`*snapdrived -force stop*`
+
+

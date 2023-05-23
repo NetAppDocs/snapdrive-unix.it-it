@@ -1,0 +1,54 @@
+---
+permalink: aix/task_adding_sd_hostname_to_storage_system_using_cli.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, add, cli, storage, system, hostname 
+summary: 'L"amministratore del sistema di storage può creare e configurare l"utente del nome host sd utilizzando il comando useradmin.' 
+---
+= Aggiunta di un nome host sd al sistema di storage mediante CLI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'amministratore del sistema di storage può creare e configurare l'utente del nome host sd utilizzando il comando useradmin.
+
+.Fasi
+. Aggiungere storage.
++
+[listing]
+----
+# dfm host add storage_array1
+Added host storage_array1.lab.eng.btc.xyz.in
+----
+. Impostare la password per l'host.
++
+[listing]
+----
+# dfm host password save -u root -p xxxxxxxx storage_array1
+Changed login for host storage_array1.lab.eng.btc.xyz.in to root.
+Changed Password for host storage_array1.lab.eng.xyz.netapp
+.in
+----
+. Creare un ruolo nell'host.
++
+[listing]
+----
+# dfm host role create -h storage_array1 -c "api-*,login-*" sd-unixhost-role
+Created role sd-unixhost-role on storage_array1
+----
+. Creare un gruppo di utenti.
++
+[listing]
+----
+# dfm host usergroup create -h storage_array1 -r sd-unixhost-role sd-unixhost-ug
+Created usergroup sd-unixhost-ug(44) on storage_array1
+----
+. Creare un utente locale.
++
+[listing]
+----
+# dfm host user create -h storage_array1 -p xxxxxxxx -g sd-unixhost-ug sd-unixhost
+Created local user sd-unixhost on storage_array1
+----
+

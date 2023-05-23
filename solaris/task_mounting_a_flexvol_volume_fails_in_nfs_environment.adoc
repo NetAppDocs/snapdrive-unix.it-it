@@ -1,0 +1,35 @@
+---
+permalink: solaris/task_mounting_a_flexvol_volume_fails_in_nfs_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, mount, flexvol, fail, nfs, volume 
+summary: Quando si monta un volume FlexVol, viene aggiunta una voce nel file /etc/exports. In ambiente NFS, SnapDrive per UNIX non riesce e viene generato un messaggio di errore. 
+---
+= Il montaggio di un volume FlexVol non riesce in ambiente NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si monta un volume FlexVol, viene aggiunta una voce in `/`/etc/exports file`. In ambiente NFS, SnapDrive per UNIX non riesce e viene generato un messaggio di errore.
+
+Il messaggio di errore è
+
+[listing]
+----
+0001-034 Command error: mount failed: nfs mount:
+dub12137:/vol/vn_dub12137_testprisredo_0: Permission denied.
+----
+SnapDrive per UNIX potrebbe visualizzare il messaggio di errore a causa dell'opzione `nfs.export.auto-update` impostare su `off`. L'opzione `nfs.export.auto-update` controlla se gli aggiornamenti automatici vengono eseguiti su `/etc/exports` file.
+
+
+NOTE: AutoSupport non invia il messaggio al sistema di storage quando il volume FlexVol si guasta in ambiente NFS.
+
+.Fasi
+. Impostare `nfs.export.auto-update` opzione `on` in modo che il file /etc/exports venga aggiornato automaticamente.
++
+SnapDrive per UNIX ora può montare il volume FlexVol.
+
+
+
+In una configurazione Active/Active di coppia ha, assicurarsi di impostare l'opzione NFS exports su on per entrambi i sistemi storage.

@@ -1,0 +1,28 @@
+---
+permalink: aix/concept_checks_that_can_be_overridden_by_the_user.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, check, override, user 
+summary: 'Prima di eseguire il SnapRestore basato su volume, SnapDrive per UNIX esegue alcuni controlli che consentono a un utente di eseguire l"override utilizzando l"opzione -force. Questi controlli sono necessari per un utilizzo sicuro del SnapRestore basato su volume.' 
+---
+= Controlli che possono essere ignorati dall'utente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di eseguire il SnapRestore basato su volume, SnapDrive per UNIX esegue alcuni controlli che un utente può eseguire l'override utilizzando `-force` opzione. Questi controlli sono necessari per un utilizzo sicuro del SnapRestore basato su volume.
+
+Si consiglia di seguire i vari controlli eseguiti dal sistema, ma è possibile eseguire l'override di tali controlli utilizzando `-force` opzione.
+
+È possibile eseguire l'override del seguente SnapDrive per UNIX per i controlli SnapRestore basati su volume:
+
+* SnapDrive per UNIX verifica la presenza di LUN nella copia Snapshot che non siano coerenti con il crash. Se rileva un LUN non coerente dell'applicazione nella copia Snapshot, viene visualizzato un avviso.
+* SnapDrive per UNIX verifica se nel volume attivo sono presenti ulteriori LUN creati dopo l'esecuzione della copia Snapshot. Se SnapDrive per UNIX rileva ulteriori LUN, avvisa l'utente che tali LUN aggiuntivi nel volume attivo vengono persi.
+* SnapDrive per UNIX verifica la presenza di nuove copie Snapshot. Queste nuove copie Snapshot non vengono ripristinate e vanno perse.
+* SnapDrive per UNIX verifica la presenza di file normali (file visibili dall'host locale) in un volume.
+* SnapDrive per UNIX verifica le esportazioni NFS.
+* SnapDrive per UNIX verifica la presenza di condivisioni CIFS.
+
+
+Se le copie Snapshot sono state create utilizzando SnapDrive 3.0 per UNIX o versioni precedenti, l'anteprima SnapRestore basata su volume non è in grado di eseguire i primi due controlli nell'elenco citato in precedenza. Se hai fornito `-force` Durante l'esecuzione di SnapRestore basata sul volume, viene visualizzato un messaggio di richiesta per superare questi controlli e procedere.

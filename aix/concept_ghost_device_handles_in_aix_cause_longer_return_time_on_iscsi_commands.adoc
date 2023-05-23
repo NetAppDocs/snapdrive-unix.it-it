@@ -1,0 +1,22 @@
+---
+permalink: aix/concept_ghost_device_handles_in_aix_cause_longer_return_time_on_iscsi_commands.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, ghost, device, aix, handle, iscsi, command, return 
+summary: 'L"esecuzione di query sui dispositivi AIX tramite iSCSI o FC che dispongono di handle di dispositivi fantasma (i dispositivi gestiscono in uno stato definito o non riuscito) può far sì che i comandi SCSI attendano il timeout predefinito di AIX, pari a circa 30 secondi.' 
+---
+= Gli handle di dispositivi Ghost in AIX causano tempi di ritorno più lunghi sui comandi iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'esecuzione di query sui dispositivi AIX tramite iSCSI o FC che dispongono di handle di dispositivi fantasma (i dispositivi vengono gestiti in uno stato definito o non riuscito) può far sì che i comandi SCSI attendano il timeout predefinito di AIX, pari a circa 30 secondi.
+
+Questo problema si verifica dopo aver commutato un sistema AIX dall'utilizzo di FC all'utilizzo di iSCSI se gli handle dei dispositivi figlio FC non vengono ripuliti o se un HBA FC non viene lasciato collegato a uno switch.
+
+*Soluzione:*
+
+* Se l'HBA Fibre Channel non è collegato a uno switch, installare una spina IOA wrap Fibre Channel in tutti gli iniziatori Fibre Channel non collegati a uno switch Fibre Channel.
+* Se l'HBA Fibre Channel è collegato a uno switch ma presenta handle di dispositivi non funzionanti o definiti come dispositivi figlio, rimuovere le maniglie di dispositivi fantasma obsolete con `rmdev` comando.
+

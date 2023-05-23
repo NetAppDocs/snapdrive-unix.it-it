@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_restoring_asnapshot_copy_froma_different_host.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, snapshot, copy, host, command 
+summary: Utilizzare il comando SnapDrive SNAP restore per ripristinare una copia Snapshot da un host diverso. 
+---
+= Ripristino di una copia Snapshot da un host diverso
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare `snapdrive snap restore` Comando per ripristinare una copia Snapshot da un host diverso.
+
+In genere, è possibile ripristinare una copia Snapshot dall'host in cui è stata eseguita la copia Snapshot. A volte, potrebbe essere necessario ripristinare una copia Snapshot utilizzando un host diverso o non di origine. Per ripristinare una copia Snapshot utilizzando un host non di origine, utilizzare lo stesso metodo `snapdrive snap restore` comando che normalmente si utilizza. Se la copia Snapshot ripristinata contiene entità NFS, l'host non di origine deve disporre dell'autorizzazione per accedere alla directory NFS.

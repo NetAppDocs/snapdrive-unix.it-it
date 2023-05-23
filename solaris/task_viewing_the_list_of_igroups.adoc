@@ -1,0 +1,29 @@
+---
+permalink: solaris/task_viewing_the_list_of_igroups.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, view, list, igroup 
+summary: 'È possibile visualizzare tutti gli igroups configurati sull"host.' 
+---
+= Visualizzazione dell'elenco di igroups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare tutti gli igroups configurati sull'host.
+
+.Fasi
+. Immettere il seguente comando sul sistema host:
++
+`*snapdrive igroup list*`
+
++
+[listing]
+----
+snapdrive igroup list
+appliance name   igroup name
+-----------------------------
+toaster        ig
+----
+

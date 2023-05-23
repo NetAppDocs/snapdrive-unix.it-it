@@ -1,0 +1,30 @@
+---
+permalink: solaris/concept_guidelines_for_restoring_a_snapshot_copy_in_a_host_cluster_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, host, restore 
+summary: Seguire le linee guida durante il ripristino di una copia Snapshot. 
+---
+= Linee guida per il ripristino di una copia Snapshot in un ambiente cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire le linee guida durante il ripristino di una copia Snapshot.
+
+* Il `snapdrive snapshot restore` il comando può essere eseguito da qualsiasi nodo del cluster host.
+* Il file system o i gruppi di dischi devono essere condivisi tra tutti i nodi del cluster host, se attivi.
+* L'operazione di ripristino Snapshot su un file system condiviso o su un gruppo di dischi non riesce se una delle LUN è mappata a un nodo esterno al cluster host. Assicurarsi che nessuna delle LUN condivise sia mappata a un nodo esterno al cluster host.
+* L'operazione di creazione di Snapshot può essere eseguita su un file system dedicato o su un gruppo di dischi, ma per ripristinare la copia Snapshot in una modalità condivisa, è necessario assicurarsi che il file system o il gruppo di dischi non esista in modalità dedicata su qualsiasi nodo del cluster host. In caso contrario, SnapDrive per UNIX indica un errore.
+* Se nel cluster host non esiste un file system o un gruppo di dischi, SnapDrive per UNIX crea i LUN dalla copia Snapshot, li associa a tutti i nodi del cluster host e attiva il gruppo di dischi e il file system. Una volta mappate le LUN a tutti i nodi del cluster host, Veritas Cluster Volume Manager aggiorna le informazioni LUN tra tutti i nodi del cluster host. Se si tenta di attivare il gruppo di dischi prima che le informazioni LUN vengano aggiornate tra le istanze CVM nei nodi del cluster, l'operazione di ripristino Snapshot potrebbe non riuscire. Per l'aggiornamento CVM, è necessario emettere nuovamente `snapdrive snap restore` comando.
+* Una copia Snapshot creata su un nodo esterno a un cluster host può essere ripristinata e condivisa nel cluster solo se è vero quanto segue:
++
+** Il file system o il gruppo di dischi non esiste in modalità dedicata su nessun nodo del cluster host.
+** Le LUN sono invisibili nel nodo esterno al cluster host.
+
+
+* Non è possibile ripristinare le copie Snapshot su sistemi condivisi e dedicati in un'unica operazione di ripristino Snapshot.
+* Se il `snapdrive snap restore` viene inviato con il comando `-devicetype` opzione dedicata o senza `-devicetype` Opzione specificata su un gruppo di dischi o un file system condiviso, SnapDrive per UNIX avvisa che le LUN collegate a più nodi sono state ripristinate.
+* Se la configurazione del gruppo di dischi viene modificata tra creazione copia Snapshot e ripristino copia Snapshot, SnapDrive per UNIX avvisa che la configurazione è stata modificata.
+

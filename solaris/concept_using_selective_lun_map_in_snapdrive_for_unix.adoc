@@ -1,0 +1,90 @@
+---
+permalink: solaris/concept_using_selective_lun_map_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, selective, lun, map 
+summary: 'A partire da Clustered Data ONTAP 8.3, la mappa LUN selettiva (SLM) è attivata per impostazione predefinita su tutte le nuove mappe LUN. Quando si crea una nuova mappa LUN, la LUN è accessibile solo attraverso i percorsi trovati sul nodo proprietario di tale LUN e del suo partner ha.' 
+---
+= Utilizzo della mappa LUN selettiva in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partire da Clustered Data ONTAP 8.3, la mappa LUN selettiva (SLM) è attivata per impostazione predefinita su tutte le nuove mappe LUN. Quando si crea una nuova mappa LUN, la LUN è accessibile solo attraverso i percorsi trovati sul nodo proprietario di tale LUN e del suo partner ha.
+
+Per impostazione predefinita, le LUN sono accessibili su tutte le LIF di una Storage Virtual Machine (SVM). È necessario assegnare i LIF alle SVM su ciascun nodo del cluster della rete. Con l'aumentare del numero di nodi nel cluster, si moltiplica anche il numero di percorsi potenziali. Ciò può comportare un numero eccessivo di percorsi verso una LUN, più igroups per host ed eventi di mobilità disgregativi. SLM risolve questi problemi limitando l'accessibilità del LUN al nodo proprietario del LUN e del nodo partner ha. Inoltre, crea un singolo igroup per host e supporta operazioni di mobilità LUN senza interruzioni che non richiedono la manipolazione di portset o il remapping del LUN.
+
+
+NOTE: SLM non si applica automaticamente alle mappe LUN create prima di Clustered Data ONTAP 8.3.
+
+Se si accede al LUN attraverso il nodo proprietario del LUN, il percorso viene definito "Active Optimized" (ottimizzato attivo). Tuttavia, se si accede a tale LUN attraverso il nodo partner ha, il percorso viene chiamato "attivo non ottimizzato".
+
+|===
+| Comando SnapDrive | Descrizione 
+
+
+ a| 
+`snapdrive lun showpaths _long_lun_name_`
+ a| 
+Il `snapdrive lun showpaths` Il comando elenca tutti i percorsi per il LUN. Inoltre, visualizza il percorso ottimizzato per le attività e il percorso attivo non ottimizzato.
+
+`_long_lun_name_` È il nome del LUN. Se non si specifica il LUN, l'operazione viene eseguita su tutti i LUN.
+
+[listing]
+----
+snapdrive lun showpaths
+lun path            device filename                   asymmetric access state
+------------------------------------------------------------------------------
+vs1:/vol/vol2/lun10  /dev/mapper/3600a09807746505a4e24455450473655   Non-optimized
+vs1:/vol/vol2/lun2  /dev/mapper/3600a09807746505a4d3f455432474b30    Optimized
+vs1:/vol/vol2/lun1  /dev/mapper/3600a09807746505a4e24455450473656    Optimized
+----
+
+
+ a| 
+`snapdrive lun fixpaths _long_lun_name_`
+ a| 
+Il `snapdrive lun fixpaths` Il comando tenta di correggere il percorso delle LUN per le LUN che non dispongono di almeno un percorso attivo ottimizzato. `_long_lun_name_` È il nome del LUN. Se non si specifica il LUN, l'operazione viene eseguita su tutti i LUN che non dispongono di almeno un percorso ottimizzato attivo.
+
+[listing]
+----
+snapdrive lun fixpaths
+The following LUNs are using Non-optimized paths
+-------------------------------------------------
+vs1:/vol/vol2/lun10
+
+Path correction successful for the following LUNs
+--------------------------------------------------
+vs1:/vol/vol2/lun10
+----
+
+NOTE: Il `snapdrive lun fixpaths` il comando non funziona nel sistema operativo guest.
+
+|===
+Il `lunpath-monitor-frequency` Il parametro consente di specificare la frequenza con cui SnapDrive per UNIX corregge automaticamente il percorso dei LUN. Il valore predefinito è 24 ore.
+
+Se il `snapdrive lun fixpaths` L'operazione non riesce, viene generato un messaggio ASUP (AutoSupport) per tutti i LUN. Il messaggio ASUP contiene i seguenti dettagli:
+
+* NomeComputer
+* EventSource
+* AppVersion
+* ID dell'EventId
+* categoria
+* soggetto
+
+
+Di seguito viene riportato un esempio di messaggio ASUP:
+
+[listing]
+----
+computerName="owhyee"
+       eventSource="snapdrive"
+       appVersion="5.2.2 for UNIX"
+       eventID="6"
+       category="lun path"
+       subject="Paths are misconfigured for the Luns /vol/June12v1/LUN2 in storage system sdu_100_101_60_62_vs1 on owhyee host."
+----
+*Informazioni correlate*
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["Guida all'amministrazione DI ONTAP 9 SAN"]

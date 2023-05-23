@@ -1,0 +1,24 @@
+---
+permalink: solaris/task_disabling_consistency_group_snapshots.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disable, snapshot, copy, consistency, group 
+summary: È possibile configurare SnapDrive per UNIX per disattivare una copia Snapshot di un gruppo di coerenza. 
+---
+= Disattivazione delle copie Snapshot dei gruppi di coerenza
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare SnapDrive per UNIX per disattivare una copia Snapshot di un gruppo di coerenza.
+
+.Fasi
+. Inserire:
++
+`*snapdrive snap create -fs /mnt/fs3 _-snapname_ nfs_snap _-nofilerfence_*`
+
++
+La copia Snapshot del gruppo di coerenza è stata disattivata correttamente.
+
+

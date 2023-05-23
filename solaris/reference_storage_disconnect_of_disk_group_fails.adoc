@@ -1,0 +1,20 @@
+---
+permalink: solaris/reference_storage_disconnect_of_disk_group_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, disconnect, disk, group, fail 
+summary: 'Nei sistemi storage che utilizzano Solaris versione 10, aggiornamento 10 o successivo, il comando SnapDrive per UNIX per eliminare e disconnettere i gruppi di dischi non funziona senza l"opzione -full. Il comando delete and disconnect non riesce perché i volumi host non sono completamente disconnessi o cancellati.' 
+---
+= La disconnessione dello storage del gruppo di dischi non riesce
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nei sistemi storage che utilizzano Solaris versione 10, aggiornamento 10 o successivo, il comando SnapDrive per UNIX per eliminare e disconnettere i gruppi di dischi non funziona senza `-full` opzione. Il comando delete and disconnect non riesce perché i volumi host non sono completamente disconnessi o cancellati.
+
+
+
+== Soluzione alternativa
+
+Eseguire `-full` comando per disconnettere tutti i file system e i volumi host associati.

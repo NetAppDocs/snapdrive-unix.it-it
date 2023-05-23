@@ -1,0 +1,30 @@
+---
+permalink: solaris/concept_unable_to_create_a_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, create, snapshot, copy 
+summary: Esistono poche condizioni che influiscono sulla capacità del comando SnapDrive SNAP create di creare una copia Snapshot. 
+---
+= Impossibile creare una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sono presenti poche condizioni che influiscono su `snapdrive snap create` Capacità del comando di creare una copia Snapshot.
+
+* Il `snapdrive snap create` command deve essere in grado di eseguire le seguenti attività:
++
+** Ricercare un elenco di LUN in tutti i gruppi di dischi.
+** Eseguire query su tutti i LUN tramite comandi SCSI.
+
+
+* Le LUN del gruppo di dischi devono essere in linea e mappate al gruppo di dischi prima di eseguire la copia Snapshot. Se una delle LUN non è in linea o non è mappata, l'operazione di creazione non riesce.
++
+Assicurarsi che tutte le LUN siano in linea e mappate all'host prima di tentare di eseguire una copia Snapshot.
+
+* Le autorizzazioni di accesso non consentono all'host di creare una copia Snapshot delle informazioni su tale sistema di storage.
++
+Inoltre, poiché funziona con le voci LVM, è necessario essere connessi all'host con autorizzazioni sufficienti per poter gestire le voci LVM.
+
+

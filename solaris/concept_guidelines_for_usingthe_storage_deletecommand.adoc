@@ -1,0 +1,22 @@
+---
+permalink: solaris/concept_guidelines_for_usingthe_storage_deletecommand.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, delete, command 
+summary: Il comando di eliminazione dello storage SnapDrive presenta alcune limitazioni in SnapDrive per UNIX. 
+---
+= Linee guida per l'utilizzo del comando di eliminazione dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il `snapdrive storage delete` Command presenta alcune limitazioni in SnapDrive per UNIX.
+
+* Quando si elimina un file system, SnapDrive per UNIX rimuove sempre il punto di montaggio del file system.
+* Se si utilizza `-lun` Opzione per specificare il nome di un LUN membro di un gruppo di dischi host o di un file system, la `snapdrive storage delete` comando non riuscito.
+* Se si utilizza `-lun` Opzione per specificare il nome del LUN non rilevato dal software multipathing sull'host, la `snapdrive storage delete` comando non riuscito.
++
+Ad esempio, negli host Solaris, il LUN deve essere sotto il controllo DMP. In altre parole, il LUN deve avere un corrispondente `/dev/vx/dmp` dispositivo.
+
+

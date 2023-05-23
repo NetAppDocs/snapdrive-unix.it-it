@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_fc_and_iscsi_host_utilities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, install, aix, host, utilities 
+summary: Se la configurazione richiede le Utility host AIX, è necessario installarle e assicurarsi che il sistema sia configurato correttamente. 
+---
+= Installazione delle utility host AIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se la configurazione richiede le Utility host AIX, è necessario installarle e assicurarsi che il sistema sia configurato correttamente.
+
+Utilizzare la documentazione fornita con le Utility host AIX. Contiene informazioni su gestione dei volumi, multipathing e altre funzionalità che è necessario configurare prima di installare SnapDrive per UNIX.

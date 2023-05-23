@@ -1,0 +1,150 @@
+---
+permalink: linux-administration/concept_informationrequired_forusing_the_snapdrive_storageconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, command 
+summary: Quando si utilizza il comando di connessione dello storage SnapDrive, è necessario fornire alcune informazioni. Queste informazioni consentono di utilizzare correttamente il comando. 
+---
+= Informazioni necessarie per l'utilizzo del comando di connessione dello storage SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si utilizza, è necessario fornire alcune informazioni `snapdrive storage connect` comando. Queste informazioni consentono di utilizzare correttamente il comando.
+
+|===
+| Requisito | Argomento 
+
+
+ a| 
+Specificare i LUN, il file system creato direttamente su un LUN o l'entità LVM che si desidera connettere all'host.
+
+* Se si collegano uno o più LUN, il primo argomento deve utilizzare la forma lunga del nome del LUN, che specifica il nome del sistema di storage, il nome del volume e il nome del LUN all'interno del volume.
++
+Per specificare ulteriori LUN, è possibile utilizzare solo il nome del LUN se il nuovo LUN si trova sullo stesso sistema di storage e volume del LUN precedente. In caso contrario, è possibile specificare un nuovo nome di sistema storage e un nome di volume (o semplicemente un nome di volume) per sostituire i valori precedenti.
+
+* Se si connette un file system creato direttamente su un LUN, è necessario includere la forma lunga del nome del LUN e anche il `-nolvm` opzione.
+* Se si connette un LUN a un gruppo di dischi, un volume host e un file system, è necessario utilizzare `-fs` e. `-hostvol` opzioni per specificare il file system e il volume host. Il volume host deve includere il nome del gruppo di dischi.
+
+
+
+
+ a| 
+UN LUN (`-lun`)
+ a| 
+`_long_lun_name_`
+
+
+
+ a| 
+Il primo valore fornito con `-lun` L'opzione deve includere il nome del sistema di storage, il volume e il nome del LUN. Per collegare più LUN sullo stesso volume, è possibile utilizzare i relativi nomi di percorso per `-lun` dopo aver fornito le informazioni complete nel nome del primo percorso. Quando SnapDrive per UNIX rileva un nome di percorso relativo, cerca il LUN sullo stesso volume del LUN precedente. Per connettere LUN aggiuntivi che non si trovano sullo stesso volume, immettere il nome completo del percorso per ogni LUN.
+
+
+
+ a| 
+LUN aggiuntivi
+ a| 
+`_lun_name_` (forma lunga o breve)
+
+
+
+ a| 
+Il `file_spec` dato a. `-fs` È il nome del punto di montaggio del file system quando si connette un file system creato direttamente su un LUN.
+
+
+
+ a| 
+Un file system (`-fs file-spec`)
+ a| 
+`_filesystem_name_`
+
+
+
+ a| 
+Per collegare un file system creato su un LUN senza attivare la LVM host.
+
+
+
+ a| 
+`-nolvm`
+ a| 
+
+
+
+ a| 
+Per collegare un file system su un volume host: `-fs _file_spec_` e. `-hostvol _file_spec_` Vengono forniti i dati necessari per identificare il file system LVM, il gruppo di dischi e i volumi host che si desidera connettere a un nuovo host.
+
+La gerarchia di storage a cui ci si connette deve contenere un gruppo di dischi, un volume host e un file system. Specificare un valore per `-fs` e. `-hostvol`. Il `-hostvol` il valore deve includere il nome del gruppo di dischi.
+
+
+
+ a| 
+Volume host (`-hostvol file-spec`)
+ a| 
+`_disk_group_name_` e. `_host_volume_name_`
+
+
+
+ a| 
+Opzionale: Utilizzare `-nopersist` Opzione per collegare lo storage a una nuova posizione senza creare una voce nella tabella del file system host (ad esempio, fstab su Linux). Per impostazione predefinita, il comando di connessione dello storage crea montaggi persistenti. Ciò significa che quando si crea un'entità di storage LVM su un host Linux, SnapDrive per UNIX crea automaticamente lo storage, monta il file system e inserisce una voce per il file system nella tabella del file system host.
+
+
+
+ a| 
+`-nopersist`
+ a| 
+~
+
+
+
+ a| 
+*Opzionale:* si consiglia di utilizzare l'igroup predefinito per l'host invece di fornire un nome igroup.
+
+
+
+ a| 
+Nome iGroup (`-igroup`)
+ a| 
+`_ig_name_`
+
+
+
+ a| 
+`-fstype`
+ a| 
+`_type_`
+
+
+
+ a| 
+`vmtype`
+ a| 
+`_type_`
+
+
+
+ a| 
+*Opzionale:* specifica il tipo di file system e di volume manager da utilizzare per le operazioni SnapDrive per UNIX.
+
+
+
+ a| 
+`-mntopts`
+ a| 
+~
+
+
+
+ a| 
+*Opzionale:* se si crea un file system, è possibile specificare le seguenti opzioni:
+
+* Utilizzare `-mntopts` per specificare le opzioni che si desidera passare al comando di montaggio dell'host (ad esempio, per specificare il comportamento di registrazione del sistema host). Le opzioni specificate vengono memorizzate nel file di tabella del file system host. Le opzioni consentite dipendono dal tipo di file system host.
+* Il `_-mntopts_` l'argomento è un file system `-type` opzione specificata mediante `mount` comando `-o` allarme. Non includere `-o` nella `-mntopts` argomento. Ad esempio, la sequenza -mntopts tmplog passa la stringa `-otmplog` al `mount` e inserisce il testo tmplog in una nuova riga di comando.
++
+
+NOTE: Se vengono superati dei dati non validi `_-mntopts_` Opzioni per le operazioni di storage e snap, SnapDrive per UNIX non convalida queste opzioni di montaggio non valide.
+
+
+
+|===

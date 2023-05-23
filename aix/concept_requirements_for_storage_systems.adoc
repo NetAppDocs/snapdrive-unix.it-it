@@ -1,0 +1,69 @@
+---
+permalink: aix/concept_requirements_for_storage_systems.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, system, requirement 
+summary: Prima di eseguire la configurazione, è necessario considerare i requisiti del sistema storage. 
+---
+= Requisiti per i sistemi storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di eseguire la configurazione, è necessario considerare i requisiti del sistema storage.
+
+|===
+| Componente | Requisito 
+
+
+ a| 
+Sistema operativo
+ a| 
+Data ONTAP 7.3.5 o versione successiva.
+
+* SnapDrive per UNIX supporta i volumi FlexVol ma non utilizza tutte le funzionalità dei volumi FlexVol.
+* Le configurazioni che utilizzano NFS devono utilizzare Data ONTAP 7.3.5 o versione successiva e i volumi FlexVol `snapdrive snap connect` Per leggere e scrivere su un file NFS o su una struttura di directory connessa.
++
+Le configurazioni con volumi tradizionali sono dotate di accesso in sola lettura ai file NFS e agli alberi di directory.
+
+
+
+
+
+ a| 
+Configurazione del sistema storage
+ a| 
+È necessario specificare l'indirizzo IP del partner nella coppia ha che può essere utilizzata in caso di failover del sistema di storage.
+
+
+NOTE: Specificare l'indirizzo IP quando si esegue il programma di installazione sul sistema di storage.
+
+
+
+ a| 
+Licenze
+ a| 
+* FC, iSCSI o NFS, a seconda della piattaforma host
+* Licenza FlexClone
++
+
+NOTE: Per eseguire SnapDrive per UNIX, è necessario disporre dei protocolli appropriati in esecuzione sul sistema di storage.
+
+* Software SnapRestore
+* Software MultiStore
++
+È necessario impostare le licenze SnapRestore e MultiStore durante la configurazione del sistema di storage. Se si desidera configurare un ambiente vFiler, è necessaria una licenza MultiStore.
+
+* Accesso HTTP sicuro al sistema storage.
+
+
+|===
+Le operazioni di SnapDrive per UNIX non rilevano la distinzione tra maiuscole e minuscole rispetto al nome host del sistema di storage; è necessario assicurarsi che gli indirizzi IP siano univoci quando si configura il sistema di storage.
+
+
+NOTE: Per i requisiti SnapDrive più recenti, consulta la matrice di interoperabilità.
+
+*Informazioni correlate*
+
+https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilità NetApp"]

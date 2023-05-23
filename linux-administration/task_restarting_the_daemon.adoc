@@ -1,0 +1,25 @@
+---
+permalink: linux-administration/task_restarting_the_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restart, daemon, command, configuration 
+summary: È necessario riavviare il daemon dopo averlo interrotto in modo che le modifiche apportate al file di configurazione o agli altri moduli abbiano effetto. Il daemon SnapDrive per UNIX viene riavviato solo dopo aver completato tutti i comandi in esecuzione e in coda. Una volta ricevuta la richiesta di riavvio, non vengono eseguiti nuovi comandi. 
+---
+= Riavviare il daemon
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario riavviare il daemon dopo averlo interrotto in modo che le modifiche apportate al file di configurazione o agli altri moduli abbiano effetto. Il daemon SnapDrive per UNIX viene riavviato solo dopo aver completato tutti i comandi in esecuzione e in coda. Una volta ricevuta la richiesta di riavvio, non vengono eseguiti nuovi comandi.
+
+* Assicurarsi di aver effettuato l'accesso come utente root.
+* Assicurarsi che sullo stesso host non siano in esecuzione altre sessioni in parallelo. Il `snapdrived restart` Il comando blocca il sistema in tali situazioni.A
+
+
+.Fasi
+. Immettere il seguente comando per riavviare il daemon:
++
+`*snapdrived restart*`
+
+

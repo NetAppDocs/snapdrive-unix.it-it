@@ -1,0 +1,22 @@
+---
+permalink: solaris/concept_snapshot_connectand_snapshotrestore_operations.html 
+sidebar: sidebar 
+keywords: snap, snapshot, restore, connect, operation 
+summary: La copia Snapshot clona le informazioni quando ci si connette alla copia Snapshot. 
+---
+= Operazioni di connessione Snapshot e ripristino Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La copia Snapshot clona le informazioni quando ci si connette alla copia Snapshot.
+
+A differenza dell'operazione di ripristino Snapshot, l'operazione di connessione Snapshot non sostituisce il contenuto esistente delle LUN che costituiscono l'entità host con il contenuto della copia Snapshot. Clona le informazioni.
+
+Una volta stabilita la connessione, le operazioni di connessione Snapshot e ripristino Snapshot eseguono attività simili:
+
+* L'operazione di connessione Snapshot attiva i volumi logici per l'entità di storage, monta i file system e, facoltativamente, aggiunge una voce alla tabella del file system host.
+* L'operazione di ripristino Snapshot attiva i volumi logici per l'entità di storage, monta i file system e applica le voci di montaggio del file system host conservate nella copia Snapshot.
+

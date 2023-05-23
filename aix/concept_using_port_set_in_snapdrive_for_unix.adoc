@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_using_port_set_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, port, set 
+summary: 'Il set di porte è un gruppo di porte o interfacce dati SAN e viene utilizzato per controllare il percorso disponibile per un host raggruppando l"insieme di porte o interfacce dati SAN.' 
+---
+= Utilizzo della porta impostata in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il set di porte è un gruppo di porte o interfacce dati SAN e viene utilizzato per controllare il percorso disponibile per un host raggruppando l'insieme di porte o interfacce dati SAN.
+
+La configurazione del set di porte viene creata dall'amministratore dello storage sul sistema di storage ed è un'operazione facoltativa. Se non è configurato alcun set di porte sull'host, l'host può visualizzare tutti i percorsi, a seconda dei limiti di configurazione SCSI dell'host. SnapDrive per UNIX consente all'amministratore dello storage di specificare un singolo set di porte per Vserver. Pertanto, esiste una restrizione nel numero di percorsi che l'host può visualizzare attraverso il Vserver.

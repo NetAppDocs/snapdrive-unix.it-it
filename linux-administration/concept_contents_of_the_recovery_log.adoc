@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_contents_of_the_recovery_log.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, recovery, log, system, support 
+summary: Il registro di ripristino consente di tracciare i motivi di uno stato del sistema incoerente. SnapDrive per UNIX genera questo file quando alcune operazioni svengono. 
+---
+= Contenuto del registro di ripristino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il registro di ripristino consente di tracciare i motivi di uno stato del sistema incoerente. SnapDrive per UNIX genera questo file quando alcune operazioni svengono.
+
+Se si preme Ctrl-C per arrestare SnapDrive per UNIX o se l'host o il sistema di storage si guasta durante un'operazione, il sistema potrebbe non essere in grado di eseguire il ripristino automatico.
+
+Durante qualsiasi operazione che, se interrotta, potrebbe lasciare il sistema in uno stato incoerente, SnapDrive per UNIX scrive le informazioni in un file di registro di ripristino. Se si verifica un problema, è possibile inviare questo file al supporto tecnico di NetApp in modo che possa fornire assistenza per il ripristino dello stato del sistema.
+
+L'utilità di registro di ripristino conserva i record dei comandi emessi durante l'operazione. Ogni comando è contrassegnato da un Operation_Index (un numero che identifica in modo univoco l'operazione eseguita), seguito dalla data/ora e dal testo del messaggio.

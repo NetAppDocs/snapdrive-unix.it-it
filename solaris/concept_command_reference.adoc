@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_command_reference.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, refernce 
+summary: SnapDrive per UNIX supporta diversi comandi. Questi riferimenti ai comandi ti aiutano a conoscere i comandi, le loro opzioni, le parole chiave e gli argomenti. 
+---
+= Riferimento al comando
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX supporta diversi comandi. Questi riferimenti ai comandi ti aiutano a conoscere i comandi, le loro opzioni, le parole chiave e gli argomenti.

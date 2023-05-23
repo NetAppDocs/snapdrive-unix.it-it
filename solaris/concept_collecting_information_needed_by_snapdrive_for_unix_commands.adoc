@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_collecting_information_needed_by_snapdrive_for_unix_commands.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, information, command, unix 
+summary: 'Questo capitolo fornisce informazioni sui comandi SnapDrive per UNIX, sul formato, l"opzione, le parole chiave e gli esempi.' 
+---
+= Raccolta delle informazioni richieste dai comandi SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo capitolo fornisce informazioni sui comandi SnapDrive per UNIX, sul formato, l'opzione, le parole chiave e gli esempi.

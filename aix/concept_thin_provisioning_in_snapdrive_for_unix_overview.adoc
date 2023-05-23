@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_thin_provisioning_in_snapdrive_for_unix_overview.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, thin, provisioning 
+summary: 'Non è possibile impostare il valore di riserva frazionale e non esiste alcuna integrazione con le funzionalità di Data ONTAP, come l"eliminazione automatica e la dimensionamento automatico in SnapDrive per UNIX. Sebbene sia possibile utilizzare in modo sicuro le funzionalità di Data ONTAP con SnapDrive per UNIX, SnapDrive per UNIX non registra eventi di autoeliminazione o di dimensionamento automatico.' 
+---
+= Thin provisioning in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Non è possibile impostare il valore di riserva frazionale e non esiste alcuna integrazione con le funzionalità di Data ONTAP, come l'eliminazione automatica e la dimensionamento automatico in SnapDrive per UNIX. Sebbene sia possibile utilizzare in modo sicuro le funzionalità di Data ONTAP con SnapDrive per UNIX, SnapDrive per UNIX non registra eventi di autoeliminazione o di dimensionamento automatico.

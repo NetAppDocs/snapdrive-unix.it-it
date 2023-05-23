@@ -1,0 +1,14 @@
+---
+permalink: solaris/reference_command_summary.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, summary 
+summary: SnapDrive per UNIX supporta le diverse righe di comando, ad esempio configurazione, provisioning dello storage, gestione lato host, E Snapshot. 
+---
+= Riepilogo dei comandi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX supporta le diverse righe di comando, ad esempio configurazione, provisioning dello storage, gestione lato host, E Snapshot.

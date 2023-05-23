@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_support_for_volume_migration.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, support, volume, migration, san, flexvol, lun 
+summary: 'SnapDrive per UNIX supporta la migrazione dei volumi, che consente di spostare senza interruzioni un volume da un aggregato a un altro all"interno dello stesso controller per ottimizzare l"utilizzo della capacità, migliorare le performance e soddisfare i contratti a livello di servizio. In un ambiente SAN, i volumi FlexVol e le LUN dei volumi vengono spostati senza interruzioni da un aggregato all"altro.' 
+---
+= Supporto per la migrazione dei volumi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX supporta la migrazione dei volumi, che consente di spostare senza interruzioni un volume da un aggregato a un altro all'interno dello stesso controller per ottimizzare l'utilizzo della capacità, migliorare le performance e soddisfare i contratti a livello di servizio. In un ambiente SAN, i volumi FlexVol e le LUN dei volumi vengono spostati senza interruzioni da un aggregato all'altro.
+
+È necessario impostare `_volmove-cutover-retry_` e a. `_volmove-cutover-retry-sleep_` variabili in `snapdrive.conf` File per eseguire operazioni SnapDrive.
+
+*Informazioni correlate*
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guida alla gestione dello storage logico di ONTAP 9"]

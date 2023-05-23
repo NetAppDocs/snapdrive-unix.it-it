@@ -1,0 +1,61 @@
+---
+permalink: solaris/concept_default_values_for_the_recovery_logs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, default, value, recovery, log 
+summary: È possibile modificare il nome del file di log di ripristino e il numero massimo di file di log di ripristino precedenti salvati da SnapDrive per UNIX. 
+---
+= Valori predefiniti per i registri di ripristino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare il nome del file di log di ripristino e il numero massimo di file di log di ripristino precedenti salvati da SnapDrive per UNIX.
+
+Il `snapdrive.conf` il file consente di impostare i seguenti valori per la registrazione del ripristino:
+
+* Il nome del file che contiene il registro di ripristino, ad esempio `recovery.log`.
+* Il numero massimo di file di ripristino precedenti salvati da SnapDrive per UNIX. Il valore predefinito è 20. SnapDrive per UNIX conserva questo numero di registri di ripristino, se il problema relativo al processo non viene identificato immediatamente. SnapDrive per UNIX avvia un nuovo file di log di ripristino ogni volta che completa un'operazione. Quindi, rinominare il precedente aggiungendo un numero arbitrario al nome, ad esempio `recovery.log.0`, `recovery.log.1`e così via.
+
+
+
+NOTE: Le dimensioni del file di registro di ripristino dipendono dall'operazione eseguita. Ogni registro di ripristino contiene informazioni su una singola operazione. Una volta completata l'operazione, SnapDrive per UNIX avvia un nuovo registro di ripristino, indipendentemente dalla dimensione del file precedente. Di conseguenza, non esiste una dimensione massima per un file di log di ripristino.
+
+Il seguente log di ripristino di esempio mostra che SnapDrive per UNIX ha ripristinato due copie Snapshot prima dell'interruzione delle operazioni. È possibile inviare questo file di registro di ripristino al supporto tecnico per ottenere assistenza nel ripristino delle copie Snapshot rimanenti.
+
+[listing]
+----
+6719: BEGIN 15:52:21 03/09/04 snapdrive snap restore -dg jssdg -
+snapname natasha:/vol/vol1:abort_snap_restore
+6719: BEGIN 15:52:27 03/09/04 create rollback snapshot:
+natasha:/vol/vol1:abort_snap_restore.RESTORE_ROLLBACK_03092004_155
+225
+6719: END 15:52:29 03/09/04 create rollback snapshot:
+natasha:/vol/vol1:abort_snap_restore.RESTORE_ROLLBACK_03092004_155
+225 successful
+6719: BEGIN 15:52:29 03/09/04 deactivate disk group: jssdg
+6719: BEGIN 15:52:29 03/09/04 stop host volume:
+/dev/vx/dsk/jssdg/jvol_1
+6719: END 15:52:30 03/09/04 stop host volume:
+/dev/vx/dsk/jssdg/jvol_1 successful
+6719: BEGIN 15:52:30 03/09/04 unmount file system: /mnt/demo_fs
+6719: END 15:52:30 03/09/04 unmount file system: /mnt/demo_fs
+successful
+6719: BEGIN 15:52:30 03/09/04 stop host volume:
+/dev/vx/dsk/jssdg/jvol_2
+6719: END 15:52:30 03/09/04 stop host volume:
+/dev/vx/dsk/jssdg/jvol_2 successful
+6719: BEGIN 15:52:30 03/09/04 deport disk group: jssdg
+6719: END 15:52:30 03/09/04 deport disk group: jssdg successful
+6719: END 15:52:30 03/09/04 deactivate disk group: jssdg
+successful
+6719: BEGIN 15:52:31 03/09/04 SFSR of LUN: /vol/vol1/lun1 from
+snapshot: abort_snap_restore
+6719: END 15:52:31 03/09/04 SFSR of LUN: /vol/vol1/lun1 from
+snapshot: abort_snap_restore successful
+6719: BEGIN 15:52:47 03/09/04 SFSR of LUN: /vol/vol1/lun2 from
+snapshot: abort_snap_restore
+6719: END 15:52:47 03/09/04 SFSR of LUN: /vol/vol1/lun2 from
+snapshot: abort_snap_restore successful
+----

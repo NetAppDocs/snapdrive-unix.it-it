@@ -1,0 +1,30 @@
+---
+permalink: solaris/concept_mandatory_checks_for_volume_based_snaprestore.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, mandatory, check, volume, snaprestore 
+summary: 'Prima di eseguire il SnapRestore basato su volume, SnapDrive per UNIX esegue alcuni controlli obbligatori con il sistema. Questi controlli sono necessari per un utilizzo sicuro del SnapRestore basato sul volume. I controlli obbligatori non possono essere ignorati dall"utente.' 
+---
+= Controlli obbligatori per SnapRestore basato su volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di eseguire il SnapRestore basato su volume, SnapDrive per UNIX esegue alcuni controlli obbligatori con il sistema. Questi controlli sono necessari per un utilizzo sicuro del SnapRestore basato sul volume. I controlli obbligatori non possono essere ignorati dall'utente.
+
+Di seguito sono riportati i controlli obbligatori eseguiti da SnapDrive per UNIX prima di implementare SnapRestore basato su volume:
+
+* SnapRestore basato su volume funziona solo con le istantanee create utilizzando SnapDrive per UNIX.
+* Il volume in SnapRestore basato su volume non deve essere il volume root del sistema di storage.
+* SnapDrive per UNIX verifica la presenza di cloni di volume. Non consente l'operazione di ripristino del volume se sono presenti cloni di volume da nuove copie Snapshot. Si tratta di un limite imposto da Data ONTAP.
+* Il volume in SnapRestore basato su volume non deve disporre di LUN mappati, ad eccezione delle LUN specificate (LUN raw o LUN presenti nel file system, nel gruppo di dischi o nel volume host) per il ripristino.
+* SnapDrive per UNIX verifica se il volume esiste in una relazione SnapMirror.
+* SnapDrive per UNIX verifica se il volume esiste in una relazione SnapVault.
+
+
+I controlli SnapMirror e SnapVault possono essere ignorati se SnapDrive per UNIX utilizza Operations Manager per RBAC e l'utente dispone della funzionalità SD.snapshot.DisruptBaseline sul volume. Per ulteriori informazioni sulla funzionalità RBAC specifica per l'utente per eseguire l'override di questi controlli, è possibile vedere controllo di accesso basato sui ruoli in SnapDrive per UNIX.
+
+*Informazioni correlate*
+
+xref:concept_role_based_access_control_in_snapdrive_for_unix.adoc[Controllo degli accessi in base al ruolo in SnapDrive per UNIX]

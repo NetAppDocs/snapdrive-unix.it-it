@@ -1,0 +1,35 @@
+---
+permalink: solaris/concept_snap_disconnect_procedure.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, cli 
+summary: In questa sezione viene illustrata la procedura seguita per lo scollegamento a scatto. 
+---
+= Procedura di scollegamento a scatto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In questa sezione viene illustrata la procedura seguita per lo scollegamento a scatto.
+
+La seguente procedura descrive la procedura di scollegamento a scatto:
+
+. SnapDrive per UNIX ottiene le specifiche dei file host da `snap disconnect` CLI e individua il volume del sistema di storage.
+. Dopo aver eliminato le specifiche dei file host e aver dismappato le LUN, SnapDrive per UNIX verifica se il volume corrente è un clone creato da SnapDrive.
+. Se FlexClone viene creato da SnapDrive, SnapDrive per UNIX verifica se:
++
+.. Nel volume clone sono presenti LUN mappati
+.. Nel volume clonato sono presenti nuove LUN
+.. Sono presenti nuove copie Snapshot
+
+
+
+
+Se tutte le condizioni sono soddisfatte, SnapDrive per UNIX elimina il volume clonato. Per un FlexClone senza restrizioni, se RBAC è configurato, SnapDrive per UNIX non esegue i controlli delle fasi 1 e 2.
+
+Nei sistemi storage con versione Data ONTAP precedente alla 7.2, i volumi FlexClone limitati non vengono eliminati da SnapDrive per UNIX. I comandi del sistema di storage devono essere utilizzati per eliminarli. Tuttavia, i volumi FlexClone senza restrizioni vengono eliminati quando viene fornita all'utente la funzionalità RBAC appropriata.
+
+*Informazioni correlate*
+
+xref:concept_role_based_access_control_in_snapdrive_for_unix.adoc[Controllo degli accessi in base al ruolo in SnapDrive per UNIX]

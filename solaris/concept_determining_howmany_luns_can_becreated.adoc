@@ -1,0 +1,18 @@
+---
+permalink: solaris/concept_determining_howmany_luns_can_becreated.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, lun, create 
+summary: 'SnapDrive per UNIX consente di determinare il numero di LUN che è possibile creare sull"host senza superare il limite.' 
+---
+= Determinare il numero di LUN che è possibile creare
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX consente di determinare il numero di LUN che è possibile creare sull'host senza superare il limite.
+
+È possibile utilizzare `snapdrive config check luns` per determinare questo valore.
+
+Su un host Solaris, questo comando esegue la scansione `/kernel/drv/sd.conf` Per determinare il numero di voci inutilizzate adatte per i LUN.

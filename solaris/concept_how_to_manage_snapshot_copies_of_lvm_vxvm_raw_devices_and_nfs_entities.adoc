@@ -1,0 +1,36 @@
+---
+permalink: solaris/concept_how_to_manage_snapshot_copies_of_lvm_vxvm_raw_devices_and_nfs_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, vxvm, raw, nfs, device, copy 
+summary: È possibile utilizzare i comandi SnapDrive per creare, ripristinare e gestire le copie Snapshot di VxVM, dispositivi raw e entità NFS. 
+---
+= Come gestire le copie Snapshot di VxVM, dispositivi raw e entità NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare i comandi SnapDrive per creare, ripristinare e gestire le copie Snapshot di VxVM, dispositivi raw e entità NFS.
+
+È necessario eseguire i comandi sull'host per creare, ripristinare e gestire le copie Snapshot delle entità di storage.
+
+* Entità del volume manager
++
+Le entità di gestione dei volumi sono gruppi di dischi con volumi host e file system creati utilizzando il gestore dei volumi host.
+
+* Entità raw
++
+Le entità raw sono LUN o LUN che contengono file system senza creare volumi o gruppi di dischi e sono mappate direttamente all'host.
+
+* Entità NFS
++
+Le entità NFS sono file NFS e strutture di directory.
+
++
+
+NOTE: I sistemi in cluster host non supportano le entità NFS.
+
+
+
+La copia Snapshot creata può esistere su più sistemi storage e volumi di sistemi storage. SnapDrive controlla il privilegio di lettura o scrittura rispetto alle entità di storage nella copia Snapshot per garantire che tutti i dati della copia Snapshot siano coerenti con il crash. SnapDrive non crea una copia Snapshot a meno che i dati non siano coerenti con il crash.

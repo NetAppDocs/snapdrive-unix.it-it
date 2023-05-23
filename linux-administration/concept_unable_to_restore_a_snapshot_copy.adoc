@@ -1,0 +1,44 @@
+---
+permalink: linux-administration/concept_unable_to_restore_a_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, restore, command, issuelun, scsi 
+summary: Esistono poche condizioni che influiscono sulla capacità del comando di ripristino snap di SnapDrive di ripristinare una copia Snapshot. 
+---
+= Impossibile ripristinare una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sono presenti poche condizioni che influiscono su `snapdrive snap restore` Capacità di Command di ripristinare una copia Snapshot.
+
+* Il `snapdrive snap restore` command deve essere in grado di eseguire le seguenti attività:
++
+** Ricercare un elenco di LUN in tutti i gruppi di dischi.
+** Eseguire una query su tutti i LUN tramite il comando SCSI. Non è necessario che i volumi host e i file system siano disponibili e montati per `snapdrive snap restore` per avere successo.
+
+
+* Le autorizzazioni di accesso devono consentire all'host di creare e ripristinare una copia Snapshot delle informazioni su tale sistema di storage.
+* La directory montata su NFS deve essere esportata correttamente nell'host, in modo che possa essere montata.
+
+
+
+NOTE: È necessario eseguire sempre un'altra copia Snapshot dopo aver aggiunto o rimosso un LUN da un gruppo di dischi.
+
+* Se si aggiunge un volume host o un file system a un gruppo di dischi dopo aver eseguito una copia Snapshot e si tenta di ripristinare la copia Snapshot, viene visualizzato un messaggio di errore. È necessario includere il `force` opzione (`-f`) sulla riga di comando per consentire all'operazione di ripristino di avere successo in questa situazione.
++
+
+NOTE: I volumi host e i file system aggiunti dopo l'esecuzione di una copia Snapshot non sono più accessibili quando si crea e si ripristina la copia Snapshot.
+
+* Se si rinomina un volume host o un file system o si modifica il punto di montaggio dopo aver eseguito una copia Snapshot e quindi si tenta di ripristinarla, l'operazione di ripristino non riesce. È necessario includere il `force` opzione (`-f`) sulla riga di comando per consentire all'operazione di ripristino di avere successo in questa situazione.
++
+
+NOTE: Utilizzare `-f` con grande cura per assicurarsi di non sovrascrivere accidentalmente qualcosa che non si intendeva sovrascrivere.
+
+* Se si rinomina un LUN dopo aver eseguito una copia Snapshot e si tenta di ripristinarla, l'operazione di ripristino non riesce. Dopo aver rinominato un LUN, è necessario creare una nuova copia Snapshot.
++
+
+NOTE: Dopo aver avviato un'operazione di ripristino Snapshot, non interrompersi. L'interruzione di questa operazione potrebbe lasciare il sistema in uno stato incoerente. Potrebbe quindi essere necessario eseguire un ripristino manuale.
+
+

@@ -1,0 +1,17 @@
+---
+permalink: aix/concept_disconnecting_a_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, snapshot, copy 
+summary: È possibile scollegare una copia Snapshot da un LUN, un file system su un LUN, gruppi di dischi, directory NFS o gruppi di dischi condivisi, volumi host e file system su un LUN. 
+---
+= Disconnessione di una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile scollegare una copia Snapshot da un LUN, un file system su un LUN, gruppi di dischi, directory NFS o gruppi di dischi condivisi, volumi host e file system su un LUN.
+
+
+NOTE: È possibile scollegare i volumi cloni divisi da SnapDrive per UNIX 4.2 e versioni successive.

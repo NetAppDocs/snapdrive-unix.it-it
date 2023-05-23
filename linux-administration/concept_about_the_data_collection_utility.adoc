@@ -1,0 +1,23 @@
+---
+permalink: linux-administration/concept_about_the_data_collection_utility.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, data, utility, admin, connection 
+summary: 'SnapDrive per UNIX fornisce un"utility di raccolta dati (snapdrive.DC) che raccoglie informazioni diagnostiche su SnapDrive per UNIX, il controllo della configurazione di SnapDrive e l"installazione del sistema.' 
+---
+= Informazioni sull'utility di raccolta dati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX offre un'utility per la raccolta dei dati (`snapdrive.dc`) Che raccoglie informazioni diagnostiche su SnapDrive per UNIX, il controllo della configurazione di SnapDrive e l'installazione del sistema.
+
+Questo avviene eseguendo le utility diagnostiche NetApp e copiando i file di log di SnapDrive per UNIX in una directory speciale. Quindi crea un file compresso contenente queste informazioni che puoi inviare al supporto tecnico NetApp per l'analisi.
+
+In SnapDrive 5.0 per UNIX `-dump` e. `-dumpall` le opzioni sono implementate. Il `-dump` L'opzione raccoglie il primo log del comando SnapDrive e il `-dumpall` L'opzione raccoglie tutti i log del comando SnapDrive. Quando si eseguono le operazioni SnapDrive utilizzando `-dump` oppure `-dumpall` opzione, `snapdrive.dc` viene generato ed elenca la posizione del file compresso. Il file tar raccoglie tutte le informazioni di log dei comandi SnapDrive, è possibile estrarre e recuperare il file dalla rispettiva posizione.
+
+Il `-dump` oppure `-dumpall` L'opzione è implementata per i comandi SnapDrive come `snapdrive storage show`, `snapdrive storage create`, `snapdrive storage delete`, `snapdrive snap create`, `snapdrive snap connect`, `snapdrive snap disconnect`, `snapdrive snap restore`, `snapdrive clone split estimate`, e. `snapdrive clone split start` operazioni.
+
+
+NOTE: Non copia il file contenente le informazioni di accesso per i sistemi di storage. Inoltre, non vengono apportate modifiche alla configurazione.

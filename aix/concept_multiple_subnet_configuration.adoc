@@ -1,0 +1,24 @@
+---
+permalink: aix/concept_multiple_subnet_configuration.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, multiple, subnet, configuration 
+summary: Più sottoreti sono utili in un ambiente in cui si desidera separare il traffico di gestione e il traffico dati. Questa separazione crea un ambiente più sicuro per la gestione del traffico di rete. SnapDrive 4.1.1 per UNIX e versioni successive in esecuzione su server in tali ambienti supporta tutte le operazioni SnapDrive disponibili in ambienti standalone e ambienti host e ha Pair. 
+---
+= Configurazione di più subnet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Più sottoreti sono utili in un ambiente in cui si desidera separare il traffico di gestione e il traffico dati. Questa separazione crea un ambiente più sicuro per la gestione del traffico di rete. SnapDrive 4.1.1 per UNIX e versioni successive in esecuzione su server in tali ambienti supporta tutte le operazioni SnapDrive disponibili in ambienti standalone e ambienti host e ha Pair.
+
+I dati relativi alla gestione dei sistemi storage vengono trasmessi attraverso l'interfaccia di gestione. DataFabric Manager, Protection Manager e SnapDrive per UNIX possono far parte dell'interfaccia di gestione. L'interfaccia dati viene utilizzata per il traffico di dati tra sistemi storage.
+
+Per configurare più subnet nell'ambiente, utilizzare `mgmtpath` con `snapdrive config set` comando.
+
+SnapDrive per UNIX non supporta operazioni in un ambiente SAN in cui il nome host del sistema di storage è diverso dal nome pubblico, ma entrambi i nomi vengono risolti nello stesso indirizzo IP. Per risolvere questa situazione, è possibile eseguire una delle seguenti operazioni:
+
+* Assegnare un indirizzo IP diverso per il nome del sistema.
+* Configurare il sistema in modo che non risponda quando si tenta di connettersi.
+

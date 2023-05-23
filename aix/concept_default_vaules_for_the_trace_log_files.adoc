@@ -1,0 +1,25 @@
+---
+permalink: aix/concept_default_vaules_for_the_trace_log_files.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, default, value, trace, log, file 
+summary: I file di log di traccia consentono di impostare diversi parametri e modificarli. Questi parametri devono essere impostati nel file snapdrive.conf. 
+---
+= Valori predefiniti per i file di log di traccia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I file di log di traccia consentono di impostare diversi parametri e modificarli. Questi parametri devono essere impostati in `snapdrive.conf` file.
+
+I seguenti valori devono essere impostati in `snapdrive.conf` file:
+
+* Il nome del file che contiene il log di traccia.
+* Dimensione massima del file di log di traccia. La dimensione predefinita è "0 " byte. Questo valore garantisce che ogni file di log di traccia contenga un solo comando SnapDrive per UNIX.
++
+Se si reimposta la dimensione predefinita su un valore diverso da 0, quando il file raggiunge la dimensione specificata, SnapDrive per UNIX rinomina il file di registrazione di traccia corrente aggiungendo un numero arbitrario al nome. Quindi, avvia un nuovo file di log di traccia utilizzando il nome specificato da `trace-log-file` valore.
+
+* Il numero massimo di vecchi file di traccia salvati da SnapDrive per UNIX. Il valore predefinito è 100.
+* I tipi di messaggi che SnapDrive per UNIX scrive nel file di log di traccia. Per impostazione predefinita, il file di log di traccia contiene errori irreversibili, errori di amministrazione, errori di comando, avvisi e messaggi informativi.
+

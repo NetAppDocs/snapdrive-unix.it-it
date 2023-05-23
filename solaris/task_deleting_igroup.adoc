@@ -1,0 +1,30 @@
+---
+permalink: solaris/task_deleting_igroup.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, igroup, command 
+summary: È possibile eliminare qualsiasi igroup configurato per un sistema storage, ma non più necessario. 
+---
+= Eliminazione di un igroup
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare qualsiasi igroup configurato per un sistema storage, ma non più necessario.
+
+.Fasi
+. Immettere il seguente comando sull'host:
++
+`*snapdrive igroup delete _filer_name_*`
+
++
+[listing]
+----
+snapdrive igroup delete toaster
+Deleted igroup configuration for appliance: toaster
+----
++
+L'igroup `ig` configurato per il tostapane del sistema di storage rimosso correttamente.
+
+

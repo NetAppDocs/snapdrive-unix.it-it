@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_what_the_trace_log_file_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, trace, log, file, troubelshoot, problem, issue 
+summary: Il supporto tecnico utilizza il file di log di traccia per risolvere i problemi. 
+---
+= Che cos'è il file di log di traccia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il supporto tecnico utilizza il file di log di traccia per risolvere i problemi.
+
+L'attivazione del file di log di traccia non influisce sulle prestazioni del sistema. Per impostazione predefinita, questo file è attivato. È possibile disattivare l'opzione impostando `snapdrive.conftrace-enabled` variabile a. `off`.

@@ -1,0 +1,32 @@
+---
+permalink: linux-administration/task_specifying_login_information_for_vserver.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, login, vserver, 
+summary: Specificare le informazioni di accesso utente per il server virtuale. A seconda di quanto specificato al momento della configurazione di Vserver, ciascun Vserver deve utilizzare il nome utente configurato per Vserver. In caso di modifica del nome del server virtuale, assicurarsi che il nuovo nome del server virtuale sia configurato in SnapDrive per UNIX. 
+---
+= Specifica delle informazioni di accesso per il Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Specificare le informazioni di accesso utente per il server virtuale. A seconda di quanto specificato al momento della configurazione di Vserver, ciascun Vserver deve utilizzare il nome utente configurato per Vserver. In caso di modifica del nome del server virtuale, assicurarsi che il nuovo nome del server virtuale sia configurato in SnapDrive per UNIX.
+
+. Immettere il seguente comando:
++
+`*snapdrive config set _user_name filername_ [_filername..._]*`
+
++
+** `_user_name_` È il nome utente specificato per Vserver al momento della prima configurazione. L'utente predefinito è vsadmin. `_filername_` È il nome del server virtuale.
+** `_filer_name_` Consente di immettere più Vserver su una riga di comando se tutti hanno lo stesso nome utente o password. Immettere almeno un nome Vserver.
+
+
++
+[listing]
+----
+# snapdrive config set vsadmin clstr-vs2
+Password for vsadmin:
+Retype password:
+----
+

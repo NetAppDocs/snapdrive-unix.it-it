@@ -1,0 +1,19 @@
+---
+permalink: solaris/concept_guidelines_fordisconnectingsnapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, snapshot, copy 
+summary: Di seguito sono riportate le linee guida per disconnettere una copia Snapshot per LUN, entità di storage o directory NFS. 
+---
+= Linee guida per la disconnessione delle copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Di seguito sono riportate le linee guida per disconnettere una copia Snapshot per LUN, entità di storage o directory NFS.
+
+* Quando si disconnette un file system, SnapDrive per UNIX rimuove sempre il punto di montaggio.
+* Per annullare gli effetti dell'operazione di connessione Snapshot, utilizzare il comando di disconnessione Snapshot.
+* Se si imposta `_enable-split-clone_` valore della variabile di configurazione a. `on` oppure `sync` Durante l'operazione di connessione Snapshot e. `off` Durante l'operazione di disconnessione Snapshot, SnapDrive per UNIX non elimina il volume o il LUN originale presente nella copia Snapshot.
+

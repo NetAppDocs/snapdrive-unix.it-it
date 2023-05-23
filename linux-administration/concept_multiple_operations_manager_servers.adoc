@@ -1,0 +1,34 @@
+---
+permalink: linux-administration/concept_multiple_operations_manager_servers.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, console, servers, operations, manager, multiple 
+summary: 'SnapDrive per UNIX supporta più server console di Operations Manager. Questa funzionalità è necessaria quando un gruppo di sistemi storage viene gestito da più di un server console Operations Manager. SnapDrive per UNIX contatta i server della console di Operations Manager nello stesso ordine in cui i server della console di Operations Manager sono configurati in SnapDrive per UNIX. È possibile eseguire il comando SnapDrive config list per ottenere l"ordine di configurazione.' 
+---
+= Server console di Operations Manager multipli
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX supporta più server console di Operations Manager. Questa funzionalità è necessaria quando un gruppo di sistemi storage viene gestito da più di un server console Operations Manager. SnapDrive per UNIX contatta i server della console di Operations Manager nello stesso ordine in cui i server della console di Operations Manager sono configurati in SnapDrive per UNIX. È possibile eseguire `snapdrive config list` per ottenere l'ordine di configurazione.
+
+L'esempio seguente mostra l'output per più server console Operations Manager:
+
+[listing]
+----
+# snapdrive config list
+username    appliance name     appliance type
+---------------------------------------------
+root        storage_array1     StorageSystem
+root        storage_array2     StorageSystem
+sd-admin    ops_mngr_server1   DFM
+sd-admin    ops_mngr_server2   DFM
+----
+Nell'esempio precedente, storage_array1 è gestito da Ops_mngr_server1 e storage_array2 è gestito da Ops_mngr_server2. In questo esempio, SnapDrive per UNIX contatta prima Ops_mngr_server1. Se Ops_mngr_server1 non riesce a determinare l'accesso, SnapDrive per UNIX contatta Ops_mngr_server2.
+
+SnapDrive per UNIX contatta la seconda console di Operations Manager solo alle seguenti condizioni:
+
+* Quando la prima console di Operations Manager non è in grado di determinare l'accesso. Questa situazione potrebbe verificarsi perché la prima console di Operations Manager non gestisce il sistema di storage.
+* Quando la prima console di Operations Manager non è attiva.
+

@@ -1,0 +1,35 @@
+---
+permalink: linux-installation-cmode/reference_where_to_go_next.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, after, configure, create, copy 
+summary: 'Dopo aver configurato SnapDrive per UNIX e aver creato una copia Snapshot, è possibile eseguire un"operazione di ripristino, collegare una copia Snapshot e creare un clone. È inoltre possibile esplorare altre importanti funzionalità di SnapDrive, come il controllo degli accessi basato sui ruoli, la suddivisione dei cloni avanzata e il SnapRestore basato sui volumi.' 
+---
+= Dove andare
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver configurato SnapDrive per UNIX e aver creato una copia Snapshot, è possibile eseguire un'operazione di ripristino, collegare una copia Snapshot e creare un clone. È inoltre possibile esplorare altre importanti funzionalità di SnapDrive, come RBAC (role-based access control), suddivisione dei cloni avanzata e SnapRestore basato su volume.
+
+Per ulteriori informazioni su queste funzioni e su informazioni specifiche sulla release di SnapDrive per UNIX, consultare la seguente documentazione, disponibile sul sito del supporto NetApp:
+
+* link:../linux-administration/index.html["Guida all'amministrazione di SnapDrive 5.3.2 per UNIX per Linux"]
++
+Descrive come configurare diverse funzionalità su SnapDrive per UNIX al termine dell'implementazione. Gli argomenti trattati includono come configurare igroups, configurare SnapDrive per UNIX, configurare RBAC e utilizzare l'utility di raccolta dati per diagnosticare i problemi con SnapDrive per UNIX.
+
+* link:../
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2849339["Note sulla versione di SnapDrive 5.3.2 per UNIX (AIX, Linux e Solaris)"]
++
+Vengono descritte nuove funzionalità, importanti precauzioni, problemi noti e limitazioni per SnapDrive 5.3.2 per UNIX.
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMP12471543["Guida all'installazione e all'installazione di SnapManager 3.4 per Oracle per UNIX per Clustered Data ONTAP"]
++
+Vengono descritte le attività iniziali da eseguire per implementare SnapManager per Oracle con la modalità cluster in ambiente UNIX. Gli argomenti trattati includono l'installazione e la configurazione del prodotto e il backup dei database.
+
+* link:https://www.netapp.com/pdf.html?item=/media/16322-tr-4212.pdf["Report tecnico di NetApp 4212: Guida alle Best practice per SnapDrive 5.3 per UNIX"]
++
+Descrive le Best practice di SnapDrive per UNIX.
+
+

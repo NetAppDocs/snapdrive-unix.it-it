@@ -1,0 +1,30 @@
+---
+permalink: aix/task_decompressing_the_downloaded_software.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, decompress, download, software 
+summary: 'Dopo aver scaricato il pacchetto software SnapDrive per UNIX dal sito di supporto NetApp, decomprimere il file per estrarre il software per l"installazione.' 
+---
+= Decompressione del software scaricato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver scaricato il pacchetto software SnapDrive per UNIX dal sito di supporto NetApp, decomprimere il file per estrarre il software per l'installazione.
+
+.Fasi
+. Al prompt dell'interfaccia a riga di comando (CLI), immettere il seguente comando:
++
+`*uncompress NetApp.snapdrive_aix_5_2.Z*`
+
++
+Per scaricare il software, visitare il sito di supporto NetApp.
+
+
+
+*Informazioni correlate*
+
+http://mysupport.netapp.com["Supporto NetApp"]
+
+https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilità NetApp"]

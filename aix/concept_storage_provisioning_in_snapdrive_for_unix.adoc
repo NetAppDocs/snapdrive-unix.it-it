@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_storage_provisioning_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, provisioning 
+summary: È possibile utilizzare SnapDrive per UNIX quando si lavora con il provisioning dello storage. SnapDrive per UNIX consente di creare storage e connettersi a sistemi o entità di storage esistenti. 
+---
+= Provisioning dello storage in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare SnapDrive per UNIX quando si lavora con il provisioning dello storage. SnapDrive per UNIX consente di creare storage e connettersi a sistemi o entità di storage esistenti.

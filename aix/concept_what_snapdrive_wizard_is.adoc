@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_what_snapdrive_wizard_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, wizard 
+summary: SnapDrive dispone di diverse procedure guidate che consentono di eseguire una particolare operazione SnapDrive in modo interattivo. 
+---
+= Le procedure guidate di SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive dispone di diverse procedure guidate che consentono di eseguire una particolare operazione SnapDrive in modo interattivo.

@@ -1,0 +1,23 @@
+---
+permalink: aix/concept_the_storageconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, connect, command 
+summary: 'Il comando di connessione dello storage SnapDrive connette le entità di storage all"host. Questo comando consente di connettere LUN ed entità di storage all"host' 
+---
+= Il comando di connessione dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il `snapdrive storage connect` il comando connette le entità di storage all'host. Questo comando consente di connettere LUN ed entità di storage all'host
+
+Utilizzare `snapdrive storage connect` comando a cui connettersi:
+
+* LUN
+* File system creato direttamente su un LUN
+* Gruppi di dischi, volumi host e file system creati sulle LUN
+
+
+Quando si accede a. `snapdrive storage connect` Comando per connettere i LUN all'host, SnapDrive per UNIX esegue il rilevamento e il mapping necessari. Non modifica il contenuto del LUN.

@@ -1,0 +1,22 @@
+---
+permalink: solaris/task_importing_data_files.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, import, data, file 
+summary: È possibile scaricare i dati più recenti della matrice di supporto e aggiornare lo strumento di verifica della configurazione prima di eseguire lo strumento, in modo che lo strumento elenchi la configurazione più recente supportata per SnapDrive per UNIX. Lo strumento di verifica della configurazione con il file di dati aggiornato verifica le configurazioni supportate da SnapDrive per UNIX ed elenca tutti i componenti supportati nel sistema. 
+---
+= Importazione di file di dati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile scaricare i dati più recenti della matrice di supporto e aggiornare lo strumento di verifica della configurazione prima di eseguire lo strumento, in modo che lo strumento elenchi la configurazione più recente supportata per SnapDrive per UNIX. Lo strumento di verifica della configurazione con il file di dati aggiornato verifica le configurazioni supportate da SnapDrive per UNIX ed elenca tutti i componenti supportati nel sistema.
+
+.Fasi
+. Scaricare il file di dati più recente da ToolChest.
+. Importare il file di dati più recente:
++
+`*sdconfcheck import -file ./confcheck_data.tar.gz*`
+
+

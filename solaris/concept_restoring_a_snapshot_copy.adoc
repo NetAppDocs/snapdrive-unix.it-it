@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_restoring_a_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, snapshot copy 
+summary: È possibile ripristinare una copia Snapshot di una singola entità di storage o di più entità di storage. 
+---
+= Ripristino di una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile ripristinare una copia Snapshot di una singola entità di storage o di più entità di storage.

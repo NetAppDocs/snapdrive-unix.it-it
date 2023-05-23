@@ -1,0 +1,36 @@
+---
+permalink: aix/concept_support_for_vserver.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, vserver, support 
+summary: SnapDrive per UNIX supporta Vserver. VServer è un server di storage virtuale sicuro che supporta più protocolli e storage unificato. Un Vserver contiene volumi di dati e una o più LIF, che utilizza per fornire i dati ai client. 
+---
+= Supporto per Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX supporta Vserver. VServer è un server di storage virtuale sicuro che supporta più protocolli e storage unificato. Un Vserver contiene volumi di dati e una o più LIF, che utilizza per fornire i dati ai client.
+
+Il Vserver isola in modo sicuro lo storage dei dati virtualizzati e la rete condivisi e appare come un singolo server dedicato ai client. Ogni Vserver dispone di un dominio di autenticazione amministratore separato e può essere gestito in modo indipendente da un amministratore di Vserver.
+
+I volumi di ciascun Vserver sono correlati attraverso giunzioni e sono montati su percorsi di giunzione. Il file system di ciascun volume sembra essere montato alle giunzioni. Il volume root del Vserver si trova al livello superiore della gerarchia dello spazio dei nomi; volumi aggiuntivi vengono montati nel volume root del Vserver per estendere lo spazio dei nomi globale. I volumi di dati del Vserver contengono file e LUN.
+
+* È possibile utilizzare SnapDrive per UNIX per eseguire il provisioning dello storage, le operazioni di copia Snapshot e le operazioni di configurazione su un server virtuale.
+* I dati dell'applicazione non vengono memorizzati nel volume root del Vserver.
+* Se la radice del Vserver è un qtree, le operazioni di copia Snapshot non sono supportate.
+* Ogni volume creato sul Vserver deve essere montato su un percorso di giunzione.
+
+
+*Informazioni correlate*
+
+xref:concept_configuration_information_for_vserver_environment.adoc[Informazioni di configurazione per Vserver]
+
+xref:task_verifying_login_information_for_vserver.adoc[Verifica delle informazioni di accesso per Vserver]
+
+xref:task_specifying_login_information_for_vserver.adoc[Specifica delle informazioni di accesso per il Vserver]
+
+xref:task_deleting_a_user_for_a_vserver.adoc[Eliminazione di un utente da un Vserver]
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["Guida alla configurazione del software ONTAP 9"]

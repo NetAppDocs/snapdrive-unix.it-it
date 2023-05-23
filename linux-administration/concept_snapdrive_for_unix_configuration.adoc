@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_snapdrive_for_unix_configuration.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, unix 
+summary: È necessario conoscere le opzioni di configurazione di SnapDrive per UNIX e comprendere come utilizzare SnapDrive per UNIX. 
+---
+= Configurazione di SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario conoscere le opzioni di configurazione di SnapDrive per UNIX e comprendere come utilizzare SnapDrive per UNIX.

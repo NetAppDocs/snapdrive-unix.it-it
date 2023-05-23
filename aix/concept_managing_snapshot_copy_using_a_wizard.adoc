@@ -1,0 +1,74 @@
+---
+permalink: aix/concept_managing_snapshot_copy_using_a_wizard.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, wizard, manage 
+summary: È possibile utilizzare una procedura guidata per gestire le copie Snapshot. Questa procedura guidata consente di rispondere a una serie di domande e di eseguire le operazioni di connessione SNAP, ripristino SNAP e disconnessione SNAP. 
+---
+= Gestione delle copie Snapshot mediante una procedura guidata
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare una procedura guidata per gestire le copie Snapshot. Questa procedura guidata consente di rispondere a una serie di domande e di eseguire le operazioni di connessione SNAP, ripristino SNAP e disconnessione SNAP.
+
+È possibile eseguire la procedura guidata utilizzando `snapdrive snap wizard` comando.
+
+La tabella seguente elenca le diverse operazioni e i comandi corrispondenti per eseguire la procedura guidata. Dopo aver avviato la procedura guidata, seguire i passaggi nella finestra dell'applicazione.
+
+|===
+| Operazione | Comando 
+
+
+ a| 
+Ripristino di Snapshot
+ a| 
+`snapdrive snap wizard restore`
+
+
+
+ a| 
+Connessione Snapshot
+ a| 
+`snapdrive snap wizard connect`
+
+
+
+ a| 
+Operazione di connessione Snapshot per file system con volume del sistema di storage
+
+
+
+ a| 
+Connessione Snapshot per gruppo di dischi
+
+
+
+ a| 
+Disconnessione Snapshot per LUN
+ a| 
+`snapdrive snap wizard disconnect`
+
+
+
+ a| 
+Disconnessione di Snapshot per un gruppo di dischi
+
+
+
+ a| 
+Snapshot disconnect per il volume host
+
+
+
+ a| 
+Disconnessione di Snapshot per il file system
+
+|===
+*Limitazioni:* in SnapDrive per UNIX 4.1 e versioni successive, il `snapdrive snap wizard` il comando presenta le seguenti limitazioni:
+
+* SnapRestore basato su volume non è supportato con `snap wizard restore` comando.
+* Il volume FlexClone® non è supportato con `snap wizard connect` comando.
+* Le operazioni sulle specifiche dei file che non rispondono non sono supportate con `snap wizard` comandi.
+

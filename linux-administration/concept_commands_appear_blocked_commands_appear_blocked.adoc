@@ -1,0 +1,26 @@
+---
+permalink: linux-administration/concept_commands_appear_blocked_commands_appear_blocked.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, commands, blocked 
+summary: Non è possibile eseguire i comandi SnapDrive per UNIX perché i comandi sembrano essere bloccati per più di 10 minuti. Potrebbe essere necessario attendere il completamento del comando. 
+---
+= I comandi appaiono bloccati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Non è possibile eseguire i comandi SnapDrive per UNIX perché i comandi sembrano essere bloccati per più di 10 minuti. Potrebbe essere necessario attendere il completamento del comando.
+
+Questo comportamento si verifica in rari casi quando VxVM/DMP richiede tempo per gestire il daemon di configurazione del volume. I trigger per questo comportamento includono quanto segue:
+
+* Un sistema storage che si è ripristinato da un panico
+* Un adattatore di destinazione del sistema storage che è passato da offline a online
+
+
+
+
+== Soluzione alternativa
+
+Attendere il completamento del comando. Il daemon di configurazione Veritas richiede diversi minuti per essere eseguito e rilevare lo stato corrente dei dispositivi.

@@ -1,0 +1,18 @@
+---
+permalink: solaris/concept_security_considerations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, security 
+summary: 'È possibile abilitare SnapDrive per UNIX per accedere ai sistemi di storage connessi all"host e configurare l"host in modo che utilizzi i nomi di accesso e le password assegnati ai sistemi di storage. Se non si forniscono queste informazioni, SnapDrive per UNIX non è in grado di comunicare con il sistema di storage.' 
+---
+= Considerazioni sulla sicurezza
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile abilitare SnapDrive per UNIX per accedere ai sistemi di storage connessi all'host e configurare l'host in modo che utilizzi i nomi di accesso e le password assegnati ai sistemi di storage. Se non si forniscono queste informazioni, SnapDrive per UNIX non è in grado di comunicare con il sistema di storage.
+
+Un utente root può consentire ad altri utenti di eseguire comandi specifici, a seconda dei ruoli assegnati. Non è necessario essere un utente root per eseguire le operazioni di gestione dello storage e dello snap.
+
+In un ambiente di cluster host Solaris SFRAC 4.1, è necessario eseguire la configurazione `rsh` oppure `ssh access-without-password-prompt-for-root` per tutti i nodi nel cluster host.

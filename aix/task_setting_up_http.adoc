@@ -1,0 +1,36 @@
+---
+permalink: aix/task_setting_up_http.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, http, configure 
+summary: È possibile configurare SnapDrive per UNIX in modo che utilizzi HTTP per la piattaforma host. 
+---
+= Impostazione di HTTP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare SnapDrive per UNIX in modo che utilizzi HTTP per la piattaforma host.
+
+Assicurarsi di aver effettuato l'accesso come utente root.
+
+.Fasi
+. Eseguire un backup di `snapdrive.conf` file.
+. Aprire `snapdrive.conf` in un editor di testo.
+. Modificare il valore di `_use-https-to-filer_` variabile a. `off`.
++
+Una buona pratica ogni volta che si modifica `snapdrive.conf` il file deve eseguire le seguenti operazioni:
+
++
+.. Commentare la riga che si desidera modificare.
+.. Copia la riga commentata.
+.. Rimuovere il commento dal testo copiato rimuovendo il simbolo cancelletto.
+.. Modificare il valore.
+
+
+. Salvare il file dopo aver apportato le modifiche.
++
+SnapDrive per UNIX controlla automaticamente questo file ogni volta che viene avviato. Per rendere effettive le modifiche, riavviare il daemon SnapDrive per UNIX.
+
+

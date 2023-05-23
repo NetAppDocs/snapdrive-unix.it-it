@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_command_syntax_for_disconnectingluns_and_storageentities_from_thehost.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, syntax, disconnect, storage, host, lun 
+summary: Per utilizzare il comando SnapDrive storage disconnect per rimuovere i mapping delle LUN con entità di storage, utilizzare la seguente sintassi. 
+---
+= Sintassi dei comandi per disconnettere LUN ed entità di storage dall'host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per utilizzare `snapdrive storage disconnect` Per rimuovere i mapping per le LUN con entità di storage, utilizzare la seguente sintassi:
+
+`*snapdrive storage disconnect { -dg | -fs | -hostvol } _file_spec_ [_file_spec..._] [{ -dg | -fs | -hostvol } _file_spec_ [_file_spec..._] ...] [-full] [-fstype _type_] [-vmtype _type_]*`

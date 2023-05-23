@@ -1,0 +1,53 @@
+---
+permalink: solaris/concept_limitations_of_rdm_luns_managed_by_snapdrive.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, limitations, rdm, lun 
+summary: 'SnapDrive presenta alcune limitazioni per il provisioning dei LUN RDM. È necessario conoscere le limitazioni che potrebbero influire sull"ambiente.' 
+---
+= Limitazioni delle LUN RDM gestite da SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive presenta alcune limitazioni per il provisioning dei LUN RDM. È necessario conoscere le limitazioni che potrebbero influire sull'ambiente.
+
+* Un LUN RDM non può fungere da disco di avvio o da disco di sistema.
+* SnapDrive non supporta MPIO nel sistema operativo guest, sebbene il server VMware ESX supporti MPIO.
+* Quando il protocollo di trasporto è `_FC_`, L'igroup specificato nel comando CLI viene ignorato da SnapDrive e l'igroup viene creato automaticamente dall'interfaccia virtuale.
+* È possibile rinominare, spostare o eliminare `/usr/bin/rescan-scsi-bus.sh` script incluso in `sg3_utils` Per evitare di limitare il numero di LUN RDM a otto.
++
+
+NOTE: Se si desidera conservare `/usr/bin/rescan-scsi-bus.sh` poll `sg3_utils` Evitare di limitare il numero di LUN RDM a otto, quindi creare uno script wrapper `/root/dynamic-lun-rescan.sh` e da quell'esecuzione dello script `/usr/bin/rescan-scsi-bus.sh`, con le opzioni `-w`, `-c`, e. `-r` e assegnare autorizzazioni complete.
+
+
+
+Di seguito viene riportato un esempio del contenuto modificato di `/root/dynamic-lun-rescan.sh`:
+
+[listing]
+----
+#cat /root/dynamic-lun-rescan.sh
+#Wrapper script used to call the actual rescan script.
+/usr/bin/rescan-scsi-bus.sh -w -c -r
+----
+*Limitazioni relative al server VMware ESX*
+
+* Ciascun sistema operativo guest può essere configurato con quattro controller SCSI e ciascun controller SCSI può essere mappato su 16 dispositivi.
++
+Tuttavia, un dispositivo è riservato per controller e, di conseguenza, un totale di 60 LUN RDM (16 *4 -- 4) può essere mappato al sistema operativo guest.
+
+* Ogni server ESX può essere mappato a un massimo di 256 LUN RDM.
+
+
+*Informazioni correlate*
+
+xref:concept_guest_os_preparation_for_installing_sdu.adoc[Preparazione del sistema operativo guest per l'installazione di SnapDrive per UNIX]
+
+xref:concept_storage_provisioning_for_rdm_luns.adoc[Supporto di VMware VMotion in SnapDrive per UNIX]
+
+xref:task_configuring_virtual_storage_console_in_snapdrive_for_unix.adoc[Configurazione della console di storage virtuale per SnapDrive per UNIX]
+
+xref:task_considerations_for_provisioning_rdm_luns.adoc[Considerazioni per il provisioning dei LUN RDM]
+
+http://www.vmware.com/pdf/vsphere4/r40/vsp_40_config_max.pdf["www.vmware.com/pdf/vsphere4/r40/vsp_40_config_max.pdf"]

@@ -1,0 +1,23 @@
+---
+permalink: solaris/concept_what_snapdrive_for_unix_does_when_you_upgrade_your_current_version.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, upgrade, current, version 
+summary: 'È possibile aggiornare facilmente SnapDrive per UNIX alla versione più recente. Nell"ambito del processo di aggiornamento, poche variabili cambiano nel file snapdrive.conf. Per assicurarsi che SnapDrive per UNIX funzioni correttamente, controllare i vari valori predefiniti nel file snapdrive.conf.' 
+---
+= Aggiornare SnapDrive per UNIX alla versione corrente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiornare facilmente SnapDrive per UNIX alla versione più recente. Nell'ambito del processo di aggiornamento, poche variabili cambiano in `snapdrive.conf` file. Per assicurarsi che SnapDrive per UNIX funzioni correttamente, controllare i vari valori predefiniti in `snapdrive.conf` file.
+
+Per aggiornare la versione corrente di SnapDrive per UNIX, non è necessario disinstallarla. Installare invece la versione più recente del software sulla versione corrente.
+
+Quando si installa una nuova versione, SnapDrive per UNIX verifica se è già installata una versione. In questo caso, viene preservata la corrente `snapdrive.conf` e rinomina la versione del file in cui si sta installando `snapdrive.conf.x`. In questo modo, si evita di sovrascrivere il `snapdrive.conf` in modo da non perdere le impostazioni personalizzate nel file.
+
+Per impostazione predefinita, SnapDrive for UNIX commenta le variabili in `snapdrive.conf` file. Ciò significa che utilizza automaticamente i valori predefiniti per tutte le variabili, ad eccezione di quelle personalizzate. Se si desidera modificare questi valori, è necessario aggiungere le variabili alla corrente `snapdrive.conf` e specificare i valori desiderati.
+
+
+NOTE: Quando si esegue un aggiornamento delle patch, la versione di SnapDrive in `snapdrive.conf` il file non cambia. Tuttavia, il `snapdrive version` il comando fornisce la versione appropriata.

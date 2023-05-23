@@ -1,0 +1,35 @@
+---
+permalink: aix/concept_changing_the_defaults_for_the_audit_logs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, default, change, audit, log 
+summary: È possibile utilizzare il file snapdrive.conf per modificare i parametri di registrazione dei file di log di audit, ad esempio la dimensione massima del file di log di audit e il numero massimo di file di audit precedenti. 
+---
+= Modifica delle impostazioni predefinite per i registri di controllo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare `snapdrive.conf` file per modificare i parametri di registrazione dei file di log di audit, ad esempio la dimensione massima del file di log di audit e il numero massimo di file di audit precedenti.
+
+Il `snapdrive.conf` il file consente di impostare i seguenti valori per la registrazione dell'audit:
+
+* Dimensione massima del file di log di audit. La dimensione predefinita è 20K. Una volta che la dimensione del file raggiunge il valore specificato in `snapdrive.conf` File, SnapDrive per UNIX rinomina il file di log dell'audit corrente aggiungendo un numero arbitrario al nome. Quindi, viene avviato un nuovo file di audit utilizzando il nome specificato da `audit-log-file` valore.
+* Il numero massimo di file di audit precedenti salvati da SnapDrive per UNIX. Il valore predefinito è 2.
+
+
+*Esempio di file di log di audit:*
+
+[listing]
+----
+2501: Begin uid=0 gid=1 15:35:02 03/12/04 snapdrv snap create -dg
+rdg -snapname snap_rdg1
+2501: Status=0 15:35:07 03/12/04
+2562: Begin uid=0 gid=1 15:35:16 03/12/04 snapdrv snap create -dg
+rdg -snapname snap_rdg1
+2562: FAILED Status=4 15:35:19 03/12/04
+----
+La prima coppia di righe in questo esempio mostra un'operazione riuscita, come indicato dalla riga "Status=0".
+
+La seconda coppia di linee indica un'operazione non riuscita. Il codice di ritorno "4" indica che "`esiste già.`" If you look at the two command lines, you can see that the first created a Snapshot copy called `snap_rdg1`. La seconda riga ha tentato di fare lo stesso, ma il nome esisteva già, quindi l'operazione non è riuscita.

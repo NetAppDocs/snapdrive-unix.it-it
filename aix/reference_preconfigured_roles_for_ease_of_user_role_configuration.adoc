@@ -1,0 +1,49 @@
+---
+permalink: aix/reference_preconfigured_roles_for_ease_of_user_role_configuration.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, user, role, configuration 
+summary: 'I ruoli preconfigurati semplificano l"assegnazione dei ruoli agli utenti.' 
+---
+= Ruoli preconfigurati per semplificare la configurazione del ruolo dell'utente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I ruoli preconfigurati semplificano l'assegnazione dei ruoli agli utenti.
+
+La tabella seguente elenca i ruoli predefiniti:
+
+|===
+| Nome ruolo | Descrizione 
+
+
+ a| 
+GlobalSDStorage
+ a| 
+Gestisci lo storage con SnapDrive per UNIX
+
+
+
+ a| 
+GlobalSDConfig
+ a| 
+Gestisci le configurazioni con SnapDrive per UNIX
+
+
+
+ a| 
+GlobalSDSnapshot
+ a| 
+Gestisci le copie Snapshot con SnapDrive per UNIX
+
+
+
+ a| 
+GlobalSDFullControl
+ a| 
+Utilizzo completo di SnapDrive per UNIX
+
+|===
+Nella tabella precedente, Global si riferisce a tutti i sistemi storage gestiti da una console di Operations Manager.

@@ -1,0 +1,28 @@
+---
+permalink: aix/concept_unable_to_select_a_storage_stack.html 
+sidebar: sidebar 
+keywords: snap, snapshot, select, storage, stack, unable 
+summary: Non è possibile selezionare uno stack di storage a causa di valori inappropriati specificati nel file snapdrive.conf. 
+---
+= Impossibile selezionare uno stack di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Non è possibile selezionare uno stack di storage a causa di valori inappropriati specificati in `snapdrive.conf` file.
+
+Viene visualizzato il seguente messaggio di avviso.
+
+[listing]
+----
+WARNING!!! Unable to find a SAN storage stack. Please verify that the appropriate transport protocol, volume manager, file system and multipathing type are installed and configured in the system. If NFS is being used, this warning message can be ignored.
+----
+* Se si utilizza un ambiente NFS, ignorare il messaggio di avviso e continuare a utilizzare le operazioni SnapDrive sul sistema host.
+* Se si utilizza un ambiente SAN, assicurarsi che i valori accettabili appropriati siano specificati in `snapdrive.conf` File come fornito nello stack matrice AIX. Quindi, riavviare il daemon.
+
+
+*Informazioni correlate*
+
+xref:reference_stack_requirements.adoc[Requisiti dello stack]

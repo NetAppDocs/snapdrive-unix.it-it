@@ -1,0 +1,56 @@
+---
+permalink: solaris/concept_contents_of_an_audit_log_file.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, audit, log, file 
+summary: Il registro di controllo mostra le informazioni sui comandi emessi con SnapDrive per UNIX. 
+---
+= Contenuto di un file di log di audit
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il registro di controllo mostra le informazioni sui comandi emessi con SnapDrive per UNIX.
+
+Il file di registro dell'audit conserva la cronologia delle seguenti informazioni:
+
+* I comandi emessi.
+* Il valore restituito da questi comandi.
+* L'ID utente dell'utente che ha richiamato il comando.
+* Un timestamp che indica quando il comando è stato avviato (senza codice di ritorno) e un altro timestamp che indica quando il comando è terminato (con un codice di ritorno). Il record del registro di controllo mostra solo informazioni su `snapdrive` utilizzare (comandi emessi).
+
+
+Un file di log di audit contiene le seguenti informazioni.
+
+|===
+| Campo | Descrizione 
+
+
+ a| 
+uid
+ a| 
+ID utente
+
+
+
+ a| 
+gid
+ a| 
+ID gruppo
+
+
+
+ a| 
+MsgText
+ a| 
+testo del messaggio
+
+
+
+ a| 
+Codice di ritorno
+ a| 
+codice restituito da un comando
+
+|===

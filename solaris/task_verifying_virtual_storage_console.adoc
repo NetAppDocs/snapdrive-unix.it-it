@@ -1,0 +1,33 @@
+---
+permalink: solaris/task_verifying_virtual_storage_console.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, verify, login, information, virtual, storage, console 
+summary: 'È possibile verificare se l"interfaccia virtuale è configurata in SnapDrive per UNIX utilizzando il comando SnapDrive config list.' 
+---
+= Verifica delle informazioni di accesso per Virtual Storage Console
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile verificare se l'interfaccia virtuale è configurata in SnapDrive per UNIX utilizzando `snapdrive config list` comando.
+
+.Fasi
+. Immettere il seguente comando: `snapdrive config list`
++
+Questo comando visualizza il nome utente o l'interfaccia virtuale specificati in SnapDrive per UNIX. In questo modo non vengono visualizzate le password per il sistema di interfaccia virtuale.
+
++
+Nell'esempio riportato di seguito viene visualizzato l'utente corrispondente a un'interfaccia virtuale denominata "ruffleskin".
+
++
+[listing]
+----
+# snapdrive config list
+user name    appliance name   appliance type
+------------------------------------------------
+root       rumplestiltskins   StorageSystem
+sdadmin    ruffleskin	     VirtualInterface
+----
+

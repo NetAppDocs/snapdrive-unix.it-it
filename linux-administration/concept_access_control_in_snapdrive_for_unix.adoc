@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_access_control_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, access, control 
+summary: 'SnapDrive per UNIX consente di controllare il livello di accesso di ciascun host a ciascun sistema storage a cui è connesso l"host.' 
+---
+= Controllo degli accessi in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX consente di controllare il livello di accesso di ciascun host a ciascun sistema storage a cui è connesso l'host.
+
+Il livello di accesso in SnapDrive per UNIX indica le operazioni che l'host può eseguire quando si rivolge a un determinato sistema storage. Ad eccezione delle operazioni di visualizzazione ed elenco, le autorizzazioni per il controllo degli accessi possono influire su tutte le operazioni Snapshot e di storage.

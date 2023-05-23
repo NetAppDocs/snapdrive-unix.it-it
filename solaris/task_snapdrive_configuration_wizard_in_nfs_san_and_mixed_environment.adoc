@@ -1,0 +1,188 @@
+---
+permalink: solaris/task_snapdrive_configuration_wizard_in_nfs_san_and_mixed_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, wizard 
+summary: La configurazione guidata consente di eseguire la configurazione in ambiente NFS, SAN o misto. 
+---
+= Utilizzando la configurazione guidata di SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configurazione guidata consente di eseguire la configurazione in ambiente NFS, SAN o misto.
+
+
+
+== Procedura per la configurazione in ambiente NFS
+
+Di seguito sono riportati i passaggi per la configurazione in ambiente NFS.
+
+.Fasi
+. Selezionare il profilo *NFS*.
+. Attivare l'integrazione di Protection Manager.
++
+** Selezionare `Yes` Per attivare i controlli delle autorizzazioni di accesso utilizzando DataFabric Manager.
++
+*** Inserire il nome del server DataFabric Manager o l'indirizzo IP seguito da nome utente e password.
+*** Inserire il `http/https` Porta per comunicare con DataFabric Manager. Il valore predefinito è `8088`.
+*** Immettere la porta del server SSL per accedere a DataFabric Manager. Il valore predefinito è `8488`.
+*** Abilitare HTTPS abilitato per la comunicazione con DataFabric Manager.
+
+
+** Selezionare `No` per attivare i controlli delle autorizzazioni di accesso utilizzando rbac.
+
+
+. Specificare i metodi di controllo degli accessi in base al ruolo. I valori possibili sono `native` e. `dfm`.
++
+** Selezionare `native` per verificare l'autorizzazione di accesso per l'host utilizzando il file di controllo memorizzato in `/vol/vol0/sdprbac/sdhost-name.prbac` oppure `/vol/vol0/sdprbac/sdgenericname.prbac`.
+** Selezionare `dfm` Per verificare l'autorizzazione di accesso utilizzando la console di Operations Manager.
++
+
+NOTE: Se si seleziona dfm come metodo rbac senza configurare DataFabric Manager, viene visualizzato un messaggio di avviso che indica che il metodo RBAC è selezionato come dfm senza abilitare l'integrazione di Protection Manager.
+
+
+
+. Specificare `https` oppure `http` per comunicare con il sistema storage.
+. Il passaggio finale consiste nel salvare le modifiche di configurazione in `snapdrive.conf` e riavviare il daemon.
++
+** Se si seleziona `Yes`, Il daemon SnapDrive viene riavviato e le modifiche alla configurazione vengono riflesse.
+** Se si seleziona `No`, i valori delle variabili vengono modificati in `snapdrive.conf` ma le modifiche non vengono riflesse.
+
+
+
+
+
+
+== Procedura per la configurazione in ambiente SAN
+
+Di seguito sono riportati i passaggi per la configurazione in ambiente SAN.
+
+.Fasi
+. Selezionare il profilo SAN.
+. Selezionare il protocollo di trasporto richiesto.
++
+** Selezionare `fcp` per impostare il trasporto predefinito.
+** Selezionare `iscsi` per impostare il trasporto predefinito.
+
+
+. Selezionare LO stack di storage SAN (combinazione di soluzione MPIO, volume manager e file system). Le opzioni sono `native`, e. `none` Per Solaris SPARC, le opzioni sono `native`, `veritas`, e. `none`
++
+SnapDrive non supporta veritas per il protocollo di trasporto iSCSI.
+
+. Attivare l'integrazione di Protection Manager.
++
+** Selezionare `Yes` Per attivare i controlli delle autorizzazioni di accesso utilizzando DataFabric Manager.
++
+*** Inserire il nome del server DataFabric Manager o l'indirizzo IP seguito da nome utente e password.
+*** Inserire il `http/https` Porta per comunicare con DataFabric Manager. Il valore predefinito è `8088`.
+*** Immettere la porta del server SSL per accedere a DataFabric Manager. Il valore predefinito è `8488`.
+*** Abilitare HTTPS abilitato per la comunicazione con DataFabric Manager
+
+
+** Selezionare `No` per attivare i controlli delle autorizzazioni di accesso utilizzando rbac.
+
+
+. Specificare i metodi di controllo degli accessi in base al ruolo. I valori possibili sono `native` e. `dfm`.
++
+** Selezionare `native` per verificare l'autorizzazione di accesso per l'host utilizzando il file di controllo memorizzato in `/vol/vol0/sdprbac/sdhost-name.prbac` oppure `/vol/vol0/sdprbac/sdgenericname.prbac`.
+** Selezionare `dfm` Per verificare l'autorizzazione di accesso utilizzando Operations Manager.
++
+
+NOTE: Se si seleziona `dfm` come `rbac-method` Senza configurare DataFabric Manager, viene visualizzato un messaggio di avviso che indica che il metodo RBAC è selezionato come `dfm` Senza abilitare l'integrazione con Protection Manager.
+
+
+
+. Abilitare l'integrazione SMVI per creare LUN RDM nel sistema operativo guest.
++
+** Selezionare `yes` Per creare LUN RDM nel sistema operativo guest. Quindi, immettere l'indirizzo IP, il nome utente e la password del server SMVI.
+** Selezionare `no` per saltare questa opzione.
++
+
+NOTE: Questa fase della configurazione di SMVI viene richiesta solo se il protocollo di trasporto è fcp e il sistema operativo host è Solaris_x86.
+
+
+
+. Specificare `https` oppure `http` per comunicare con il sistema storage.
+. Il passaggio finale consiste nel salvare le modifiche di configurazione in `snapdrive.conf` e riavviare il daemon.
++
+** Se si seleziona `Yes`, Il daemon SnapDrive viene riavviato e le modifiche alla configurazione vengono riflesse.
+** Se si seleziona `No`, i valori delle variabili vengono modificati in `snapdrive.conf` ma le modifiche non vengono riflesse.
+
+
+
+
+
+
+== Procedura per la configurazione in ambiente misto SAN e NFS
+
+Di seguito sono riportati i passaggi per la configurazione in ambiente misto SAN e NFS.
+
+.Fasi
+. Selezionare il profilo misto.
+. Selezionare il protocollo di trasporto richiesto.
++
+** Selezionare `fcp` per impostare il trasporto predefinito.
+** Selezionare `iscsi` per impostare il trasporto predefinito.
+
+
+. Selezionare LO stack di storage SAN (combinazione di soluzione MPIO, volume manager, file system). Le opzioni sono `native`, e. `none`. Per Solaris SPARC, le opzioni sono `native`, `veritas`, e. `none`
++
+SnapDrive non supporta veritas per il protocollo di trasporto iSCSI.
+
+. Attivare l'integrazione di Protection Manager.
++
+** Selezionare `Yes` Per attivare i controlli delle autorizzazioni di accesso utilizzando DataFabric Manager
++
+*** Inserire il nome del server DataFabric Manager o l'indirizzo IP seguito da nome utente e password.
+*** Inserire il `http/https` Porta per comunicare con DataFabric Manager. Il valore predefinito è `8088`.
+*** Immettere la porta del server SSL per accedere a DataFabric Manager. Il valore predefinito è `8488`.
+*** Abilitare HTTPS abilitato per la comunicazione con DataFabric Manager.
+
+
+** Selezionare `No` per attivare i controlli delle autorizzazioni di accesso utilizzando rbac.
+
+
+. Specificare i metodi di controllo degli accessi in base al ruolo. I valori possibili sono `native` e. `dfm`.
++
+** Selezionare `native` per verificare l'autorizzazione di accesso per l'host utilizzando il file di controllo memorizzato in `/vol/vol0/sdprbac/sdhost-name.prbac` oppure `/vol/vol0/sdprbac/sdgenericname.prbac`
+** Selezionare `dfm` Per verificare l'autorizzazione di accesso utilizzando la console di Operations Manager.
++
+
+NOTE: Se si seleziona `dfm` come `rbac-method` Senza configurare DataFabric Manager, viene visualizzato un messaggio di avviso che indica che il metodo RBAC è selezionato come `dfm` Senza abilitare l'integrazione con Protection Manager.
+
+
+
+. Abilitare l'integrazione SMVI per creare LUN RDM nel sistema operativo guest.
++
+** Selezionare `yes` Per creare LUN RDM nel sistema operativo guest. Quindi, immettere l'indirizzo IP, il nome utente e la password del server SMVI.
+** Selezionare `no` per saltare questa opzione.
++
+
+NOTE: Questa fase della configurazione di SMVI viene richiesta solo se il protocollo di trasporto è fcp e il sistema operativo host è Solaris_x86.
+
+
+
+. Specificare `https` oppure `http` per comunicare con il sistema storage.
+. Il passaggio finale consiste nel salvare le modifiche di configurazione in `snapdrive.conf` e riavviare il daemon.
++
+** Se si seleziona `Yes`, Il daemon SnapDrive viene riavviato e le modifiche alla configurazione vengono riflesse.
+** Se si seleziona `No`, i valori delle variabili vengono modificati in `snapdrive.conf` ma le modifiche non vengono riflesse.
+
+
+
+
+SnapDrive modifica le seguenti variabili in `snapdrive.conf` file.
+
+* `_contact-http-dfm-port_`
+* `-contact-ssl-dfm-port_`
+* `_use-https-to-dfm_`
+* `_default-transport_`
+* `_use-https-to-filer_`
+* `_fstype_`
+* `_multipathing-type_`
+* `_vmtype_`
+* `_rbac-method_`
+* `_rbac-cache_`
+

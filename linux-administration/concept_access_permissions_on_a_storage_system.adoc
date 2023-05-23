@@ -1,0 +1,19 @@
+---
+permalink: linux-administration/concept_access_permissions_on_a_storage_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, permission 
+summary: 'Le autorizzazioni di accesso indicano se un host può eseguire determinate operazioni di copia Snapshot e storage. Le autorizzazioni di accesso non influiscono sulle operazioni di visualizzazione dello storage SnapDrive o dell"elenco di storage. SnapDrive consente di specificare le autorizzazioni di accesso per ciascun host in un file che risiede nel sistema di storage.' 
+---
+= Autorizzazioni di accesso su un sistema storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le autorizzazioni di accesso indicano se un host può eseguire determinate operazioni di copia Snapshot e storage. Le autorizzazioni di accesso non influiscono sulle operazioni di visualizzazione dello storage SnapDrive o dell'elenco di storage. SnapDrive consente di specificare le autorizzazioni di accesso per ciascun host in un file che risiede nel sistema di storage.
+
+È inoltre possibile specificare l'azione che SnapDrive deve eseguire quando non trova un file di autorizzazione per un host specificato. È possibile specificare l'azione impostando il valore in `snapdrive.conf` file di configurazione per `all-access-if-rbac-unspecified`. È inoltre possibile attivare o disattivare l'accesso al sistema di storage modificando le autorizzazioni di accesso.
+
+
+NOTE: In SnapDrive 4.0 per UNIX e versioni successive, è possibile eseguire operazioni di storage in base alle funzionalità di controllo degli accessi basate sui ruoli.

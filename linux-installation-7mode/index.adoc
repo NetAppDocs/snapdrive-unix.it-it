@@ -1,0 +1,16 @@
+---
+permalink: linux-installation-7mode/index.html 
+sidebar: sidebar 
+keywords: guide, documentation, installation, setup, linux, ontap, 7-mode 
+summary: Vengono descritte le operazioni iniziali da eseguire per implementare SnapDrive per UNIX con Data ONTAP in 7-Mode in ambiente Linux. 
+---
+= Guida all'installazione e all'installazione di Linux® per Data ONTAP in modalità 7
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa guida descrive le operazioni iniziali da eseguire per implementare SnapDrive 5.3.2 per UNIX con Data ONTAP in 7-Mode in ambiente Linux.
+
+Gli argomenti trattati includono l'installazione e la configurazione del prodotto e il backup dei database.

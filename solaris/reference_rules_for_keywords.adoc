@@ -1,0 +1,21 @@
+---
+permalink: solaris/reference_rules_for_keywords.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, keywords, rules 
+summary: SnapDrive per UNIX utilizza le parole chiave per specificare la destinazione delle operazioni SnapDrive per UNIX. 
+---
+= Regole per le parole chiave
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX utilizza le parole chiave per specificare la destinazione delle operazioni SnapDrive per UNIX.
+
+SnapDrive for UNIX utilizza le parole chiave per specificare le sequenze di stringhe corrispondenti agli oggetti del sistema di storage e dell'host con cui si sta lavorando. Le seguenti regole si applicano alle parole chiave SnapDrive per UNIX:
+
+* Precedere ogni parola chiave con un trattino (-).
+* Non concatenare parole chiave.
+* Inserire l'intera parola chiave e il trattino, non un'abbreviazione.
+

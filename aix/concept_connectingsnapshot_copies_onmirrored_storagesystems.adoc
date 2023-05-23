@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_connectingsnapshot_copies_onmirrored_storagesystems.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, snapshot, copy, mirrored, storage 
+summary: Nel caso di una copia Snapshot su un sistema di storage mirrorato, è possibile collegare la copia Snapshot sul sistema di storage di origine e sul sistema di destinazione. 
+---
+= Connessione di copie Snapshot su sistemi storage mirrorati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nel caso di una copia Snapshot su un sistema di storage mirrorato, è possibile collegare la copia Snapshot sul sistema di storage di origine e sul sistema di destinazione.
+
+Quando si crea una copia Snapshot su un sistema di storage mirrorato, la copia Snapshot viene automaticamente replicata, dal sistema di origine in cui è creata, al sistema di storage di destinazione (mirrorato). SnapDrive per UNIX consente di collegare la copia Snapshot al sistema di storage di origine. È inoltre possibile collegare la copia Snapshot al sistema di storage di destinazione.

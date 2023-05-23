@@ -1,0 +1,19 @@
+---
+permalink: linux-administration/task_receiving_error_iscsi64_snapdrive_0001_666_fatal_error.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, error, connect, command, fatal, iscsi64 
+summary: 'Se il comando SnapDrive SNAP Connect non riesce e viene visualizzato l"errore IRREVERSIBILE iscsi64 SnapDrive 0001-666, la soluzione alternativa descritta di seguito è la seguente.' 
+---
+= Errore di ricezione iscsi64 SnapDrive: 0001-666 errore IRREVERSIBILE
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il `snapdrive snap connect` comando non riuscito con `iscsi64 snapdrive: 0001-666 FATAL error`:, la soluzione alternativa descritta di seguito.
+
+.Fasi
+. Aggiungi `filter = [ "r|/dev/cciss/.*|" ]` come primo filtro a. `/etc/lvm/lvm.conf` se il filtro non è già specificato.
+. Rimuovere `/etc/lvm/.cache` e problema `pvscan` per confermare che nessuno dei `/dev/cciss/*` vengono visualizzate le voci.
+

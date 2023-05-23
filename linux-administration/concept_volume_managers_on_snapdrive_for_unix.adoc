@@ -1,0 +1,59 @@
+---
+permalink: linux-administration/concept_volume_managers_on_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, manager, native, lvm2 
+summary: In Linux, il volume manager è LVM2 nativo. 
+---
+= Volume manager su SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In Linux, il volume manager è LVM2 nativo.
+
+La seguente tabella descrive i gestori di volumi sulla piattaforma host:
+
+|===
+| Host | Gestore dei volumi | Volumi o gruppi di dischi | Posizione dei volumi logici | Posizione dei dispositivi multipathing 
+
+
+ a| 
+RHEL 4 e RHEL 5
+ a| 
+LVM2 nativo
+ a| 
+Gruppi di volumi `_vg_`
+ a| 
+`/dev/mapper/dgname-lvolname`
+ a| 
+`/dev/mpath /dev/mapper /dev/dm`
+
+
+
+ a| 
+RHEL 6
+ a| 
+LVM2 nativo
+ a| 
+Gruppi di volumi `vg`
+ a| 
+`/dev/mapper/dgname-lvolname`
+ a| 
+`/dev/mapper /dev/dm`
+
+
+
+ a| 
+SLES 10 e SLES 11
+ a| 
+LVM2 nativo
+ a| 
+Gruppi di volumi `vg`
+ a| 
+`/dev/mapper/dgname-volname`
+ a| 
+`/dev/mapper /dev/dm`
+
+|===

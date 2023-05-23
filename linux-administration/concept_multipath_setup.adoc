@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_multipath_setup.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, multipath, steup, host, hba, driver, lvm, multipath 
+summary: 'Linux MPIO funziona se l"installazione dell"host è completata. Il setup dell"host è generalmente classificato come setup dell"HBA, setup del parametro del driver dell"HBA, setup del multipath, setup dell"LVM e setup dell"SnapDrive per UNIX.' 
+---
+= Configurazione multipath
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Linux MPIO funziona se l'installazione dell'host è completata. Il setup dell'host è generalmente classificato come setup dell'HBA, setup del parametro del driver dell'HBA, setup del multipath, setup dell'LVM e setup dell'SnapDrive per UNIX.

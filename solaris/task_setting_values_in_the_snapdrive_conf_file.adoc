@@ -1,0 +1,68 @@
+---
+permalink: solaris/task_setting_values_in_the_snapdrive_conf_file.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, value, file 
+summary: È possibile modificare i valori nel file snapdrive.conf o aggiungere nuove coppie nome-valore. 
+---
+= Impostazione dei valori nel file snapdrive.conf
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare i valori in `snapdrive.conf` file o aggiungere nuove coppie nome-valore.
+
+Devi essere connesso come utente root.
+
+.Fasi
+. Eseguire il backup di `snapdrive.conf` file.
+. Aprire `snapdrive.conf` in un editor di testo.
+. Per aggiungere una coppia nome-valore, utilizzare il seguente formato:
++
+`*config-option-name=value _value_ # optional comment*`
+
++
+`_config-option-name_` è il nome della variabile che si desidera configurare, ad esempio audit-log-file. `_value_` è il valore che si desidera assegnare a questa opzione.
+
++
+Se si desidera includere un commento con la coppia nome-valore, far precedere il commento con un segno numerico (n.).
+
++
+Inserire una sola coppia nome-valore, per riga.
+
++
+Se il nome o il valore utilizza una stringa, racchiudere la stringa tra virgolette singole ('`) o doppie ("). È possibile posizionare le virgolette intorno all'intera coppia nome-valore o solo intorno al valore. I seguenti esempi mostrano come utilizzare virgolette e commenti con coppie nome-valore:
+
++
+`*"config-option-one=string with white space" # double quotes around the pair*`
+
++
+`*config-option-two="string with white space" # double quotes around the value*`
+
++
+`*config-option-2B=`'string with white space`' # single quotes around the value*`
+
+. Per modificare una coppia nome-valore, sostituire il valore corrente con il nuovo valore.
++
+Seguire i passaggi riportati di seguito per assicurarsi che i valori predefiniti siano registrati nel file.
+
++
+.. Aggiungere il segno (n.) alla riga che si desidera modificare.
+.. Copiare la riga.
+.. Attivare il testo copiato rimuovendo il segno del numero (n.).
+.. Modificare il valore.
+
+
++
+Se si desidera specificare un valore vuoto (ad esempio, per disattivare il file di log dell'audit), inserire una coppia di virgolette doppie ("").
+
+. Salvare il file dopo aver apportato le modifiche.
++
+SnapDrive per UNIX controlla automaticamente questo file ogni volta che viene avviato. Le modifiche avranno effetto al successivo avvio.
+
+. Riavviare il daemon SnapDrive per UNIX utilizzando `snapdrived restart` comando.
++
+Riavviare il daemon per `snapdrive.conf` le modifiche al file diventano effettive.
+
+

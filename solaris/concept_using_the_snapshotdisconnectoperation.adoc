@@ -1,0 +1,32 @@
+---
+permalink: solaris/concept_using_the_snapshotdisconnectoperation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, disconnect, operation 
+summary: Utilizzare il comando SNAP disconnect di SnapDrive per scollegare una copia Snapshot che si trova su più sistemi storage o volumi di sistemi storage. 
+---
+= Utilizzo dell'operazione di disconnessione Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare `snapdrive snap disconnect` Comando per disconnettere una copia Snapshot che si trova su più sistemi storage o volumi di sistemi storage.
+
+Si utilizza `snapdrive snap disconnect` Comando per rimuovere i mapping per LUN, per entità di storage e LUN sottostanti o per directory NFS nella copia Snapshot.
+
+È possibile utilizzare questo comando per disconnettere le copie Snapshot che si estendono su più volumi del sistema di storage o su più sistemi di storage. Le entità e i volumi di storage possono risiedere sullo stesso sistema di storage o su sistemi di storage diversi.
+
+Utilizzare questo comando per disconnettere una delle seguenti opzioni:
+
+* LUN
+* File system creato direttamente su un LUN
+* Gruppi di dischi, volumi host e file system creati sulle LUN
+* Strutture di directory NFS
+* Gruppi di dischi condivisi, volumi host e file system creati sulle LUN
+
+
+L'operazione di disconnessione non modifica la copia Snapshot connessa. Tuttavia, per impostazione predefinita, l'operazione elimina tutti i LUN o cloni temporanei creati dall'operazione di connessione corrispondente.
+
+
+NOTE: Per LUN, file system su LUN ed entità LVM, questo comando è equivalente a. `snapdrive storage delete`.

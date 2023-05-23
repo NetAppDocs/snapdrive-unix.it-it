@@ -1,0 +1,20 @@
+---
+permalink: solaris/concept_snapdrive_for_unix_commands_fail_when_there_is_a_customized_ld_library_path.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, fail, library, path 
+summary: I comandi di SnapDrive per UNIX non funzionano se esiste un percorso LD_LIBRARY_PATH personalizzato e anche se snapcreate-check-nonpersistent-nfs è impostato su Off . 
+---
+= I comandi di SnapDrive per UNIX non vengono eseguiti con LD_LIBRARY_PATH personalizzato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I comandi di SnapDrive per UNIX non funzionano se è presente un comando personalizzato `LD_LIBRARY_PATH` e anche se `snapcreate-check-nonpersistent-nfs` è impostato su off .
+
+
+
+== Soluzione alternativa
+
+Impostare la variabile env in uno script wrapper per assicurarsi che la variabile sia visibile solo ai binari SnapDrive.

@@ -1,0 +1,22 @@
+---
+permalink: solaris/concept_what_configuration_checker_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, checker 
+summary: Lo strumento di verifica della configurazione di SnapDrive consente di identificare e verificare le configurazioni supportate da SnapDrive per UNIX. 
+---
+= Che cos'è lo strumento di controllo della configurazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lo strumento di verifica della configurazione di SnapDrive consente di identificare e verificare le configurazioni supportate da SnapDrive per UNIX.
+
+Lo strumento di verifica della configurazione risolve il problema di più configurazioni di supporto verificando la configurazione dell'utente in ambienti NAS e SAN.
+
+Lo strumento di verifica della configurazione di SnapDrive supporta i seguenti controlli di configurazione in SnapDrive per UNIX:
+
+* Verifica la configurazione specificata in `snapdrive.conf` file, disponibile nella posizione predefinita.
+* Verifica la configurazione specificata utilizzando l'interfaccia CLI.
+

@@ -1,0 +1,23 @@
+---
+permalink: solaris/task_nonforcibly_stopping_the_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, stopp, daemon, nonforcibly, command 
+summary: 'Se il file di configurazione di SnapDrive per UNIX viene modificato, è necessario arrestare il daemon per rendere effettive le modifiche apportate al file di configurazione. Una volta arrestato e riavviato il daemon, le modifiche apportate al file di configurazione diventano effettive. L"arresto non forzato del daemon consente a tutti i comandi in coda di completare l"esecuzione. Una volta ricevuta la richiesta di arresto, non vengono eseguiti nuovi comandi.' 
+---
+= Arresto non forzato del demone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il file di configurazione di SnapDrive per UNIX viene modificato, è necessario arrestare il daemon per rendere effettive le modifiche apportate al file di configurazione. Una volta arrestato e riavviato il daemon, le modifiche apportate al file di configurazione diventano effettive. L'arresto non forzato del daemon consente a tutti i comandi in coda di completare l'esecuzione. Una volta ricevuta la richiesta di arresto, non vengono eseguiti nuovi comandi.
+
+Devi essere connesso come utente root.
+
+.Fasi
+. Immettere il seguente comando per arrestare il daemon in modo non forzato:
++
+`*snapdrived stop*`
+
+

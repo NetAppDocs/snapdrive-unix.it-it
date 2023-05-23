@@ -1,0 +1,18 @@
+---
+permalink: aix/reference_using_exit_status_values.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, exit, status, value 
+summary: 'I valori dello stato di uscita vengono utilizzati negli script per determinare l"esito positivo o negativo di un comando SnapDrive per UNIX.' 
+---
+= Utilizzo dei valori dello stato di uscita
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I valori dello stato di uscita vengono utilizzati negli script per determinare l'esito positivo o negativo di un comando SnapDrive per UNIX.
+
+* Un valore pari a zero indica che il comando è stato completato correttamente.
+* Un valore diverso da zero indica che il comando non è stato completato e fornisce informazioni sulla causa e la gravità della condizione di errore.
+

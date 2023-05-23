@@ -1,0 +1,24 @@
+---
+permalink: aix/concept_deleting_storage_using_a_wizard.html 
+sidebar: sidebar 
+keywords: delete, storage, wizard, snap, snapdrive 
+summary: È possibile utilizzare la procedura guidata di eliminazione dello storage per eseguire determinate operazioni di eliminazione. 
+---
+= Eliminazione dello storage mediante una procedura guidata
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la procedura guidata di eliminazione dello storage per eseguire determinate operazioni di eliminazione.
+
+È possibile avviare la procedura guidata utilizzando `snapdrive storage wizard delete` comando.
+
+È possibile eliminare le seguenti entità:
+
+* UN LUN
+* Un gruppo di dischi
+* Un volume logico
+* Un file system
+

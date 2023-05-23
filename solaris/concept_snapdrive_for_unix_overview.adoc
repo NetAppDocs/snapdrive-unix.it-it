@@ -1,0 +1,23 @@
+---
+permalink: solaris/concept_snapdrive_for_unix_overview.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, unix 
+summary: 'SnapDrive per UNIX semplifica la gestione dei dati e aumenta la disponibilità e l"affidabilità dei dati applicativi attraverso il provisioning semplificato dello storage e le copie Snapshot coerenti del file system.' 
+---
+= Panoramica di SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX semplifica la gestione dei dati e aumenta la disponibilità e l'affidabilità dei dati applicativi attraverso il provisioning semplificato dello storage e le copie Snapshot coerenti del file system.
+
+SnapDrive per UNIX semplifica il backup dei dati per consentirti di ripristinare i dati anche se vengono cancellati o modificati. SnapDrive per UNIXutilizza la tecnologia Snapshot per creare un'immagine dei dati su un sistema storage condiviso o non condiviso collegato a un host UNIX. Quando si ripristina una copia Snapshot, i dati correnti del sistema di storage vengono sostituiti con quelli della copia Snapshot.
+
+SnapDrive per UNIX consente di automatizzare il provisioning dello storage nel sistema storage per gestire file system condivisi a livello di cluster e nodo locale in un ambiente SFRAC (Real Application Clusters) Veritas Storage Foundation per Oracle. SnapDrive per UNIX offre funzionalità di storage che consentono di gestire l'intera gerarchia dello storage, come il file visibile dall'applicazione lato host, il volume manager e il numero di unità logica lato sistema storage (LUN).
+
+SnapDrive per UNIX offre il supporto per il controllo degli accessi in base al ruolo. Un amministratore dello storage utilizza RBAC per limitare l'accesso di un utente al sistema di storage in base al ruolo e alle attività eseguite dall'utente.
+
+
+NOTE: Per utilizzare RBAC, è necessario utilizzare la console di Operations Manager 3.7 o successiva.

@@ -1,0 +1,40 @@
+---
+permalink: linux-administration/reference_snapdrive_for_unix_operations_fails_improper_multipath_settings_aliased_devices_used.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, unix, fail, multipath, settings, device, error, sdu, rhel, command 
+summary: 'Quando si esegue il comando show di archiviazione o snap create in RHEL 5.11, il comando visualizza il seguente messaggio di errore. Chiamata di stato al daemon SDU non riuscita e nell"host SLES11SP3 con opzione –nolvm quando la LVM host non è coinvolta.' 
+---
+= Le operazioni di SnapDrive per UNIX non riescono a causa di impostazioni di multipath errate quando si utilizzano dispositivi con alias.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si esegue `storage show` oppure `snap create` In RHEL 5.11, il comando visualizza il seguente messaggio di errore:
+
+`Status call to SDU daemon failed and in SLES11SP3 host with --nolvm option when the host LVM is not involved.`
+
+* *`snapdrive storage show -all` il comando non visualizza il nome alias corretto*
++
+SnapDrive per UNIX non mostra il nome alias corretto per i dispositivi di mappatura. Questo problema si verifica quando la sezione multipath{ } non è corretta in `multipath.conf` file.
+
+* *Soluzione*
++
+Assicurarsi che le parentesi graffe di chiusura siano inserite nelle impostazioni del multipath.
+
+* *Le operazioni SnapDrive non riescono e viene visualizzato il seguente errore quando i nomi alias sono stati impostati per i dispositivi mappatori*
++
+[listing]
+----
+Snapdrive could not import /dev/mapper/lvm_fs_SdDg:   device-mapper: resume ioctl failed: Invalid argument
+  Unable to resume lvm_fs_SdDg-lvm_fs_SdHv (252:4)   1 logical volume(s) in volume group "lvm_fs_SdDg" now active”
+----
++
+Questo problema si verifica quando la mappatura del nome alias con i dispositivi non è corretta.
+
+* *Soluzione*
++
+Eseguire `multipath-ll` Verificare che la mappatura dei nomi alias con i dispositivi sia corretta, quindi eseguire le operazioni SnapDrive per UNIX.
+
+

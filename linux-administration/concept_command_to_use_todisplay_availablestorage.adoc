@@ -1,0 +1,27 @@
+---
+permalink: linux-administration/concept_command_to_use_todisplay_availablestorage.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, display, storage, directory, file 
+summary: 'Il programma di storage SnapDrive o l"elenco di storage SnapDrive mostrano le LUN o gli alberi di directory NFS sottostanti a una o più entità di storage. È possibile utilizzare il comando SnapDrive storage show per conoscere e conoscere le caratteristiche di una copia Snapshot di un gruppo di dischi, di un volume host, di un file system o di una struttura di directory NFS.' 
+---
+= Comando da utilizzare per visualizzare lo storage disponibile
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il `snapdrive storage show` oppure `snapdrive storage list` Mostra le LUN o gli alberi di directory NFS sottostanti una o più entità di storage. È possibile utilizzare `snapdrive storage show` Comando per apprendere e conoscere cosa si trova in una copia Snapshot di un gruppo di dischi, di un volume host, di un file system o di una struttura di directory NFS.
+
+È possibile utilizzare questi comandi per visualizzare le seguenti informazioni:
+
+* LUN disponibili per sistemi storage o volumi di sistemi storage specifici
+* LUN associati a file system, volumi host o gruppi di dischi
+* Punti di montaggio NFS e strutture di directory
+* LUN note a un host specifico e a tutte le entità LVM incluse nelle LUN
+* Dispositivi noti a un host specifico
+* Risorse sugli host condivisi e dedicati
+
+
+
+NOTE: È possibile utilizzare entrambe le opzioni `snapdrive storage show` oppure `snapdrive storage list` alla riga di comando.

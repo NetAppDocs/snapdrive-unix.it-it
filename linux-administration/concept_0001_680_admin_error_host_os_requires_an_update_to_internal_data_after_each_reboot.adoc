@@ -1,0 +1,39 @@
+---
+permalink: linux-administration/concept_0001_680_admin_error_host_os_requires_an_update_to_internal_data_after_each_reboot.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, reboot, error, update, connect, admin, administration 
+summary: Sugli host Red Hat Enterprise Linux 4 e Oracle Enterprise Linux 4, dopo ogni riavvio, le operazioni di connessione Snapshot e creazione dello storage incontrano un messaggio di errore. 
+---
+= Dopo ogni riavvio, SNAP Connect produce "0001-680 Admin error: Host OS requires an update to internal data" (errore amministratore: Il sistema operativo host richiede un aggiornamento dei dati interni
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sugli host Red Hat Enterprise Linux 4 e Oracle Enterprise Linux 4, dopo ogni riavvio, le operazioni di connessione Snapshot e creazione dello storage incontrano un messaggio di errore.
+
+Il seguente messaggio di errore viene visualizzato perché `sg driver` elimina tutti i dispositivi inattivi in `/dev/sgXX` file dopo un riavvio.
+
+
+
+== Soluzione alternativa
+
+. Controllare il valore della variabile di configurazione `_enable-implicithost- preparation_` in ``/opt/Netapp/snapdrive/snapdrive.conf` file. Deve essere impostato su on.
++
+Dopo aver riavviato l'host e prima di utilizzare SnapDrive per UNIX, attenersi alla seguente procedura.
+
+. Verificare che i servizi sg e iSCSI siano caricati immettendo il seguente comando:
++
+`lsmod`
+
+. Se i servizi sg e iSCSI (se si utilizza il setup iSCSI) non sono caricati, immettere i seguenti comandi:
++
+** `modprobe sg`
+** `service iscsi start`
+
+
+
+
+
+NOTE: Se non si desidera eseguire manualmente i passaggi 2 e 3, aggiungere `modprobe sg` e. `service iscsi start` comandi nello script di avvio dell'host.

@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_login_information_for_vserver.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, login, vserver 
+summary: Un nome utente e una password consentono a SnapDrive per UNIX di accedere al server virtuale. Inoltre, fornisce sicurezza perché, oltre ad essere connesso come vsadmin, è necessario eseguire SnapDrive per UNIX e fornire il nome utente e la password corretti quando richiesto. 
+---
+= Informazioni di accesso per il Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un nome utente e una password consentono a SnapDrive per UNIX di accedere al server virtuale. Inoltre, fornisce sicurezza perché, oltre ad essere connesso come vsadmin, è necessario eseguire SnapDrive per UNIX e fornire il nome utente e la password corretti quando richiesto.

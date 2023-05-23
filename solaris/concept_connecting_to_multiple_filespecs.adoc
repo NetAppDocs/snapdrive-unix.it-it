@@ -1,0 +1,74 @@
+---
+permalink: solaris/concept_connecting_to_multiple_filespecs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, filespec, connect, multiple 
+summary: 'È possibile connettersi a più filespecs che risiedono in un volume. Nell"esempio seguente viene descritto come completare questa operazione.' 
+---
+= Connessione a più filespecs
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile connettersi a più filespecs che risiedono in un volume. Nell'esempio seguente viene descritto come completare questa operazione.
+
+Per creare FlexClone con restrizioni, è necessario impostare `san-clone-method=unrestricted` in `snapdrive.conf` file o dare `-clone unrestricted` prima di connettersi a più filespec. Questo esempio visualizza i risultati quando si desidera connettersi a più filespec `/mnt/fs_1` e. `/mnt/fs_2` in snap1 che si trovano nel volume vol1.
+
+Il layout di /mnt/fs_1 e /mnt/fs_2 è indicato di seguito:
+
+[listing]
+----
+ # snapdrive storage show -fs /mnt/fs_1 /mnt/fs_2 -capabilities
+raw device: /dev/sdc1   mount point: /mnt/fs_1 (persistent) fstype ufs
+allowed operations: all
+
+device filename      adapter     path     size    proto   state     clone     lun path           backing snapshot
+----------------     -------     ----    ------   -----   -----    -------  ----------------     ----------------
+/dev/sdc                -         P       100m    iscsi   online      No    homer:/vol/vol1/lun1        -
+
+raw device: /dev/sdo1   mount point: /mnt/fs_2 (persistent) fstype ufs
+allowed operations: all
+
+device filename     adapter path    size     proto   state   clone    lun path               backing snapshot
+----------------    ------- ----    ----    -------  -----   -----    --------               ----------------
+/dev/sdo               -     P      100m     iscsi   online   No      homer:/vol/vol1/lun2        -
+----
+Qui l'utente ha utilizzato Snapshot Snap2 che contiene snapshot coerenti con l'applicazione `/mnt/fs1` e. `/mnt/fs2` per connessione snap.
+
+[listing]
+----
+ # snapdrive snap connect -fs /mnt/fs_1 -fs /mnt/fs_2 -snapname homer:/vol/vol1:snap2 -autorename -clone unrestricted
+
+ connecting /mnt/fs_1:
+        creating unrestricted volume clone homer:/vol/Snapdrive_vol1_volume_clone_from_snap2_snapshot ... success
+
+        mapping new lun(s) ... done
+
+ connecting /mnt/fs_2:
+
+        mapping new lun(s) ... done
+        discovering new lun(s) ... done
+Successfully connected to snapshot homer:/vol/vol1:snap2
+        file system: /mnt/fs_1_0
+        file system: /mnt/fs_2_0
+----
+In questo caso, SnapDrive per UNIX ha creato un singolo FlexClone senza restrizioni `Snapdrive_vol1_0_volume_clone_from_snap2_Snapshot` Da Snapshot Snap2. Questo viene quindi collegato a LUN testlun1 e testlun2 per creare un file system host clonato `/mnt/fs1_0` e. `/mnt/fs2_0` rispettivamente.
+
+[listing]
+----
+# snapdrive storage show -fs /mnt/fs_1_0 /mnt/fs_2_0 -capabilities
+raw device: /dev/sde1   mount point: /mnt/fs_1_0 (persistent) fstype ufs
+allowed operations: all
+
+device filename      adapter   path  size    proto   state   clone      lun path                                                         backing snapshot
+----------------      -------  ----  ----    -----   -----   -----       --------                                                        ----------------
+/dev/sde                 -      P    100m    iscsi   online  flex-clone  homer:/vol/Snapdrive_vol1_volume_clone_from_snap2_snapshot/lun1   vol1:snap2
+
+raw device: /dev/sdac1  mount point: /mnt/fs_2_0 (persistent) fstype ufs
+allowed operations: all
+
+device filename      adapter  path    size    proto   state   clone      lun path                                                            backing snapshot
+----------------      -------  ----    ----    -----   -----   -----      --------                                                           ----------------
+/dev/sdac                 -     P      100m    iscsi   online  flex-clone homer:/vol/Snapdrive_vol1_volume_clone_from_snap2_snapshot/lun2     vol1:snap2
+----

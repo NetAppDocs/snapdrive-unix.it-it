@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_storageoperations_acrossmultiple_storagesystem_volumes.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, volume, operation, multiple 
+summary: SnapDrive per UNIX consente di eseguire molte delle operazioni di storage su più volumi del sistema di storage, a condizione che le operazioni non manipolino il gestore dei volumi logico. In questo modo è possibile utilizzare elenchi di LUN presenti in più volumi di sistemi di storage. 
+---
+= Operazioni di storage su più volumi di sistemi storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX consente di eseguire molte delle operazioni di storage su più volumi di sistemi storage, a condizione che le operazioni non manipolino il Volume Manager logico (LVM). In questo modo è possibile utilizzare elenchi di LUN presenti in più volumi di sistemi di storage.

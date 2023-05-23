@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_snapdrive_for_unix_operations_on_flexclone_volumes.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, flexclone, volume, unix, operation 
+summary: SnapDrive per UNIX consente di eseguire diverse operazioni sui volumi FlexClone. 
+---
+= Operazioni SnapDrive per UNIX su volumi FlexClone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX consente di eseguire diverse operazioni sui volumi FlexClone.

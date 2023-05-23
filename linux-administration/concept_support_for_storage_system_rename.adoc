@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_support_for_storage_system_rename.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, support, storage, rename, system, create, copy 
+summary: 'SnapDrive consente di rinominare i sistemi storage. Se viene creata una copia Snapshot e il sistema di storage viene rinominato dopo la creazione della copia, SnapDrive consente di eseguire operazioni Snapshot purché tutti i client (host) siano stati autenticati nuovamente.' 
+---
+= Supporto per la ridenominazione del sistema storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive consente di rinominare i sistemi storage. Se viene creata una copia Snapshot e il sistema di storage viene rinominato dopo la creazione della copia, SnapDrive consente di eseguire le operazioni Snapshot purché tutti i client (host) siano stati autenticati nuovamente.
+
+Le operazioni di Snapshot come ripristino, connessione, disconnessione, visualizzazione ed eliminazione continuano a funzionare nel sistema host solo dopo la nuova autenticazione dei client. È necessario eseguire nuovamente l'autenticazione perché il nome host viene utilizzato come parte della chiave di registro per conservare la password.

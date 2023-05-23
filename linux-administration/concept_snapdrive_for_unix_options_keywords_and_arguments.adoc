@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_snapdrive_for_unix_options_keywords_and_arguments.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, keywords, arguments, options 
+summary: I comandi di SnapDrive per UNIX contengono opzioni, parole chiave e argomenti associati. 
+---
+= Opzioni, parole chiave e argomenti di SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I comandi di SnapDrive per UNIX contengono opzioni, parole chiave e argomenti associati.

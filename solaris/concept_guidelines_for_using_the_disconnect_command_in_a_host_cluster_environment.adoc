@@ -1,0 +1,26 @@
+---
+permalink: solaris/concept_guidelines_for_using_the_disconnect_command_in_a_host_cluster_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, command, host, cluster 
+summary: 'Di seguito sono riportate le linee guida per l"utilizzo del comando di disconnessione dello storage SnapDrive in un ambiente di cluster host.' 
+---
+= Linee guida per l'utilizzo del comando disconnect in un ambiente cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Di seguito sono riportate le linee guida per l'utilizzo `snapdrive storage disconnect` comando in un ambiente di cluster host:
+
+* Il `snapdrive storage disconnect` il comando può essere eseguito da qualsiasi nodo del cluster host.
+* Affinché l'operazione di disconnessione dello storage abbia esito positivo, è necessario che si tratti di una delle seguenti condizioni:
++
+** Le entità di storage devono essere condivise tra tutti i nodi del cluster host.
+** Le LUN devono essere mappate a tutti i nodi del cluster host.
+
+
+* È possibile scollegare un'entità di storage da un nodo specifico utilizzando `-devicetype dedicated` oppure omettendo il `-devicetype` nel comando, perché il valore predefinito è dedicato.
+* Il `snapdrive storage disconnect` Il comando genera un errore se un'entità di storage condivisa o un LUN viene disconnesso con `dedicated` Oppure se un'entità di storage dedicata o un LUN è disconnesso con `shared` opzione.
+* SnapDrive per UNIX esegue `snapdrive storage disconnect` sul nodo master. Distrugge le entità di storage, disconnette le LUN su tutti i nodi non master, quindi disconnette le LUN dal nodo master nel cluster host. Se durante questa sequenza viene visualizzato un messaggio di errore, l'operazione di disconnessione dello storage non riesce.
+

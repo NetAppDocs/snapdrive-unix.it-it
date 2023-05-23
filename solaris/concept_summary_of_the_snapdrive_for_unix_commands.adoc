@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_summary_of_the_snapdrive_for_unix_commands.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, summary, command 
+summary: I comandi SnapDrive per UNIX vengono utilizzati per la configurazione, il provisioning dello storage, la gestione lato host e il funzionamento di Snapshot. 
+---
+= Riepilogo dei comandi di SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I comandi SnapDrive per UNIX vengono utilizzati per la configurazione, il provisioning dello storage, la gestione lato host e il funzionamento di Snapshot.

@@ -1,0 +1,43 @@
+---
+permalink: aix/task_uninstalling_snapdrive_for_unix_from_an_aix_host.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, uninstall, aix, host, unix 
+summary: È possibile utilizzare lo strumento di interfaccia di gestione del sistema per disinstallare SnapDrive per UNIX da un sistema AIX. 
+---
+= Disinstallazione di SnapDrive per UNIX da un host AIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare lo strumento di interfaccia di gestione del sistema (SMIT) per disinstallare SnapDrive per UNIX da un sistema AIX.
+
+.Fasi
+. Avviare SMIT immettendo il seguente comando:
++
+`*smit*`
+
+. Selezionare l'opzione di menu *Installazione e manutenzione del software*.
+. Nella schermata visualizzata, selezionare l'opzione di menu *manutenzione software e utilità*.
+. Nella schermata successiva, selezionare l'opzione di menu *Rimuovi software installato*.
+. Rimuovere il software in uno dei seguenti modi:
++
+** Inserire il nome del pacchetto `NetApp.snapdrive`. Assicurarsi che il `Preview only` l'opzione è impostata su `no`.
+** Premere F4 per visualizzare un elenco di nomi.
++
+... Scorrere l'elenco dei nomi fino a raggiungere `NetApp.snapdrive`.
+... Selezionare `NetApp.snapdrive` E premere Invio.
++
+Viene visualizzato un messaggio di prompt.
+
+... Selezionare `continue` oppure `cancel`.
+... Premere Invio per completare la disinstallazione.
++
+Il processo di disinstallazione colloca il file di log nella seguente posizione: `/tmp/snapdrive_uninstall`.
+
+
+
+
+
+

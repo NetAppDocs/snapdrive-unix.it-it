@@ -1,0 +1,24 @@
+---
+permalink: aix/concept_when_to_use_the_snapdrive_configuration_wizard.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, wizard 
+summary: Utilizzare la configurazione guidata di SnapDrive per aggiornare le variabili di configurazione nella procedura guidata. È possibile eseguire la configurazione guidata in qualsiasi momento per modificare le modifiche di configurazione in SnapDrive. 
+---
+= Configurazione guidata di SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare la configurazione guidata di SnapDrive per aggiornare le variabili di configurazione nella procedura guidata. È possibile eseguire la configurazione guidata in qualsiasi momento per modificare le modifiche di configurazione in SnapDrive.
+
+È possibile eseguire la configurazione guidata da `/opt/NetApp/snapdrive/setup/config_wizard`.
+
+Invio `exit` per chiudere la configurazione guidata, senza salvare le modifiche.
+
+In alternativa, è possibile modificare il valore delle variabili di configurazione direttamente in `snapdrive.conf` file.
+
+*Informazioni correlate*
+
+xref:reference_stack_requirements.adoc[Requisiti dello stack]

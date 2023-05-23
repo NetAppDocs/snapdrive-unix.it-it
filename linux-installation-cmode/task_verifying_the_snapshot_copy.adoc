@@ -1,0 +1,16 @@
+---
+permalink: linux-installation-cmode/task_verifying_the_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, verify 
+summary: È possibile verificare la copia Snapshot ripristinando i dati. 
+---
+= Verifica della copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile verificare la copia Snapshot ripristinando i dati.
+
+Per ulteriori informazioni, vedere https://library.netapp.com/ecm/ecm_download_file/ECMLP2849340["Guida all'amministrazione di SnapDrive 5.3.2 per UNIX per Linux"].

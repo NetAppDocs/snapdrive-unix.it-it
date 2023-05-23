@@ -1,0 +1,16 @@
+---
+permalink: solaris/concept_snapdrive_for_unix_and_raw_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, raw, entity 
+summary: 'SnapDrive per UNIX consente l"operazione di storage per un"entità raw, ad esempio un LUN, o un file system che può essere creato direttamente su un LUN, ed esegue l"operazione di storage senza utilizzare il sistema host, VxVM.' 
+---
+= SnapDrive per entità UNIX e raw
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX consente l'operazione di storage per un'entità raw, ad esempio un LUN, o un file system che può essere creato direttamente su un LUN, ed esegue l'operazione di storage senza utilizzare il sistema host, VxVM.
+
+I comandi di storage di SnapDrive per UNIX gestiscono entità raw come LUN senza attivare VxVM. SnapDrive per UNIX consente di creare, eliminare, connettere e disconnettere LUN e i file system in essi contenuti, senza attivare VxVM.

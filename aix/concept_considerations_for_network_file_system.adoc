@@ -1,0 +1,30 @@
+---
+permalink: aix/concept_considerations_for_network_file_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, guidelines, nfs, configuration 
+summary: 'Prima di installare SnapDrive per UNIX, è necessario prendere in considerazione la posizione in cui viene eseguito il servizio file system di rete e la posizione in cui vengono esportate le directory del sistema di storage. Controllare le autorizzazioni del client NFS e le autorizzazioni di lettura/scrittura dell"interfaccia.' 
+---
+= Linee guida per le configurazioni NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di installare SnapDrive per UNIX, è necessario prendere in considerazione la posizione in cui viene eseguito il servizio NFS e la posizione in cui vengono esportate le directory del sistema di storage. Controllare le autorizzazioni del client NFS e le autorizzazioni di lettura/scrittura dell'interfaccia.
+
+Quando si utilizza SnapDrive per UNIX per ripristinare o connettersi a directory montate su NFS, è necessario assicurarsi che le directory del sistema di storage siano esportate correttamente nell'host. Se l'host dispone di più interfacce IP che possono accedere al sistema di storage, è necessario assicurarsi che la directory sia esportata correttamente in ciascuna di esse.
+
+SnapDrive per UNIX emette avvisi a meno che tutte queste interfacce non dispongano di permessi di lettura/scrittura o, nel caso di `snapdrive snap connect` con `-readonly` o almeno l'autorizzazione di sola lettura. Il `snapdrive snap restore` e. `snapdrive snap connect` i comandi non vengono eseguiti se nessuna di queste interfacce dispone dell'autorizzazione per accedere alla directory.
+
+Quando si esegue SFSR (Single file SnapRestore) come utente root, è necessario assicurarsi che le directory del sistema di storage vengano esportate con permessi di lettura/scrittura sull'host e che siano impostate le seguenti regole di esportazione:
+
+* `rw=<hostname>, root=<hostname>` In Data ONTAP in modalità 7
+* `rwrule = sys, rorule=sys, superuser= sys` In Clustered Data ONTAP
+
+
+*Informazioni correlate*
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["Riferimento NFS per ONTAP 9"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1401220["Guida all'accesso ai file e alla gestione dei protocolli di Data ONTAP 8.2 per 7-Mode"]

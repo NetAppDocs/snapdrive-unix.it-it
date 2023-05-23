@@ -1,0 +1,21 @@
+---
+permalink: linux-administration/concept_considerations_forrestoring_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, snapshot, copy 
+summary: Prima di ripristinare le copie Snapshot, assicurarsi di non utilizzare il file system e di non interrompere il processo di ripristino. 
+---
+= Considerazioni per il ripristino di una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di ripristinare le copie Snapshot, assicurarsi di non utilizzare il file system e di non interrompere il processo di ripristino.
+
+Prima di ripristinare una copia Snapshot, prendere in considerazione le seguenti informazioni importanti:
+
+* Assicurarsi di non essere in alcuna directory del file system che si desidera ripristinare. È possibile eseguire `snapdrive snap restore` da qualsiasi directory, ad eccezione di quella di un file system in cui si desidera ripristinare le informazioni.
+* Non interrompere l'operazione di ripristino immettendo Ctrl-C. In questo modo, il sistema potrebbe essere in una configurazione inutilizzabile. In tal caso, potrebbe essere necessario contattare il supporto tecnico NetApp per il ripristino.
+* Quando si esportano le entità NFS in un volume, impostare l'opzione ID utente anonimo su "`0`" per `snapdrive snap restore` comando per il corretto funzionamento.
+

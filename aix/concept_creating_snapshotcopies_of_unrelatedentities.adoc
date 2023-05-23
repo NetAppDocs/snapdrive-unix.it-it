@@ -1,0 +1,30 @@
+---
+permalink: aix/concept_creating_snapshotcopies_of_unrelatedentities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, create, snapshot, copy, unrelated, entity 
+summary: SnapDrive per UNIX crea copie Snapshot di entità non correlate mantenendo copie Snapshot singole coerenti con il crash. 
+---
+= Creazione di copie Snapshot di entità non correlate
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX crea copie Snapshot di entità non correlate mantenendo copie Snapshot singole coerenti con il crash.
+
+A meno che non si specifichi diversamente, SnapDrive per UNIX presuppone che tutte le entità specificate in una particolare riga di comando SNAP create di SnapDrive siano correlate; in altre parole, la validità degli aggiornamenti di una entità può dipendere dagli aggiornamenti delle altre entità specificate. Quando le entità di storage hanno scritture dipendenti in questo modo, SnapDrive per UNIX prende le misure necessarie per creare una copia Snapshot coerente con il crash per tutte le entità di storage come gruppo.
+
+Nell'esempio seguente viene illustrato come SnapDrive per UNIX crea una copia Snapshot di entità di storage con scritture dipendenti. Nell'esempio seguente, il comando SNAP create di SnapDrive specifica un file system su un LUN e anche un gruppo di dischi. Il gruppo di dischi è costituito da LUN che risiedono su un singolo sistema di storage (vedere creazione di una copia Snapshot). Il file system su un LUN risiede su un sistema di storage e un volume del sistema di storage diversi. In gruppo, il file system e il gruppo di dischi si estendono su più volumi del sistema di storage, ma singolarmente non lo fanno.
+
+Il seguente comando specifica una copia Snapshot che contiene sia il file system /mnt/fs1 che il gruppo di dischi dg1: `snapdrive snap create -fs /mnt/fs1 -dg dg1 -snapname fs1_dg1`
+
+Poiché queste entità di storage possono avere scritture dipendenti, SnapDrive per UNIX tenta di creare una copia Snapshot coerente con il crash e considera il file system /mnt/fs1 e il gruppo di dischi dg1 come un gruppo. Ciò significa che SnapDrive per UNIX è necessario per bloccare le operazioni di i/o nei volumi del sistema di storage prima di creare la copia Snapshot.
+
+La creazione di copie Snapshot coerenti con il crash per più entità di storage tra i volumi richiede più tempo e non è sempre possibile se SnapDrive per UNIX non riesce a bloccare le operazioni di i/O. In questo modo, SnapDrive per UNIX consente di creare copie Snapshot di entità di storage non correlate. Le entità di storage non correlate sono entità che è possibile specificare che non hanno scritture dipendenti quando viene eseguita la copia Snapshot. Poiché le entità non hanno scritture dipendenti, SnapDrive per UNIX non prende provvedimenti per rendere le entità coerenti come gruppo. Invece, SnapDrive per UNIX crea una copia Snapshot in cui ciascuna delle singole entità di storage è coerente con il crash.
+
+Il seguente comando specifica una copia Snapshot del file system su un LUN e il gruppo di dischi descritti in precedenza. Poiché viene specificata l'opzione -unrelated, SnapDrive per UNIX crea una copia Snapshot in cui il file system /mnt/fs1 e il gruppo di dischi dg1 sono coerenti con il crash come singole entità di storage, ma non vengono trattati come un gruppo. Il seguente comando non richiede SnapDrive per UNIX per bloccare le operazioni di i/o sui volumi del sistema di storage: `snapdrive snap create -fs /mnt/fs1 -dg dg1 -unrelated -snapname fs1_dg1`
+
+*Informazioni correlate*
+
+xref:task_creating_asnapshot_copy.adoc[Creazione di una copia Snapshot]

@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_snapshot_copies_information_display.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, display 
+summary: 'È possibile visualizzare le copie Snapshot di un sistema di storage, un volume del sistema di storage, LUN e altre entità di storage. Utilizzare il comando SnapDrive SNAP show (o list) per visualizzare una copia Snapshot.' 
+---
+= Visualizzazione delle informazioni sulle copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare le copie Snapshot di un sistema di storage, un volume del sistema di storage, LUN e altre entità di storage. Utilizzare il comando `snapdrive snap show` (o. `list`) Per visualizzare una copia Snapshot.

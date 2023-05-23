@@ -1,0 +1,33 @@
+---
+permalink: solaris/concept_considerations_when_working_with_snapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy 
+summary: 'Quando si utilizza una copia Snapshot, è necessario tenere presente alcune considerazioni, ad esempio il fatto che SnapDrive per UNIX funziona solo con le copie Snapshot create o che le copie Snapshot vengono replicate automaticamente dal sistema di storage all"host e così via.' 
+---
+= Considerazioni sull'utilizzo delle copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si utilizza una copia Snapshot, è necessario tenere presente alcune considerazioni, ad esempio il fatto che SnapDrive per UNIX funziona solo con le copie Snapshot create o che le copie Snapshot vengono replicate automaticamente dal sistema di storage all'host e così via.
+
+Quando si lavora con le operazioni Snapshot, è necessario prendere in considerazione quanto segue:
+
+* SnapDrive per UNIX funziona solo con le copie Snapshot create.
++
+Non è in grado di ripristinare le copie Snapshot non create.
+
+* Quando si crea una copia Snapshot su un sistema di storage di destinazione, la copia Snapshot viene automaticamente replicata dal sistema di storage di origine su cui viene creata nel sistema di storage di destinazione.
++
+SnapDrive per UNIX consente di ripristinare la copia Snapshot anche sul sistema di storage di destinazione.
+
+* La connessione all'host di origine avviene quando si utilizza `snapdrive snap connect` Comando per connettersi a una copia Snapshot in una nuova posizione sullo stesso host in cui è stata connessa l'ultima volta (o è ancora connesso).
+* Il supporto di Snapshot per le entità di storage che coprono più volumi di sistemi storage o sistemi storage multipli è limitato alle configurazioni che non consentono un'operazione di blocco nello stack software.
+* Quando si esporta il volume attraverso il protocollo NFS, è necessario impostare l'opzione ID utente anonimo su 0 per il funzionamento dei comandi SnapDrive per UNIX.
+* Un'operazione SFSR (Single-file SnapRestore) seguita immediatamente dalla creazione di una copia Snapshot non riesce.
++
+È necessario riprovare l'operazione dopo un certo periodo di tempo. Per ulteriori informazioni, consultare link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guida alla gestione dello storage logico di Clustered Data ONTAP"].
+
+

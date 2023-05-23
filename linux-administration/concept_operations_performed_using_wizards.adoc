@@ -1,0 +1,23 @@
+---
+permalink: linux-administration/concept_operations_performed_using_wizards.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, wizards, storage, create 
+summary: È possibile utilizzare procedure guidate diverse per creare entità di storage e manipolare SnapDrive per UNIX in modo efficiente. 
+---
+= Operazioni eseguite mediante procedure guidate
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare procedure guidate diverse per creare entità di storage e manipolare SnapDrive per UNIX in modo efficiente.
+
+I seguenti comandi SnapDrive per UNIX dispongono di una procedura guidata equivalente per eseguire le operazioni:
+
+* `storage create`
+* `storage delete`
+* `snap restore`
+* `snap connect`
+* `snap disconnect`
+

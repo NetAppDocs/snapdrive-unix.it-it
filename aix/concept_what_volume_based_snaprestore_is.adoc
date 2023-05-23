@@ -1,0 +1,26 @@
+---
+permalink: aix/concept_what_volume_based_snaprestore_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snaprestore, volume 
+summary: 'VBSR (Volume-Based SnapRestore) ripristina il volume con tutti i suoi oggetti di storage. Il ripristino basato su volume è più veloce rispetto a ciascun oggetto di storage ripristinato singolarmente. VBSR funziona anche con volumi FlexClone e configurazioni vFiler. VBSR per vFiler è disponibile per Data ONTAP 7.3 e versioni successive.' 
+---
+= Che cos'è il volume-based SnapRestore
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Volume-Based SnapRestore (VBSR) ripristina il volume con tutti i suoi oggetti di storage. Il ripristino basato su volume è più veloce rispetto a ciascun oggetto di storage ripristinato singolarmente. VBSR funziona anche con volumi FlexClone e configurazioni vFiler. VBSR per vFiler è disponibile per Data ONTAP 7.3 e versioni successive.
+
+SnapDrive 3.0 per UNIX e versioni precedenti possono ripristinare LUN per un'entità lato host come file system, gruppi di dischi e volumi host o file normali creati su NFS da uno snapshot coerente con l'applicazione. SnapDrive per UNIX utilizza SFSR (Single file Snap Restore) implementato in Data ONTAP. SFSR funziona come segue:
+
+* Per i file normali mentre SFSR sta procedendo, qualsiasi operazione che tenta di modificare il file viene sospesa fino al completamento di SFSR.
+* Per i LUN, quando SFSR sta procedendo, il LUN è disponibile e i/o (sia in lettura che in scrittura) sono consentiti. SFSR per i file normali e i LUN potrebbe richiedere molto tempo a seconda delle dimensioni del LUN o del file da ripristinare.
+
+
+Pertanto, per alcuni ambienti, SFSR è un ostacolo.
+
+SnapDrive 4.0 per UNIX e versioni successive consente di eseguire copie Snapshot basate su volume. VBSR è molto più veloce e richiede meno CPU e risorse di storage. Ripristina tutti i dati sul file system attivo. Questa funzionalità può essere utilizzata se un utente desidera ripristinare tutti i LUN o i file normali su un volume dalla stessa copia Snapshot.
+
+La copia Snapshot basata su volume deve essere utilizzata con cautela, in quanto tutte le copie Snapshot eseguite dopo la copia Snapshot del volume utilizzata per l'operazione di ripristino vengono eliminate. Tutti i nuovi file e le nuove LUN creati su questo volume devono essere cancellati.

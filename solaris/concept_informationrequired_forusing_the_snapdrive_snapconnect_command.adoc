@@ -1,0 +1,270 @@
+---
+permalink: solaris/concept_informationrequired_forusing_the_snapdrive_snapconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, command 
+summary: 'Per connettersi a una copia Snapshot, determinare il tipo di entità di storage, connettere una copia Snapshot con l"albero delle directory NFS alle configurazioni di Data ONTAP 7.3 e così via.' 
+---
+= Informazioni necessarie per l'utilizzo del comando SnapDrive SNAP Connect
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per connettersi a una copia Snapshot, determinare il tipo di entità di storage, connettere una copia Snapshot con l'albero delle directory NFS alle configurazioni di Data ONTAP 7.3 e così via.
+
+La seguente tabella fornisce le informazioni necessarie per l'utilizzo di `snapdrive snap connect` comando.
+
+
+NOTE: `snap connect` Le operazioni richiedono la licenza Storage Foundation Enterprise per `vximport` Su Solaris con Veritas.
+
+|===
+| Requisito/opzione | Argomento 
+
+
+ a| 
+Decidere il tipo di entità di storage che si desidera utilizzare per allegare la copia Snapshot e fornire il nome dell'entità con l'argomento appropriato. Questo è il valore per `_src_fspec_` argomento.
+
+* Se si connette una copia Snapshot di un LUN, SnapDrive per UNIX connette il LUN specificato. Non è possibile utilizzare `-lun` sulla stessa riga di comando con `-vg`, `-dg`, `-fs`, `-lvol`, o. `-hostvol` opzioni. È possibile specificare il nome breve del LUN nel formato lun_name o qtree_name/lun_name.
+* Se si connette una copia Snapshot di un file system creato direttamente su un LUN, SnapDrive per UNIX connette il LUN che dispone del file system.
+* Se si connette una copia Snapshot di un gruppo di dischi con una specifica di file o volume host, l'argomento viene tradotto in un insieme di gruppi di dischi nel sistema di storage. SnapDrive per UNIX connette l'intero gruppo di dischi che contiene l'entità, anche se l'entità è un volume host o un file system.
+* Se si connette una copia Snapshot di un file system NFS, l'argomento viene tradotto nell'albero delle directory NFS. SnapDrive per UNIX crea un FlexClone del volume, rimuove gli alberi di directory non specificati nella copia Snapshot, quindi connette e monta l'albero di directory NFS. Se si specifica un punto di montaggio NFS, non è possibile specificare entità non NFS (`-vg`, `-dg`, `-fs`, `-lvol`, o. `-hostvol`) sulla stessa riga di comando.
++
+
+NOTE: SnapDrive per UNIX non supporta collegamenti simbolici a livello di punto di montaggio.
+
+
+
+
+
+ a| 
+LUN (`-lun _file_spec_`)
+ a| 
+_Nome breve del LUN._
+
+
+
+ a| 
+Il `_s_lun_name_` Specifica un LUN esistente in `-snapname _long_snap_name_`. Il nome lun_name breve è obbligatorio. Non è possibile includere il nome di un volume del sistema di storage o del sistema di storage. Il `_d_lun_name_` Specifica il nome a cui è connesso il LUN. In breve `_lun_name_` è obbligatorio. Non è possibile includere il nome di un volume del sistema di storage o del sistema di storage. Specificare un `_d_lun_name_`
+
+
+
+ a| 
+Gruppo di dischi (`-dg _file_spec_`) o gruppo di volumi (`-vg _file_spec_` )
+ a| 
+_nome del disco o del gruppo di volumi_
+
+
+
+ a| 
+File system (`-fs _file_spec_` )
+ a| 
+_nome del file system_
+
+
+
+ a| 
+Volume host (`-hostvol _file_spec_` ) o volume logico (`-lvol _file_spec_` )
+ a| 
+_nome dell'host o del volume logico_
+
+
+
+ a| 
+Collegare una copia Snapshot con un albero di directory NFS alle configurazioni di Data ONTAP 7.3.
+
+* Se la configurazione utilizza Data ONTAP 7.3 o una versione successiva di Data ONTAP con volumi tradizionali (non FlexVol), è necessario specificare questa opzione per connettere la copia Snapshot con accesso di sola lettura (obbligatorio).
+* Se la configurazione utilizza Data ONTAP 7.3 e versioni successive e volumi FlexVol, SnapDrive per UNIX fornisce automaticamente l'accesso in lettura/scrittura. Specificare questa opzione solo se si desidera limitare l'accesso a sola lettura (facoltativo).
+
+
+
+
+ a| 
+-sola lettura
+ a| 
+_imposta permesso di sola lettura_
+
+
+
+ a| 
+Facoltativo: Fornire un nome per l'accesso dell'entità di destinazione dopo la connessione dell'entità di storage. SnapDrive per UNIX utilizza questo nome per connettere l'entità di destinazione. Questo è il `_dest_file_spec_` argomento.
+
+Se si omette questo nome, il comando SNAP Connect utilizza il valore fornito per `_src_fspec_`.
+
+
+
+ a| 
+Nome dell'entità di destinazione
+ a| 
+`_dest_file_spec_`
+
+
+
+ a| 
+Facoltativo: Specificare i nomi delle entità di storage di destinazione. Se sono state incluse queste informazioni come parte di `_dest_fspec/src_fspec_` eseguire l'associazione, non è necessario immetterla qui.
+
+È possibile utilizzare `-destxx` opzioni per specificare i nomi delle entità di storage di destinazione se queste informazioni non fanno parte di `_dest_fspec/src_fspec_` abbinare. Ad esempio, il `-fs` l'opzione assegna solo un nome a un punto di montaggio di destinazione in modo da poter utilizzare `-destdg` opzione per specificare il gruppo di dischi di destinazione.
+
+Se non si specifica il nome necessario per collegare un'entità nel gruppo di dischi di destinazione, il `snapdrive snap connect` il comando prende il nome dal gruppo di dischi di origine.
+
+Se non si specifica il nome necessario per collegare un'entità nel gruppo di dischi di destinazione, il `snap connect command` prende il nome dal gruppo di dischi di origine. Se non è possibile utilizzare tale nome, l'operazione non riesce, a meno che non sia stato incluso `-autorename` al prompt dei comandi.
+
+
+
+ a| 
+Gruppo di dischi di destinazione (`-destdg`) o gruppo di volumi di destinazione (`-destvg`)
+ a| 
+`_dgname_`
+
+
+
+ a| 
+Volume logico di destinazione (`-destlv`) o volume host di destinazione (`-desthv`)
+ a| 
+`_lvname_`
+
+
+
+ a| 
+Specificare il nome della copia Snapshot. Utilizzare la forma lunga del nome in cui inserire il nome del sistema di storage, il volume e il nome della copia Snapshot.
+
+
+
+ a| 
+Nome della copia Snapshot (`-snapname`)
+ a| 
+`_long_snap_name_`
+
+
+
+ a| 
+`-nopersist`
+ a| 
+~
+
+
+
+ a| 
+Facoltativo: Collegare la copia Snapshot a una nuova posizione senza creare una voce nella tabella del file system host.
+
+* Il `-nopersist` Consente di collegare una copia Snapshot a una nuova posizione senza creare una voce nella tabella del file system host. Per impostazione predefinita, SnapDrive for UNIX crea montaggi persistenti. Ciò significa che:
++
+** Quando si collega una copia Snapshot su un host Solaris, SnapDrive per UNIX monta il file system e inserisce una voce per i LUN che compongono il file system nella tabella del file system dell'host.
+** Non è possibile utilizzare `-nopersist` Per collegare una copia Snapshot che contiene una struttura di directory NFS.
+
+
+
+
+
+
+ a| 
+`-reserve | -noreserve`
+ a| 
+~
+
+
+
+ a| 
+Facoltativo: Collegare la copia Snapshot a una nuova posizione con o senza creare una riserva di spazio.
+
+
+
+ a| 
+Nome iGroup (`-igroup`)
+ a| 
+`_ig_name_`
+
+
+
+ a| 
+Facoltativo: NetApp consiglia di utilizzare l'igroup predefinito per l'host invece di fornire un nome igroup.
+
+
+
+ a| 
+`-autoexpand`
+ a| 
+~
+
+
+
+ a| 
+Per ridurre la quantità di informazioni da fornire durante la connessione a un gruppo di volumi, includere `-autoexpand` al prompt dei comandi. Questa opzione consente di assegnare un nome solo a un sottoinsieme dei volumi logici o dei file system del gruppo di volumi. Quindi, espande la connessione al resto dei volumi logici o dei file system del gruppo di dischi. In questo modo, non è necessario specificare ciascun volume logico o file system. SnapDrive per UNIX utilizza queste informazioni per generare il nome dell'entità di destinazione.
+
+Questa opzione si applica a ciascun gruppo di dischi specificato al prompt dei comandi e a tutte le entità LVM host all'interno del gruppo. Senza `-autoexpand` opzione (impostazione predefinita): per collegare l'intero gruppo di dischi, è necessario specificare tutti i volumi host e i file system interessati contenuti in tale gruppo di dischi.
+
+
+NOTE: Se il valore immesso è un gruppo di dischi, non è necessario immettere tutti i volumi host o i file system, perché SnapDrive per UNIX sa a quale gruppo di dischi si sta connettendo.
+
+Se si include questa opzione, NetApp consiglia di includere anche il `-autorename` opzione. Se il `-autoexpand` L'opzione deve connettere la copia di destinazione di un'entità LVM, ma il nome è già in uso, il comando non riesce a meno che non lo sia `-autorename` al prompt dei comandi.
+
+
+
+ a| 
+Il comando non riesce se non si include -autoespandi e non si specificano tutti i volumi host LVM in tutti i gruppi di dischi a cui si fa riferimento al prompt dei comandi (specificando il volume host stesso o il file system).
+
+
+
+ a| 
+`-autorename`
+ a| 
+~
+
+
+
+ a| 
+Quando si utilizza `-autoexpand` senza `-autorename` l'opzione `snap connect` Il comando non riesce se il nome predefinito per la copia di destinazione di un'entità LVM è in uso. Se si include `-autorename` SnapDrive per UNIX rinomina l'entità quando viene utilizzato il nome predefinito. Ciò significa che con `-autorename` Al prompt dei comandi, l'operazione di connessione Snapshot continua indipendentemente dalla disponibilità o meno di tutti i nomi necessari.
+
+Questa opzione si applica a tutte le entità lato host specificate al prompt dei comandi.
+
+Se si include `-autorename` al prompt dei comandi, implica l'opzione `-autoexpand` anche se non si include tale opzione.
+
+
+
+ a| 
+`-devicetype`
+ a| 
+~
+
+
+
+ a| 
+Facoltativo: Specificare il tipo di dispositivo da utilizzare per le operazioni SnapDrive per UNIX. Può trattarsi di "`shared`" che specifica l'ambito di LUN, gruppo di dischi e file system come host cluster-wide o "`dedicato`" che specifica l'ambito di LUN, gruppo di dischi e file system come locale.
+
+Se si specifica `-devicetype` Opzione dedicata, tutte le opzioni del comando SNAP Connect di SnapDrive attualmente supportate in SnapDrive 2.1 per UNIX funzionano come sono sempre disponibili.
+
+Se si avvia `snapdrive snap connect` con il `-devicetype shared` da qualsiasi nodo non master nel cluster host, il comando viene inviato al nodo master ed eseguito. Affinché ciò accada, è necessario assicurarsi che il `rsh` oppure `ssh` access-without-password-prompt per l'utente root deve essere configurato per tutti i nodi nel cluster host.
+
+
+
+ a| 
+`-split`
+ a| 
+~
+
+
+
+ a| 
+Consente di suddividere i volumi clonati o i LUN durante le operazioni di connessione Snapshot e disconnessione Snapshot.
+
+
+
+ a| 
+`mntopts`
+ a| 
+~
+
+
+
+ a| 
+*Opzionale:* se si crea un file system, è possibile specificare le seguenti opzioni:
+
+* Utilizzare `-mntopts` per specificare le opzioni che si desidera passare al comando di montaggio dell'host (ad esempio, per specificare il comportamento di registrazione del sistema host). Le opzioni specificate vengono memorizzate nel file di tabella del file system host. Le opzioni consentite dipendono dal tipo di file system host.
+* Il `_mntopts_` l'argomento è un file system `-type` opzione specificata mediante il comando mount `-o` allarme. Non includere `-o` nella `_-mntopts_` argomento. Ad esempio, la sequenza -mntopts tmplog passa la stringa `-o tmplog` al `mount` e inserisce il testo tmplog in una nuova riga di comando.
++
+
+NOTE: Se vengono superati dei dati non validi `-mntopts` Opzioni per le operazioni di storage e snap, SnapDrive per UNIX non convalida queste opzioni di montaggio non valide.
+
+
+
+|===

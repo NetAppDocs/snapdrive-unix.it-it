@@ -1,0 +1,27 @@
+---
+permalink: aix/task_connecting_tosnapshot_copies_ofshared_storageentities_other_thanluns.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, lun, shared, storage, snapshot, copy 
+summary: È possibile utilizzare il comando SNAP Connect di SnapDrive per connettersi a una copia Snapshot di entità di storage condivise diverse dalle LUN. 
+---
+= Connessione a copie Snapshot di entità di storage condivise diverse dalle LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare `snapdrive snap connect` Comando per connettersi a una copia Snapshot di entità di storage condivise diverse dalle LUN.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*snapdrive snap connect _fspec_set_ [_fspec_set_...] -snapname _long_snap_name_*`
+
++
+`*_fspec_set_ [_fspec_set_...] -snapname _long_snap_name_ [-devicetype shared] [-split]*`
+
++
+In questa sintassi, `_fspec_set_ is: `{-dg | -fs}_src_file_spec_ [_dest_file_spec_ ] [-destdg _dgname_]`
+
+

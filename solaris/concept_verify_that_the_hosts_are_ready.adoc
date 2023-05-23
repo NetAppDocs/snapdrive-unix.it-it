@@ -1,0 +1,36 @@
+---
+permalink: solaris/concept_verify_that_the_hosts_are_ready.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, verify 
+summary: 'Verificare che gli host siano pronti. Per avviare le operazioni di verifica, verificare innanzitutto se l"host è connesso al sistema di storage immettendo il comando ping filername.' 
+---
+= Verificare che gli host siano pronti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verificare che gli host siano pronti. Per avviare le operazioni di verifica, verificare innanzitutto se l'host è connesso al sistema di storage immettendo il `ping filername` comando.
+
+È inoltre necessario confermare che gli host e il sistema di storage possono comunicare tra loro. Per confermare, eseguire `snapdrive storage show -all` controllare e controllare se gli host e il sistema di storage stanno comunicando. Verificare che gli host siano pronti eseguendo alcune operazioni:
+
+* Verificare che l'host e il sistema di storage siano stati configurati correttamente seguendo le istruzioni riportate nella documentazione delle utility host per l'host.
+* Verificare di disporre di una configurazione che utilizzi NFS e configurare il file di esportazione.
+* Verificare che l'host soddisfi i requisiti minimi per SnapDrive per UNIX, incluse le patch del sistema operativo richieste.
+* Installare la libreria NTAPasl prima di installare lo stack Veritas sull'host.
++
+
+NOTE: Se lo stack Veritas è stato installato senza installare la libreria NTAPasl, è necessario installare la libreria NTAPasl ed eseguire `vxinstall` Comando per portare online LUN e gruppi di dischi.
+
+
+
+*Informazioni correlate*
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["Riferimento NFS per ONTAP 9"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1401220["Guida all'accesso ai file e alla gestione dei protocolli di Data ONTAP 8.2 per 7-Mode"]
+
+http://mysupport.netapp.com["Supporto NetApp"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148981["Guida all'installazione e all'installazione di Solaris host Utilities 6.1"]

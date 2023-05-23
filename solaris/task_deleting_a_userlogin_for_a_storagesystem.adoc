@@ -1,0 +1,33 @@
+---
+permalink: solaris/task_deleting_a_userlogin_for_a_storagesystem.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, user, login, storage, system, command 
+summary: È possibile eliminare un login utente per uno o più sistemi storage eseguendo il comando SnapDrive config delete. 
+---
+= Eliminazione di un login utente per un sistema storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare un accesso utente per uno o più sistemi storage eseguendo `snapdrive config delete` comando.
+
+Assicurarsi di aver effettuato l'accesso come utente root.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*snapdrive config delete _appliance_name_ [_appliance_name_]*`
+
++
+`_appliance_name_` è il nome del sistema di storage per il quale si desidera eliminare le informazioni di accesso dell'utente.
+
++
+SnapDrive per UNIX rimuove le informazioni di accesso relative al nome utente o alla password per i sistemi di storage specificati.
+
++
+
+NOTE: Per consentire a SnapDrive per UNIX di accedere al sistema di storage, è necessario specificare un nuovo login utente.
+
+

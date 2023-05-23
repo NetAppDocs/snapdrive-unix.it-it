@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_guidelines_for_the_storage_resize_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, command, resize, guidelines 
+summary: Quando si utilizza il comando di ridimensionamento dello storage di SnapDrive, è necessario seguire alcune linee guida. 
+---
+= Linee guida per il comando di ridimensionamento dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si utilizza, è necessario seguire alcune linee guida `snapdrive storage resize` comando.
+
+* L'operazione di ridimensionamento dello storage può solo aumentare le dimensioni dello storage. Non è possibile utilizzarlo per ridurre le dimensioni di un'entità.
+* Tutti i LUN devono risiedere nello stesso volume del sistema di storage.
+* L'operazione di ridimensionamento non supporta direttamente i volumi host logici o i file system che risiedono su volumi host logici o su LUN. In questi casi, è necessario utilizzare i comandi LVM per ridimensionare lo storage.
+* Non è possibile ridimensionare un LUN; è necessario utilizzare `-addlun` Opzione per aggiungere un nuovo LUN.
+

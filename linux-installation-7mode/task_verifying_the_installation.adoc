@@ -1,0 +1,27 @@
+---
+permalink: linux-installation-7mode/task_verifying_the_installation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, verify, install, check 
+summary: 'Dopo aver installato SnapDrive per UNIX, è necessario verificare che l"installazione abbia esito positivo. SnapDrive per UNIX installa più file sull"host, ad esempio file eseguibili, file di configurazione, file di disinstallazione, file di diagnostica, e pagine man.' 
+---
+= Verifica dell'installazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver installato SnapDrive per UNIX, è necessario verificare che l'installazione abbia esito positivo. SnapDrive per UNIX installa più file sull'host, ad esempio file eseguibili, file di configurazione, file di disinstallazione, file di diagnostica, e pagine man.
+
+.Fasi
+. Verificare che il `snapdrive.conf` il file si trova in `/opt/NetApp/snapdrive/` cartella.
+. Verificare che i file eseguibili di SnapDrive per UNIX per un sistema operativo Linux siano installati nei seguenti percorsi:
++
+** `/opt/NetApp/snapdrive/bin/snapdrive`
+** `/opt/NetApp/snapdrive/bin/snapdrived`
+
+
+. Verificare che i file di diagnostica di SnapDrive per UNIX siano installati in `/opt/NetApp/snapdrive/diag` cartella.
+. Verificare che le pagine man di SnapDrive per UNIX siano installate in `/opt/NetApp/snapdrive/docs` cartella.
+. Verificare i dettagli dei componenti di configurazione installati in `/var/log/sdconfcheck.out` file.
+

@@ -1,0 +1,31 @@
+---
+permalink: aix/task_migrating_from_old_host_name_to_new_host_name.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, migrate, old, storage, system, new 
+summary: È possibile eseguire la migrazione dal vecchio sistema di storage a un nuovo sistema di storage utilizzando il comando SnapDrive config migra set. Dopo la migrazione, è possibile eseguire tutte le operazioni SnapDrive nel sistema host utilizzando il nuovo sistema di storage. 
+---
+= Migrazione dal vecchio sistema storage al nuovo sistema storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eseguire la migrazione dal vecchio sistema di storage a un nuovo sistema di storage utilizzando `snapdrive config migrate set` comando. Dopo la migrazione, è possibile eseguire tutte le operazioni SnapDrive nel sistema host utilizzando il nuovo sistema di storage.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*snapdrive config migrate set _old_storage_system_name new_storage_system_name_*`
+
+
+
+L'esempio seguente mostra che è possibile migrare dal vecchio sistema di storage "tuffleskin" al nuovo sistema di storage "roaster".
+
+[listing]
+----
+snapdrive config migrate set tuffleskin roaster
+----
+*Informazioni correlate*
+
+xref:concept_migrating_to_new_vserver_name.adoc[Migrazione al nuovo nome Vserver]

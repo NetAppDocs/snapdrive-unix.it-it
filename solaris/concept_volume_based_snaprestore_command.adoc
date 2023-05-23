@@ -1,0 +1,87 @@
+---
+permalink: solaris/concept_volume_based_snaprestore_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, snaprestore, command 
+summary: 'In questa sezione vengono descritti i comandi e le opzioni per l"utilizzo di SnapRestore basato su volume.' 
+---
+= Comando SnapRestore basato su volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In questa sezione vengono descritti i comandi e le opzioni per l'utilizzo di SnapRestore basato su volume.
+
+`-vbsr` L'opzione viene aggiunta nella CLI di ripristino snap per selezionare il SnapRestore basato sul volume. Utilizzare la seguente sintassi di comando per eseguire il ripristino utilizzando SnapRestore basato su volume:
+
+[listing]
+----
+snapdrive snap restore {-lun | -dg | -vg | -hostvol |
+-lvol | -fs |-file} file_spec [file_spec ...] [{-lun | -dg |
+-vg | -hostvol | -lvol | -fs -file} file_spec [file_spec ...]
+...] -snapname snap_name [-force [-noprompt]][{-reserve |
+-noreserve}] \[-devicetype \{shared \| dedicated\}\]
+[-vbsr [execute | preview]]
+----
+Se non viene fornito alcun argomento con `-vbsr`, l'output predefinito è quello dell'opzione di anteprima. R `-verbose` viene utilizzata l'opzione che consente di ottenere un output dettagliato di tutti i controlli obbligatori che possono essere ignorati dall'utente. L'output predefinito quando l'opzione -verbose non viene fornita visualizza i risultati dei controlli non riusciti.
+
+`-devicetype shared | dedicated` l'opzione supporta con `-vbsr`. Ciò consente il supporto di filespec host condivisi a livello di cluster host con SnapRestore basato su volume. Si tratta dello stesso tipo di supporto per il ripristino snap di un singolo file.
+
+Se non si desidera che venga visualizzato alcun messaggio di conferma durante l'esecuzione di SnapRestore basato su volume, è possibile utilizzare `-noprompt` e. `-force` opzione con `snap restore -vbsr execute` comando. La seguente tabella descrive il comportamento di SnapDrive per UNIX in base alle opzioni fornite dall'utente.
+
+|===
+| N. DI SERIE | -vbsr execute | -forza | -noprompt | Risultato 
+
+
+ a| 
+1.
+ a| 
+No
+ a| 
+NA
+ a| 
+NA
+ a| 
+La modalità di anteprima è quella predefinita. Tutti i controlli vengono eseguiti e viene generato un report per ogni controllo.
+
+
+
+ a| 
+2.
+ a| 
+Sì
+ a| 
+No
+ a| 
+No
+ a| 
+Tutti i controlli vengono eseguiti. Se un controllo obbligatorio che un utente può eseguire l'override non riesce, SnapDrive per UNIX visualizza un messaggio di errore.
+
+
+
+ a| 
+3.
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+ a| 
+Tutti i controlli vengono eseguiti. Se i controlli obbligatori non vengono eseguiti correttamente, SnapDrive per UNIX visualizza un messaggio di errore. Se un utente può eseguire l'override non riesce, SnapDrive per UNIX richiede di eseguire questa operazione.
+
+
+
+ a| 
+4.
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Tutti i controlli vengono eseguiti. Se i controlli obbligatori non vengono eseguiti correttamente, SnapDrive per UNIX visualizza un messaggio di errore. Se un controllo che un utente può eseguire l'override non riesce, SnapDrive per UNIX non richiede.
+
+|===

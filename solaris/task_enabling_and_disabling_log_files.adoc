@@ -1,0 +1,53 @@
+---
+permalink: solaris/task_enabling_and_disabling_log_files.html 
+sidebar: sidebar 
+keywords: snap, snapshot, enable, disable, log, file 
+summary: 'Se si desidera attivare un file di log, specificare un nome file come valore nella coppia nome-valore del file di log che si desidera attivare. Se si desidera disattivare un file, non immettere un valore per il parametro log file name (Nome file di registro).' 
+---
+= Attivazione e disattivazione dei file di log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si desidera attivare un file di log, specificare un nome file come valore nella coppia nome-valore del file di log che si desidera attivare. Se si desidera disattivare un file, non immettere un valore per il parametro log file name (Nome file di registro).
+
+Devi aver effettuato l'accesso come utente root.
+
+.Fasi
+. Aprire `snapdrive.conf` in un editor di testo.
+. Scegliere l'opzione appropriata per attivare o disattivare un file di log.
++
+|===
+| Se si desidera... | Quindi... 
+
+
+ a| 
+*Attivare un file di log*
+ a| 
+Specificare un nome file come valore nella coppia nome-valore del file di log che si desidera attivare. SnapDrive per UNIX scrive i file di log solo se ha il nome di un file su cui scrivere. I nomi predefiniti per i file di log sono i seguenti:
+
+** Log di audit: `sd-audit.log`
+** Log di recovery: `sd-recovery.log`
+** Log di traccia: `sd-trace.log`
+
+
+
+NOTE: Il percorso di questi file può variare a seconda del sistema operativo host in uso.
+
+
+
+ a| 
+*Disattiva un file di log*
+ a| 
+Non inserire un valore per il parametro log file name (Nome file di log). Se non si fornisce un valore, non esiste alcun nome di file in cui SnapDrive per UNIX possa scrivere le informazioni di log.
+
+*Esempio* questo esempio disattiva il file di log di audit. `audit-log-file=""`
+
+|===
+. Salvare `snapdrive.conf` dopo aver apportato tutte le modifiche.
++
+SnapDrive per UNIX controlla automaticamente questo file ogni volta che viene avviato. Per rendere effettive le modifiche, riavviare il daemon SnapDrive per UNIX.
+
+

@@ -1,0 +1,18 @@
+---
+permalink: solaris/concept_configuration_files_installed_by_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuraiton, install, file 
+summary: SnapDrive per UNIX installa il file snapdrive.conf, che memorizza le informazioni di configurazione per la versione corrente del prodotto. 
+---
+= File di configurazione installati da SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX installa `snapdrive.conf` che memorizza le informazioni di configurazione relative alla versione corrente del prodotto.
+
+È necessario modificare `snapdrive.conf` file per il sistema. Se si aggiorna la versione di SnapDrive per UNIX, viene mantenuta la versione corrente `snapdrive.conf` file. Il file di configurazione è disponibile nella seguente posizione:
+
+`/opt/NTAPsnapdrive/snapdrive.conf`

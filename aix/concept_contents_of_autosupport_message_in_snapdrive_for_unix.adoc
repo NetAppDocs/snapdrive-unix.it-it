@@ -1,0 +1,47 @@
+---
+permalink: aix/concept_contents_of_autosupport_message_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, autosupport, message, support 
+summary: I messaggi AutoSupport contengono le seguenti informazioni. 
+---
+= Contenuto dei messaggi AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I messaggi AutoSupport contengono le seguenti informazioni.
+
+* Origine dell'evento
+* ID evento
+* Versione di SnapDrive per UNIX
+* Stato del messaggio: Messaggi a livello di registro, ad esempio 1 per l'avviso, 2 per l'errore critico, 3 per l'errore, 4 per l'avviso, 5 per l'avviso, 6 per informazioni e 7 per il debug
+* Nome host
+* Sistema operativo host
+* Versione del sistema operativo host
+* Nome del sistema storage
+* Utilizzo di Protection Manager/Role Based Access Control
+* Categoria di errore
+* AutoSupport contrassegna come FALSO la voce del messaggio
+* Host multipathing type (tipo multipathing host): Il valore configurato in `snapdrive.conf` il file viene registrato. Se l'assistente non viene caricato a causa di un valore di configurazione errato, non viene registrato alcun tipo di multipathing host.
+* Virtualizzazione host abilitata: Viene acquisita solo per il sistema operativo guest VMware.
+* Protocol (protocollo): Il valore configurato per `_default-transport_` in `snapdrive.conf` file.
+* Protection Enabled (protezione abilitata): Se il gestore del fabric dati OnCommand (DFM) è configurato con SnapDrive per UNIX, il valore `_Yes_` viene registrato.
++
+
+NOTE: SnapDrive per UNIX non verifica se OnCommand DFM è in uso.
+
+
+
+Quando si esegue, sono disponibili le seguenti informazioni aggiuntive `snapdrive storage show -all` comando:
+
+* Tipo di protocolli (FCP/iSCSI): Protocolli utilizzati per creare le lun, se presenti.
+* Numero di LUN connessi
+* Numero di gruppi di dischi o volumi
+* Numero di specifiche del file
+* Numero di volumi host
+
+
+
+NOTE: Quando AutoSupport è attivato in SnapDrive per UNIX, in caso di errori di operazione, i messaggi di errore vengono registrati nel sistema di storage del sistema di gestione degli eventi (EVM). Se il messaggio di errore contiene caratteri speciali come (<, >, &, ', ", I valori distorto vengono visualizzati nella vista log EMS del sistema di storage.

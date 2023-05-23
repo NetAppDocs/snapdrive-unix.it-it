@@ -1,0 +1,28 @@
+---
+permalink: solaris/concept_methods_fordisconnectingstorage.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, storage 
+summary: Per semplificare la disconnessione dello storage, SnapDrive per UNIX fornisce diversi formati per il comando di disconnessione dello storage SnapDrive. 
+---
+= Metodi per disconnettere lo storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per semplificare la disconnessione dello storage, SnapDrive per UNIX fornisce diversi formati per `snapdrive storage disconnect` comando.
+
+Questo perché le operazioni di disconnessione rientrano nelle seguenti categorie generali:
+
+* Specificare i LUN che si desidera disconnettere dall'host.
+* Specificare un file system creato direttamente su un LUN che si desidera disconnettere dall'host.
++
+SnapDrive per UNIX disconnette il file system e il LUN.
+
+* Specifica di un gruppo di dischi, di un volume host o di un file system che risiede sulle LUN che si desidera disconnettere dall'host.
++
+SnapDrive per UNIX disconnette tutte le LUN associate a tale entità e rimuove anche le mappature per il file system, il volume host e il gruppo di dischi che compongono l'entità disconnessa.
+
+* Disattivazione dell'utilizzo di un gruppo di dischi o di un file system condiviso in un ambiente di cluster host da parte di un nodo.
+

@@ -1,0 +1,21 @@
+---
+permalink: solaris/concept_what_snapdrive_for_unix_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, unix 
+summary: 'SnapDrive per UNIX semplifica le attività di gestione dello storage. SnapDrive per UNIX utilizza la tecnologia Snapshot per creare un"immagine dei dati memorizzati su un sistema di storage condiviso o non condiviso. SnapDrive ti aiuta anche con il provisioning dello storage.' 
+---
+= Cosa fa SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX semplifica le attività di gestione dello storage. SnapDrive per UNIX utilizza la tecnologia Snapshot per creare un'immagine dei dati memorizzati su un sistema di storage condiviso o non condiviso. SnapDrive ti aiuta anche con il provisioning dello storage.
+
+È possibile utilizzare SnapDrive per UNIX per eseguire le seguenti operazioni:
+
+* **Backup e ripristino dei dati:**SnapDrive per UNIX consente di utilizzare la tecnologia Snapshot per creare un'immagine (copia Snapshot) dei dati host memorizzati su un sistema storage. Questa copia Snapshot fornisce una copia di tali dati, che è possibile ripristinare in un secondo momento. I dati della copia Snapshot possono esistere su un sistema storage o su più sistemi storage e relativi volumi. Questi sistemi storage possono essere in coppia ha o file system locali al nodo o gruppi di dischi o LUN in un ambiente di cluster host.
+* *Gestione dello storage:* è possibile creare ed eliminare componenti di storage, inclusi gruppi di dischi, volumi host, file system e LUN in ambienti cluster host e non cluster. SnapDrive per UNIX consente di gestire questo storage espandendolo, connettendolo a un host e scollegandolo.
+* **Controllo degli accessi in base al ruolo:**SnapDrive per UNIX offre RBAC (role-based access control). RBAC consente a un amministratore di SnapDrive di limitare l'accesso a un sistema storage per varie operazioni SnapDrive. Questo accesso per le operazioni di storage dipende dal ruolo assegnato all'utente. RBAC consente agli amministratori dello storage di limitare le operazioni che gli utenti SnapDrive possono eseguire in base ai ruoli assegnati.
+

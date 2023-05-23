@@ -1,0 +1,33 @@
+---
+permalink: linux-administration/concept_splitting_the_volume_or_lun_clone_operations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, clone, lun, volume, split, parent 
+summary: 'SnapDrive per UNIX consente di suddividere un clone di un volume o un clone di LUN. Una volta completata la suddivisione del clone, la relazione tra il volume padre e il clone viene distrutta, entrambe le entità sono indipendenti l"una dall"altra e dispongono di un proprio spazio di storage.' 
+---
+= Suddivisione di un clone di un volume o di un clone del LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX consente di suddividere un clone di un volume o un clone di LUN. Una volta completata la suddivisione del clone, la relazione tra il volume padre e il clone viene distrutta, entrambe le entità sono indipendenti l'una dall'altra e dispongono di un proprio spazio di storage.
+
+Di seguito sono riportate le operazioni di suddivisione dei cloni:
+
+* Stima dello spazio su disco (in MB) per un clone del volume o un clone del LUN.
+* Separare un clone di volume o un clone del LUN.
+* Arrestare il clone del volume o la divisione del clone del LUN.
+* Visualizzare lo stato del clone split in corso, completato o non riuscito.
+
+
+[NOTE]
+====
+* Se un clone di un volume viene diviso, tutte le copie Snapshot nel volume clonato vengono eliminate.
+* È obbligatorio eseguire il comando clone split estimate prima di suddividere la specifica del file per determinare se sono presenti copie Snapshot nel volume clonato.
+* Per tutti i comandi di divisione dei cloni, è necessario specificare solo il nome LUN lungo con `-lun` opzione. Impossibile specificare `-lun` opzione sulla stessa riga di comando insieme ad altre entità di storage (opzioni -vg, -dg, -fs, - lvol o -hostvol).
+* È sempre obbligatorio utilizzare il nome percorso assoluto per le specifiche del file con i comandi di divisione dei cloni.
+* La stima della suddivisione del clone del LUN con Snapshot è disponibile solo per le copie Snapshot create da SnapDrive 4.2 per UNIX e versioni successive.
+
+
+====

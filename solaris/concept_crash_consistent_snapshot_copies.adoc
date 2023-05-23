@@ -1,0 +1,20 @@
+---
+permalink: solaris/concept_crash_consistent_snapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, crash, consistent 
+summary: 'Potrebbe essere necessario creare copie Snapshot coerenti con il crash del file system o dei gruppi di dischi. SnapDrive per UNIX crea copie Snapshot che contengono l"immagine di tutti i volumi del sistema di storage specificati nell"entità.' 
+---
+= Copie Snapshot coerenti con il crash
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Potrebbe essere necessario creare copie Snapshot coerenti con il crash del file system o dei gruppi di dischi. SnapDrive per UNIX crea copie Snapshot che contengono l'immagine di tutti i volumi del sistema di storage specificati nell'entità.
+
+Quando si crea una copia Snapshot di un'entità di storage, ad esempio un file system o un gruppo di dischi, SnapDrive per UNIX crea una copia Snapshot che contiene l'immagine di tutti i volumi del sistema di storage che costituiscono l'entità specificata utilizzando un `file_spec` argomento. Il `file_spec` Argument specifica l'entità di storage, ad esempio il file system, il LUN o l'albero delle directory NFS utilizzato da SnapDrive per UNIX per creare la copia Snapshot.
+
+SnapDrive per UNIX crea componenti di storage coerenti che compongono l'entità richiesta nella copia Snapshot. Ciò significa che i LUN o le directory vengono utilizzati al di fuori di quelli specificati da `snapdrive snap create` comando `file_spec` L'argomento potrebbe non avere immagini coerenti nella copia Snapshot. SnapDrive per UNIX consente di ripristinare solo le entità specificate da `file_spec` Argomenti coerenti nella copia Snapshot.
+
+Le copie Snapshot delle entità contenute in un singolo volume del sistema di storage sono sempre coerenti con il crash. SnapDrive per UNIX adotta procedure speciali per garantire che anche le copie Snapshot che abbracciano più sistemi storage o volumi di sistemi storage siano coerenti con il crash. Il metodo utilizzato da SnapDrive per UNIX per garantire la coerenza del crash dipende dalla versione di Data ONTAP utilizzata dove risiedono le entità di storage nella copia Snapshot.

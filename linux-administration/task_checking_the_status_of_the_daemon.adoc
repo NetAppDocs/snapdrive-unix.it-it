@@ -1,0 +1,23 @@
+---
+permalink: linux-administration/task_checking_the_status_of_the_daemon.html 
+sidebar: sidebar 
+keywords: daemon, status, snap, snapdrive 
+summary: È possibile controllare lo stato del daemon per verificare se il daemon è in esecuzione. Se il daemon è già in esecuzione, non è necessario riavviarlo finché il file di configurazione di SnapDrive per UNIX non è stato aggiornato. 
+---
+= Verifica dello stato del daemon
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile controllare lo stato del daemon per verificare se il daemon è in esecuzione. Se il daemon è già in esecuzione, non è necessario riavviarlo finché il file di configurazione di SnapDrive per UNIX non è stato aggiornato.
+
+Devi essere connesso come utente root.
+
+.Fasi
+. Controllare lo stato del daemon:
++
+`*snapdrived status*`
+
+

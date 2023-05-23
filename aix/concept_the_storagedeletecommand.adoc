@@ -1,0 +1,17 @@
+---
+permalink: aix/concept_the_storagedeletecommand.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, delete, command 
+summary: 'Il comando di eliminazione dello storage SnapDrive rimuove le entità di storage sull"host oltre a tutte le entità lato host sottostanti e le LUN del sistema di storage che le supportano.' 
+---
+= Il comando di eliminazione dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il `snapdrive storage delete` Il comando rimuove le entità di storage sull'host oltre a tutte le entità lato host sottostanti e le LUN del sistema di storage che le supportano.
+
+
+IMPORTANT: Questo comando elimina i dati.

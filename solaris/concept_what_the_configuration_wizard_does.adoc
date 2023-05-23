@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_what_the_configuration_wizard_does.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, wizard 
+summary: 'La configurazione guidata di SnapDrive consente di configurare SnapDrive per UNIX e le impostazioni NFS o SAN, a seconda dell"ambiente. In alternativa, è possibile aprire il file snapdrive.conf e modificare le variabili di configurazione.' 
+---
+= Funzione della configurazione guidata di SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configurazione guidata di SnapDrive consente di configurare SnapDrive per UNIX e le impostazioni NFS o SAN, a seconda dell'ambiente. In alternativa, è possibile aprire anche `snapdrive.conf` archiviare e modificare le variabili di configurazione.

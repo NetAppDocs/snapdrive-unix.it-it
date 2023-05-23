@@ -1,0 +1,54 @@
+---
+permalink: linux-installation-cmode/task_connecting_linux_host_to_the_storage_system.html 
+sidebar: sidebar 
+keywords: snapdrive, snap, connect, hosts, storage, system 
+summary: 'Per eseguire correttamente le operazioni di SnapDrive per UNIX, è necessario configurare le macchine virtuali dello storage (SVM, precedentemente note come Vserver)' 
+---
+= Connessione degli host Linux ai sistemi storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per eseguire correttamente le operazioni SnapDrive per UNIX, è necessario configurare le macchine virtuali dello storage (SVM, in precedenza noti come Vserver).
+
+* È necessario assegnare gli aggregati che contengono volumi all'elenco degli aggregati SVM per eseguire le operazioni SnapDrive per UNIX.
+* Per gestire i dati dal cluster, è necessario creare una o più SVM.
++
+L'indirizzo IP dell'interfaccia logica di gestione SVM (LIF) deve essere mappato con il nome SVM, nel DNS (Domain Name Service) o in `/etc/hosts` file.
+
+
+
+.Fasi
+. Se si utilizza ONTAP 8.2.2 o versioni precedenti, creare un utente sul server di gestione del cluster, denominato anche adminSVM: +
++
+`*snapdrive config set -cserver _csadmin_name cserver_name_*`
+
++
+Se si utilizza ONTAP 8.2.3 o versione successiva, ignorare questo passaggio.
+
+. Creare un utente sulla SVM dei dati:
++
+`*snapdrive config set vsadmin_name _Vserver_name_*`
+
++
+
+NOTE: `_Vserver_name_` È il nome della SVM e deve essere mappata all'indirizzo IP LIF di gestione.
+
+. Verificare che la SVM sia configurata in SnapDrive per UNIX:
++
+`*snapdrive config list*`
+
++
+Il comando elenca il nome utente e l'indirizzo IP del server di gestione del cluster e dei dati SVM.
+
+. Modificare il percorso dell'interfaccia di gestione sul percorso dell'interfaccia dati di SVM:
++
+`*snapdrive config set -mgmtpath _management_interface_path data_interface_path_*`
+
+. Verificare che tutte le interfacce dati e di gestione siano configurate correttamente:
++
+`*snapdrive config list -mgmtpath*`
+
+

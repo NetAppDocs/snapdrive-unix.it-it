@@ -1,0 +1,46 @@
+---
+permalink: solaris/task_restoring_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, snapshot, copy 
+summary: 'È possibile ripristinare una copia Snapshot utilizzando il comando SnapDrive SNAP restore. L"operazione di ripristino può richiedere alcuni minuti, a seconda del tipo e della quantità di dati da ripristinare.' 
+---
+= Ripristino di una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile ripristinare una copia Snapshot utilizzando `snapdrive snap restore` comando. L'operazione di ripristino può richiedere alcuni minuti, a seconda del tipo e della quantità di dati da ripristinare.
+
+.Fasi
+. Immettere il seguente comando per ripristinare una copia Snapshot:
++
+`*snapdrive snap restore -snapname _snap_name_ {-lun |-dg |-fs | - hostvol |-file }_file_spec_ [_file_spec_...] [{ -lun | -dg | -fs |-hostvol |-file } _file_spec_ [_file_spec_ ...]...] [-force [-noprompt]] [-mntopts _options_]][{-reserve |-noreserve}] [-devicetype {shared | dedicated}]*`
+
+
+
+SnapDrive per UNIX sostituisce il contenuto dei LUN specificati in `snapdrive snap restore` Riga di comando con il contenuto delle LUN nella copia Snapshot specificata. Questa operazione può richiedere alcuni minuti. Al termine dell'operazione, SnapDrive per UNIX visualizza un messaggio simile al seguente: `snap restore <filespec list> succeeded`
+
+Nell'esempio seguente, il file system 1 (fs1) risiede nel sistema di storage 1 e il file system 2 (fs2) risiede nel sistema di storage 1 e nel sistema di storage 2, che è il sistema di storage partner. Il file system 3 (fs3) risiede nel sistema di storage 1, nel sistema di storage partner 2 e nel sistema di storage 3, che non fa parte della coppia ha. Un file system aggiuntivo, fs4, risiede interamente nel sistema di storage 4.
+
+Il seguente comando crea una copia Snapshot di `fs1`, `fs2`, `fs3`, e, `fs4`:
+
+[listing]
+----
+# snapdrive snap create -fs /mnt/fs1 /mnt/fs2 /mnt/fs3 /mnt/fs4
+-snapname fs_all_snap
+----
+Il comando successivo ripristina fs1 e fs2 sul sistema di storage di destinazione. sia fs1 che fs2 risiedono su una coppia ha, in modo da poterli ripristinare con un unico comando:
+
+[listing]
+----
+# snapdrive snap restore -fs /mnt/fs1 /mt/fs2 -snapname fs_all_snap
+----
+Il seguente comando ripristina fs4:
+
+[listing]
+----
+snapdrive snap restore -fs /mnt/fs4 -snapname fs_all_snap
+----
+SnapDrive per UNIX non è in grado di ripristinare fs3 sul sistema di storage di destinazione, perché questo file system risiede nel sistema di storage 1, nel sistema di storage 2 e nel sistema di storage 3.

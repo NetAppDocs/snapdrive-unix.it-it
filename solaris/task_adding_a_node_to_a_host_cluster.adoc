@@ -1,0 +1,28 @@
+---
+permalink: solaris/task_adding_a_node_to_a_host_cluster.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, node, host, cluster 
+summary: 'Per aggiungere un nuovo nodo a un cluster host, seguire le istruzioni nella Guida all"installazione di Veritas Cluster Server per Solaris. Dopo aver configurato Low Latency Transport (LLT) e Global Atomic Broadcast (GAB), è necessario completare alcuni passaggi aggiuntivi. Per assicurarsi che il cluster host sia configurato correttamente, utilizzare l"opzione del cluster di controllo della configurazione di SnapDrive prima di utilizzare qualsiasi comando di SnapDrive per UNIX.' 
+---
+= Aggiunta di un nodo a un cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per aggiungere un nuovo nodo a un cluster host, seguire le istruzioni nella _Veritas Cluster Server Installation Guide for Solaris_. Dopo aver configurato LLT (Low Latency Transport) e GAB (Global Atomic Broadcast), è necessario completare alcuni passaggi aggiuntivi. Per assicurarsi che il cluster host sia configurato correttamente, utilizzare `snapdrive config check cluster` Prima di utilizzare qualsiasi comando SnapDrive per UNIX.
+
+.Fasi
+. Utilizzare il seguente comando per mappare tutte le LUN per tutti i gruppi di dischi condivisi nel cluster host:
++
+`*snapdrive storage connect*`
+
+. Avviare Cluster Volume Manager (CVM) sul nuovo nodo.
++
+Per istruzioni, consultare la _Guida all'installazione di Veritas Cluster Server per Solaris_.
+
++
+Il gruppo di dischi condivisi e il file system possono essere visualizzati automaticamente sul nuovo nodo.
+
+

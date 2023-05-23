@@ -1,0 +1,22 @@
+---
+permalink: linux-administration/concept_benefits_of_flexclone_volumes.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, flexclone, volumes 
+summary: I volumi FlexClone offrono vantaggi in termini di performance e gestione dei dati. 
+---
+= Vantaggi dei volumi FlexClone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I volumi FlexClone offrono vantaggi in termini di performance e gestione dei dati.
+
+* Gestione dei dati semplificata e riduzione dei rischi.
+* Flessibilità e maggiore utilizzo.
++
+È possibile utilizzare i volumi FlexClone per creare più copie di dati per utenti aggiuntivi senza fornire loro l'accesso ai dati originali.
+
+* Più veloce di un clone del LUN.
+

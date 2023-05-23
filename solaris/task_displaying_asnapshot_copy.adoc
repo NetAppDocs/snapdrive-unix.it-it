@@ -1,0 +1,86 @@
+---
+permalink: solaris/task_displaying_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, display, snapshot, copy 
+summary: 'Il comando SnapDrive snap show o list visualizza il nome del sistema di storage in cui viene creata la copia Snapshot, il nome host, la data e l"ora e così via.' 
+---
+= Visualizzazione di una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il comando `snapdrive snap show` oppure `list` Visualizza il nome del sistema di storage in cui viene creata la copia Snapshot, il nome host, la data e l'ora e così via.
+
+.Fasi
+. Immettere la seguente sintassi del comando per visualizzare una copia Snapshot:
++
+`*snapdrive snap show [-snapname] _long_snap_name_ [_snap_name_...] [-verbose]*`
+
+
+
+Questa operazione visualizza almeno le seguenti informazioni sulla copia Snapshot:
+
+* Il nome del sistema di storage in cui viene creata la copia Snapshot
+* Il nome dell'host che ha eseguito la copia Snapshot
+* Il percorso delle LUN nel sistema storage
+* La data e l'ora di creazione della copia Snapshot
+* Il nome della copia Snapshot
+* I nomi dei gruppi di dischi inclusi nella copia Snapshot
+
+
+*Esempio*: Di seguito sono riportati alcuni esempi `snapdrive snap show` comandi:
+
+[listing]
+----
+# snapdrive snap show -snapname toaster:/vol/vol2:snapA snapX snapY
+
+# snapdrive snap show -verbose toaster:/vol/vol2:snapA /vol/vol3:snapB snapC
+
+# snapdrive snap show toaster:/vol/vol2:snapA
+
+# snapdrive snap list -dg dg1 dg2
+----
+*Esempio*: Questo esempio utilizza un carattere jolly per visualizzare informazioni sulle copie Snapshot disponibili su un determinato volume:
+
+[listing]
+----
+# snapdrive snap show toaster:/vol/vol1:*
+snap name host date
+snapped
+------------------------------------------------------------------
+-------------
+toaster:/vol/vol1:sss1 DBserver Mar 12
+16:19 dg1
+toaster:/vol/vol1:testdg DBserver Mar 12
+15:35 dg1
+toaster:/vol/vol1:t1 DBserver Mar 10
+18:06 dg1
+toaster:/vol/vol1:hp_1 HPserver Mar 8
+19:01 vg01
+toaster:/vol/vol1:r3 DBserver Mar 8
+13:39 rdg1
+toaster:/vol/vol1:r1 DBserver Mar 8
+13:20 rdg1
+toaster:/vol/vol1:snap2 DBserver Mar 8
+11:51 rdg1toaster:/vol/vol1:snap_p1 DBserver
+Mar 8 10:18 rdg1
+----
+*Esempio*: I seguenti esempi utilizzano il carattere jolly:
+
+[listing]
+----
+# snapdrive snap show toaster:/vol/volX:*
+# snapdrive snap show -v toaster:/vol/volX:DB1*
+filer1:/vol/volY:DB2*
+# snapdrive snap show toaster:/vol/vol2:mysnap* /vol/vol2:yoursnap*
+hersnap*
+# snapdrive snap show toaster:/vol/volX:*
+----
+*Esempio*: In questo esempio, l'utilizzo di un carattere jolly non è valido perché il carattere jolly si trova al centro del nome invece di essere posizionato alla fine:
+
+[listing]
+----
+# snap show toaster:/vol/vol1:my*snap
+----

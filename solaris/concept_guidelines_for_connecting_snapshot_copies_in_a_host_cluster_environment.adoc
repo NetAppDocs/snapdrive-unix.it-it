@@ -1,0 +1,31 @@
+---
+permalink: solaris/concept_guidelines_for_connecting_snapshot_copies_in_a_host_cluster_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, guideline, connect, copy, host, cluster, snapshot 
+summary: È possibile collegare una copia Snapshot da qualsiasi nodo di un cluster host. Seguire le linee guida durante la connessione a una copia Snapshot. 
+---
+= Linee guida per la connessione delle copie Snapshot in un ambiente cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile collegare una copia Snapshot da qualsiasi nodo di un cluster host. Seguire le linee guida durante la connessione a una copia Snapshot.
+
+* Il `snapdrive snapshot connect` il comando può essere eseguito da qualsiasi nodo del cluster host. Se si avvia `snapdrive snap connect` con il `-devicetype shared` da qualsiasi nodo non master nel cluster host, il comando viene inviato al nodo master ed eseguito. Affinché ciò accada, assicurarsi che il `rsh` oppure `ssh` il prompt di accesso senza password è consentito su tutti i nodi del cluster host.
+* I file system multipli e i gruppi di dischi specificati in questa operazione devono avere lo stesso ambito del tipo di dispositivo, vale a dire che tutti devono essere condivisi o tutti devono essere dedicati.
+* Il `snapdrive snap connect` Il comando con NFS o entità di storage su LUN raw non è supportato.
+* Il `-igroup` l'opzione è supportata con `-devicetype` opzione dedicata e non con `-devicetype` opzione condivisa in `snapdrive snap connect` comando.
+* SnapDrive per UNIX esegue `snapdrive snap connect` sul nodo master. Prima di creare le entità di storage condivise, crea e mappa il LUN sul nodo master, quindi esegue il mapping dei LUN su tutti i nodi non master. Inoltre, crea e gestisce gli igroups per tutti i nodi nel cluster host. Se durante questa sequenza viene visualizzato un messaggio di errore, l'operazione di connessione Snapshot non riesce.
+* Il `snapdrive snap connect` il comando può essere utilizzato per connettere le seguenti entità di storage:
++
+** File system condiviso o gruppo di dischi già presenti in una modalità condivisa o dedicata nel cluster host.
+** Un file system o un gruppo di dischi dedicato a un singolo nodo nel cluster host anche se il file system o il gruppo di dischi è già presente in una modalità condivisa nel cluster host.
+** Copia Snapshot di un file system o gruppo di dischi creato su un nodo esterno al cluster host.
+
+
+* Un file system dedicato o un gruppo di dischi già presente in un nodo non master non può essere nuovamente connesso in una modalità condivisa nel cluster host senza `-destdg` per un gruppo di dischi e l' `-autorename` opzione per un file system.
+
+
+In altre termini, se un file system è già presente in modalità dedicata in uno dei nodi non master del cluster host, è necessario specificare `snapdrive snap connect` con il `-destdg` e. `-autorename` o specificare esplicitamente il file system di destinazione nel comando.

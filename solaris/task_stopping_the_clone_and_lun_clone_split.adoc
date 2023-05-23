@@ -1,0 +1,56 @@
+---
+permalink: solaris/task_stopping_the_clone_and_lun_clone_split.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, stop, volume, clone, split, operation, lun 
+summary: 'È possibile arrestare la suddivisione del clone per un clone di volume o un clone del LUN utilizzando l"ID lavoro o la specifica del file.' 
+---
+= Interruzione dell'operazione di clonazione del volume o di suddivisione del clone del LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile arrestare la suddivisione del clone per un clone di volume o un clone del LUN utilizzando l'ID lavoro o la specifica del file.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*snapdrive clone split stop [-lun] _long_lun_name_ [_long_lun_name..._] |[{-dg | -vg | -fs | -hostvol | -lvol} _file_spec_ [_file_spec..._]] | [-job _<jobid>_]*`
+
++
+SnapDrive per UNIX interrompe l'operazione di interruzione dello split clone in corso.
+
+
+
+Nell'esempio seguente viene illustrata l'operazione di suddivisione dei cloni interrotta mediante la specifica del file.
+
+[listing]
+----
+# snapdrive clone split stop -fs /mnt/my_mnt4 /mnt/my_mnt3
+Clone-Split for "/mnt/my_mnt4" is 0% Completed and Stopped.
+Clone-Split for "/mnt/my_mnt3" is 0% Completed and Stopped.
+----
+Nell'esempio seguente viene illustrata l'operazione di suddivisione dei cloni interrotta mediante l'ID lavoro.
+
+[listing]
+----
+# snapdrive clone split stop -job B265Dbv8gh
+Clone-Split for "/mnt/my_mnt3" is 14% Completed and Stopped.
+Clone-Split for "/mnt/my_mnt4" is 17% Completed and Stopped.
+----
+L'esempio seguente è un output tipico che mostra l'operazione di interruzione della divisione del clone per una specifica di file già arrestata.
+
+[listing]
+----
+# snapdrive clone split stop -fs /mnt/my_mnt4 /mnt/my_mnt3
+Clone-Split for "/mnt/my_mnt3" is not stopped : No split is in progress for this resource
+Clone-Split for "/mnt/my_mnt4" is not stopped : No split is in progress for this resource
+----
+[NOTE]
+====
+* Se la suddivisione del clone viene arrestata per una specifica di file particolare nell'id lavoro e l'interruzione della divisione del clone viene eseguita correttamente, la specifica del file viene rimossa dal lavoro.
+* Se la suddivisione del clone viene arrestata per un lavoro e l'interruzione della divisione del clone viene eseguita correttamente per tutte le specifiche del file nel lavoro, il lavoro viene rimosso dal set di lavori.
+
+
+====

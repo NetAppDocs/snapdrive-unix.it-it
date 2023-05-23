@@ -1,0 +1,35 @@
+---
+permalink: aix/concept_features_supported_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, supported, features 
+summary: Per informazioni sulle funzioni e sulle configurazioni supportate, consultare SnapDrive per UNIX. 
+---
+= Funzionalità supportate in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per informazioni sulle funzioni e sulle configurazioni supportate, consultare SnapDrive per UNIX.
+
+SnapDrive per Unix offre le seguenti funzionalità e supporta le seguenti funzionalità:
+
+* Controllo della configurazione di SnapDrive per UNIX
+* Autorizzazioni RBAC (role-based access control)
+* Procedura guidata SnapDrive per UNIX
+* Miglioramento delle operazioni di suddivisione dei cloni
+* Creazione e utilizzo di copie Snapshot
+* VBSR (Volume-Based SnapRestore)
+* Opzioni dell'interfaccia della riga di comando (CLI)
+* Utility per la raccolta dei dati
+* Supporto dei nomi di sistema modificati per un sistema storage nelle operazioni SnapDrive
+* Gestione trasparente degli errori causati dalla migrazione dei volumi e da NetAppDataMotion per vFiler; controlla gli stessi utilizzando le variabili di configurazione appropriate
+
+
+
+NOTE: Le informazioni più recenti su SnapDrive per UNIX e i relativi requisiti sono disponibili nella matrice di interoperabilità.
+
+*Informazioni correlate*
+
+https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilità NetApp"]

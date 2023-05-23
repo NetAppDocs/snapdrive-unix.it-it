@@ -1,0 +1,25 @@
+---
+permalink: aix/task_adding_sd_hostname_to_the_storage_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, hostname, storage, system 
+summary: 'L"amministratore della console di Operations Manager può creare l"utente del nome host sd sul sistema di storage utilizzando la console di Operations Manager. Una volta completata la procedura, l"amministratore della console di Operations Manager deve inviare manualmente le credenziali all"amministratore di SnapDrive per UNIX. È possibile utilizzare qualsiasi nome al posto di sd-hostname; tuttavia, si consiglia di utilizzare sd-hostname.' 
+---
+= Aggiunta di un nome host sd al sistema di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'amministratore della console di Operations Manager può creare l'utente del nome host sd sul sistema di storage utilizzando la console di Operations Manager. Una volta completata la procedura, l'amministratore della console di Operations Manager deve inviare manualmente le credenziali all'amministratore di SnapDrive per UNIX. È possibile utilizzare qualsiasi nome al posto di sd-hostname; tuttavia, si consiglia di utilizzare sd-hostname.
+
+.Fasi
+. Ottenere la password root del sistema di storage e memorizzarla.
++
+Per aggiungere la password per il sistema di storage, selezionare *Gestione* > *sistema di storage*.
+
+. Creare un nome host sd per ciascun sistema UNIX.
+. Assegnare le funzionalità `api-*` e. `login-*` a un ruolo, come il ruolo sd.
+. Includere questo ruolo (ruolo sd) in un nuovo gruppo di utenti, ad esempio sd-usergroup.
+. Associare questo gruppo di utenti (gruppo di utenti sd) all'utente del nome host sd sul sistema di storage.
+

@@ -1,0 +1,19 @@
+---
+permalink: solaris/concept_operations_supported_on_host_clustered_unix_systems.html 
+sidebar: sidebar 
+keywords: snap, snpadrive, support, host, cluster 
+summary: SnapDrive per UNIX su sistemi UNIX in cluster host consente di creare storage ed eseguire operazioni Snapshot su uno storage condiviso a livello di cluster host. 
+---
+= Operazioni supportate su sistemi UNIX in cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX su sistemi UNIX in cluster host consente di creare storage ed eseguire operazioni Snapshot su uno storage condiviso a livello di cluster host.
+
+Le operazioni Snapshot vengono eseguite su un sistema storage che include gruppi di dischi, file system e LUN. È possibile eseguire operazioni Snapshot come creare, rinominare, ripristinare, connettere, disconnettere, visualizzare ed eliminare.
+
+
+NOTE: Le operazioni per i sistemi in cluster host sono disponibili solo per Veritas SFRAC su un host Solaris.

@@ -1,0 +1,20 @@
+---
+permalink: solaris/concept_guidelines_fordeleting_snapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, snapshot, copy 
+summary: Non è possibile eliminare una copia Snapshot in uso o se la copia Snapshot si trova su più volumi del sistema di storage. 
+---
+= Linee guida per l'eliminazione delle copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Non è possibile eliminare una copia Snapshot in uso o se la copia Snapshot si trova su più volumi del sistema di storage.
+
+Seguire queste linee guida quando si utilizza `snapdrive snap delete` comando:
+
+* L'operazione di eliminazione di Snapshot non riesce se una delle copie Snapshot che si desidera eliminare è in uso o non è stata creata da SnapDrive per UNIX. È possibile ignorare questo comportamento includendo `-force` con `snapdrive snap delete` comando.
+* Se si dispone di una copia Snapshot che si estende su più volumi del sistema di storage, è necessario eliminare manualmente la copia Snapshot su ciascun volume.
+

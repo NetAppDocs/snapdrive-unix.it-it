@@ -1,0 +1,25 @@
+---
+permalink: aix/task_resetting_the_snap_reserve_option_on_the_storage_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, reset, reserve, storage, system 
+summary: 'Quando si utilizza Data ONTAP in un ambiente Fibre Channel o iSCSI (Small computer System Interface), è necessario reimpostare l"opzione di riserva SNAP su zero percento sul sistema di storage per l"ottimizzazione del volume.' 
+---
+= Reimpostazione dell'opzione snap-Reserve sul sistema di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si utilizza Data ONTAP in un ambiente Fibre Channel o iSCSI (Small computer System Interface), è necessario reimpostare `snap reserve` opzione a zero percento sul sistema storage, per l'ottimizzazione del volume.
+
+.Fasi
+. Accedere al sistema di storage eseguendo `telnet` comando dall'host o dalla console del sistema di storage.
+. Immettere il seguente comando:
++
+`*snap reserve _vol_name 0_*`
+
++
+`_vol_name_` è il nome del volume su cui si desidera impostare `snap reserve` opzione.
+
+

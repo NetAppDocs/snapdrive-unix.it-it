@@ -1,0 +1,16 @@
+---
+permalink: linux-installation-7mode/reference_deployment_workflow.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, deployment, workflow, instal, configure, create, copy 
+summary: 'Prima di poter creare copie Snapshot con SnapDrive, è necessario installare le utility host Linux (se si utilizza il protocollo FC o iSCSI), installare SnapDrive per UNIX, controllare le configurazioni supportate per SnapDrive, eseguire il provisioning dello storage, quindi impostare la connessione dall"host Linux al sistema di storage NetApp.' 
+---
+= Workflow di implementazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di poter creare copie Snapshot con SnapDrive, è necessario installare le utility host Linux (se si utilizza il protocollo FC o iSCSI), installare SnapDrive per UNIX, controllare le configurazioni supportate per SnapDrive, eseguire il provisioning dello storage, quindi impostare la connessione dall'host Linux al sistema storage NetApp.
+
+image::../media/sdu_deployment_workflow_7mode.gif[workflow di implementazione sdu 7 mode]

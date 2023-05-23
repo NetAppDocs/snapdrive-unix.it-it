@@ -1,0 +1,29 @@
+---
+permalink: linux-administration/task_tips_for_usingthe_storage_disconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, disconnect, command, lun 
+summary: Quando si utilizza il comando di disconnessione dello storage SnapDrive su alcuni sistemi operativi, si perdono informazioni come i nomi dei volumi host, il punto di montaggio del file system, i nomi dei volumi del sistema di storage e i nomi delle LUN. Senza queste informazioni, è difficile connettersi nuovamente allo storage in un momento successivo. 
+---
+= Suggerimenti per l'utilizzo del comando di disconnessione dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si utilizza `snapdrive storage disconnect` Su alcuni sistemi operativi, si perdono informazioni come i nomi dei volumi host, il punto di montaggio del file system, i nomi dei volumi del sistema di storage e i nomi delle LUN. Senza queste informazioni, è difficile connettersi nuovamente allo storage in un momento successivo.
+
+Per evitare la perdita di informazioni, è necessario innanzitutto creare una copia Snapshot dello storage utilizzando `snapdrive snap create` prima di eseguire `snapdrive storage disconnect` comando.
+
+In questo modo, se si desidera ricollegare lo storage in un secondo momento, è possibile utilizzare la seguente soluzione alternativa:
+
+.Fasi
+. Eseguire il seguente comando:
++
+`snapdrive snap restore filespec -snapname long_snap_name`
+
++
+Includere il percorso completo della copia Snapshot in questo comando.
+
+. Facoltativamente, rimuovere la copia Snapshot eseguendo `snapdrive snap delete` comando.
+

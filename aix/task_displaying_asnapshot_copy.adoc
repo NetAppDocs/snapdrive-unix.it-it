@@ -1,0 +1,148 @@
+---
+permalink: aix/task_displaying_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, display, snapshot, copy 
+summary: 'Il comando SnapDrive snap show o list visualizza il nome del sistema di storage in cui viene creata la copia Snapshot, il nome host, la data e l"ora e così via.' 
+---
+= Visualizzazione di una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il comando `snapdrive snap show` oppure `list` Visualizza il nome del sistema di storage in cui viene creata la copia Snapshot, il nome host, la data e l'ora e così via.
+
+.Fasi
+. Immettere la seguente sintassi del comando per visualizzare una copia Snapshot:
++
+`*snapdrive snap show [-snapname] _long_snap_name_ [_snap_name_...] [-verbose]*`
+
+
+
+Questa operazione visualizza almeno le seguenti informazioni sulla copia Snapshot:
+
+* Il nome del sistema di storage in cui viene creata la copia Snapshot
+* Il nome dell'host che ha eseguito la copia Snapshot
+* Il percorso delle LUN nel sistema storage
+* La data e l'ora di creazione della copia Snapshot
+* Il nome della copia Snapshot
+* I nomi dei gruppi di dischi inclusi nella copia Snapshot
+
+
+*Esempio*: Di seguito sono riportati alcuni esempi `snapdrive snap show` comandi:
+
+[listing]
+----
+# snapdrive snap show -snapname toaster:/vol/vol2:snapA snapX snapY
+
+# snapdrive snap show -verbose toaster:/vol/vol2:snapA /vol/vol3:snapB snapC
+
+# snapdrive snap show toaster:/vol/vol2:snapA
+
+# snapdrive snap list -dg dg1 dg2
+----
+*Esempio*: Questo esempio utilizza un carattere jolly per visualizzare informazioni sulle copie Snapshot disponibili su un determinato volume:
+
+[listing]
+----
+# snapdrive snap show toaster:/vol/vol1:*
+snap name host date
+snapped
+------------------------------------------------------------------
+-------------
+toaster:/vol/vol1:sss1 DBserver Mar 12
+16:19 dg1
+toaster:/vol/vol1:testdg DBserver Mar 12
+15:35 dg1
+toaster:/vol/vol1:t1 DBserver Mar 10
+18:06 dg1
+toaster:/vol/vol1:hp_1 HPserver Mar 8
+19:01 vg01
+toaster:/vol/vol1:r3 DBserver Mar 8
+13:39 rdg1
+toaster:/vol/vol1:r1 DBserver Mar 8
+13:20 rdg1
+toaster:/vol/vol1:snap2 DBserver Mar 8
+11:51 rdg1toaster:/vol/vol1:snap_p1 DBserver
+Mar 8 10:18 rdg1
+----
+*Esempio*: In questo esempio, il `-verbose` L'opzione viene utilizzata nella riga di comando di un host AIX:
+
+[listing]
+----
+# snapdrive snap list betty:/vol/vol1:testsnap -v
+snap name host date
+snapped
+------------------------------------------------------------------
+-------------
+betty:/vol/vol1:testsnap aix198-75 Jul 31
+10:43 test1_SdDg
+host OS: AIX 3 5
+snapshot name: testsnap
+Volume Manager: aixlvm 5.3
+disk group: test1_SdDg
+host volume: test1_SdHv
+file system: test1_SdHv file system type: jfs2
+mountpoint:
+/mnt/test1
+lun path dev paths
+-------------------------------------------------------
+betty:/vol/vol1/aix198-75_luntest1_SdLun /dev/hdisk32
+----
+*Esempio*: Questo esempio include i messaggi relativi alle copie Snapshot su un host AIX che non sono stati creati con SnapDrive per UNIX:
+
+[listing]
+----
+# snapdrive snap show -filer toaster
+snap name host date
+snapped
+------------------------------------------------------------------
+-------------
+toaster:/vol/vol1:hourly.0 non-snapdrive snapshot
+toaster:/vol/vol1:hourly.0 non-snapdrive snapshot
+toaster:/vol/vol1:snap1 DBserver1 Oct 01 13:42 dg1
+dg2
+toaster:/vol/vol1:snap2 DBserver2 Oct 10 13:40
+DBdg/hvol1
+toaster:/vol/vol1:snap3 DBserver3 Oct 31 13:45
+DBdg
+----
+Questo esempio visualizza una copia Snapshot di un file system basato su LVM su un host AIX che utilizza `snapdrive snap show` e il `- verbose` opzione:
+
+[listing]
+----
+# snapdrive snap show -v -fs /mnt/check_submit/csdg2/hv3_0
+snapname host date snapped
+------------------------------------------------------------------
+-------------
+toaster:/vol/vol1:mysnapshot sales-aix Aug 24 10:55 csdg2
+host OS: AIX 1 5
+snapshot name: mysnapshot
+Volume Manager: aixlvm 5.1
+disk group: csdg2
+host volume: csdg2_log
+host volume: csdg2_hv3_0
+file system: csdg2_hv3_0 file system type: jfs2 mountpoint:
+/mnt/check_submit/csdg2/hv3_0
+lun path dev paths
+-------------------------------------------------------
+spinel:/vol/vol1/check_submit_aix-4 /dev/hdisk4
+----
+*Esempio*: I seguenti esempi utilizzano il carattere jolly:
+
+[listing]
+----
+# snapdrive snap show toaster:/vol/volX:*
+# snapdrive snap show -v toaster:/vol/volX:DB1*
+filer1:/vol/volY:DB2*
+# snapdrive snap show toaster:/vol/vol2:mysnap* /vol/vol2:yoursnap*
+hersnap*
+# snapdrive snap show toaster:/vol/volX:*
+----
+*Esempio*: In questo esempio, l'utilizzo di un carattere jolly non è valido perché il carattere jolly si trova al centro del nome invece di essere posizionato alla fine:
+
+[listing]
+----
+# snap show toaster:/vol/vol1:my*snap
+----

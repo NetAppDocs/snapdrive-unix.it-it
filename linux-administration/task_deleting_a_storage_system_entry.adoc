@@ -1,0 +1,32 @@
+---
+permalink: linux-administration/task_deleting_a_storage_system_entry.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, storage, host, map 
+summary: È possibile eliminare le informazioni di mappatura del sistema di storage dal sistema host. 
+---
+= Eliminazione delle informazioni di mappatura del sistema di storage dal sistema host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare le informazioni di mappatura del sistema di storage dal sistema host.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*snapdrive config migrate delete _new_storage_system_name_ [_new_storage_system_name..._]*`
+
++
+** `_new_storage_system_name_` è il nome del nuovo sistema storage.
+** `_[new_storage_system_name...]_` definisce che è possibile eliminare più nomi di sistemi di storage su una riga di comando.
++
+[listing]
+----
+snapdrive config migrate delete roaster
+Deleted entry for appliance: roaster
+----
+
+
+

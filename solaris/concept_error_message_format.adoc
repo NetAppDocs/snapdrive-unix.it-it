@@ -1,0 +1,31 @@
+---
+permalink: solaris/concept_error_message_format.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, error, message 
+summary: 'Il formato del messaggio di errore consente di determinare la causa dell"errore.' 
+---
+= Formato del messaggio di errore
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il formato del messaggio di errore consente di determinare la causa dell'errore.
+
+SnapDrive per UNIX restituisce le informazioni standard sui codici di errore, che forniscono una descrizione più specifica della causa della condizione di errore iniziale. I messaggi di errore di SnapDrive per UNIX sono conformi al seguente formato:
+
+`return code message-ID error type: message text`
+
+* `_return code_` -- ID messaggio di errore SnapDrive for UNIX collegato a un valore di stato di uscita che indica la causa di base della condizione di errore.
+* `_message-ID_` -- identificatore univoco utilizzato dal supporto tecnico NetApp per individuare il codice specifico che ha generato l'errore. Se è necessario contattare il supporto tecnico di NetApp, NetApp consiglia di registrare l'ID del messaggio associato al messaggio di errore.
+* `_error type_` -- specifica il tipo di errore rilevato da SnapDrive per UNIX. I valori restituiti includono:
++
+** `_Warning_` -- SnapDrive per UNIX ha eseguito il comando ma ha emesso un avviso sulle condizioni che potrebbero richiedere attenzione.
+** `_Command_` -- SnapDrive per UNIX non ha eseguito il comando a causa di un errore nella riga di comando. Controllare il formato della riga di comando e le variabili per assicurarsi che siano corrette.
+** `_Admin_` -- SnapDrive per UNIX non ha eseguito il comando a causa di incompatibilità nella configurazione del sistema. Contattare l'amministratore di sistema per esaminare i parametri di configurazione.
+** `_Fatal_` -- SnapDrive per UNIX non ha eseguito il comando a causa di una condizione imprevista. Gli errori irreversibili sono rari. Se si verifica un errore irreversibile e si riscontrano problemi nella risoluzione, contattare il supporto tecnico NetApp per assistenza.
+
+
+* `_message text_`--informazioni che spiegano l'errore. Questo testo potrebbe includere informazioni provenienti da un altro componente per fornire ulteriori dettagli sull'errore. Ad esempio, se manca un argomento della riga di comando, ad esempio un gruppo di dischi, il messaggio di errore indica cosa manca. In alternativa, le API Manage ONTAP utilizzate da SnapDrive per UNIX per controllare il sistema di storage potrebbero fornire testo aggiuntivo per spiegare l'errore. In questo caso, il testo segue il messaggio di errore di base di SnapDrive per UNIX.
+

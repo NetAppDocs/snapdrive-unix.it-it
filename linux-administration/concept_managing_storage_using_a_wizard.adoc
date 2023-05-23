@@ -1,0 +1,31 @@
+---
+permalink: linux-administration/concept_managing_storage_using_a_wizard.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, wizard, command, create 
+summary: È possibile utilizzare la procedura guidata SnapDrive per UNIX per creare lo storage in modo interattivo ed efficiente. La procedura guidata ti guida attraverso una serie di domande per aiutarti a creare lo storage. 
+---
+= Gestione dello storage mediante una procedura guidata
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la procedura guidata SnapDrive per UNIX per creare lo storage in modo interattivo ed efficiente. La procedura guidata ti guida attraverso una serie di domande per aiutarti a creare lo storage.
+
+È possibile avviare la procedura guidata utilizzando `snapdrive storage wizard create` comando.
+
+È possibile eseguire le seguenti operazioni di gestione dello storage:
+
+* Creazione di un LUN
+* Creazione di un gruppo di dischi e configurazione automatica del LUN
+* Creazione di un gruppo di dischi e definizione del LUN.
+* Creazione di un volume host e configurazione automatica del LUN
+* Creazione di un volume host e specifica del LUN
+* Creazione di un file system su un LUN e configurazione automatica del LUN
+* Creazione di un file system su un LUN e specifica del LUN.
+* Creazione di un file system su un LUN e configurazione automatica del LUN con Logical Volume Manager (LVM) e gruppo di dischi specificati
+* Creazione di un file system su un LUN e definizione del LUN con LVM e gruppo di dischi specificati
+* Creazione di un file system su un LUN e configurazione automatica del LUN con LVM e volume host specificati
+* Creazione di un file system su un LUN e specifica del LUN con LVM e volume host specificati
+

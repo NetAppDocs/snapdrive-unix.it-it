@@ -1,0 +1,28 @@
+---
+permalink: linux-administration/concept_managing_volume_migration_using_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, migration, setup, cutover, move 
+summary: È possibile eseguire operazioni SnapDrive durante la migrazione dei volumi. 
+---
+= Migrazione dei volumi in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eseguire operazioni SnapDrive durante la migrazione dei volumi.
+
+La migrazione dei volumi è composta dalle tre fasi seguenti:
+
+* Setup (Configurazione)
+* Sposta
+* Cutover
+
+
+Le operazioni di SnapDrive per UNIX funzionano senza problemi nelle fasi di installazione e spostamento.
+
+Quando si eseguono comandi SnapDrive durante la fase di cutover, SnapDrive per UNIX può riprovare l'operazione come definito nelle variabili `volmove-cutover-retry` e. `volmove-cutover-retry-sleep` in `snapdrive.conf` file.
+
+
+NOTE: Se le operazioni di SnapDrive per UNIX non riescono durante la migrazione del volume, è necessario eseguire le operazioni di SnapDrive per UNIX una volta completate le operazioni di migrazione del volume.

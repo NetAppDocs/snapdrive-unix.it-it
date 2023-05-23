@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_removing_a_node_from_a_host_cluster.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, remove, node, host, cluster 
+summary: 'Per rimuovere un nuovo nodo da un cluster host, seguire le istruzioni nella Guida all"installazione di Veritas Cluster Server per Solaris. Dopo aver configurato LLT e GAB, è necessario annullare la mappatura di tutte le LUN per tutte le entità di storage condivise nel cluster host utilizzando il comando di disconnessione dello storage SnapDrive.' 
+---
+= Rimozione di un nodo da un cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per rimuovere un nuovo nodo da un cluster host, seguire le istruzioni contenute nella _Veritas Cluster Server Installation Guide for Solaris._ dopo aver configurato LLT e GAB, è necessario annullare la mappatura di tutte le LUN per tutte le entità di storage condivise nel cluster host utilizzando `snapdrive storage disconnect` comando.

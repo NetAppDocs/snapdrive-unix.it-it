@@ -1,0 +1,21 @@
+---
+permalink: aix/concept_snapdrived_start_command_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, start, command, fail 
+summary: In alcune condizioni il comando di avvio snapdrived potrebbe non riuscire. Per risolvere questo problema, sono disponibili alcuni passaggi per la risoluzione dei problemi. 
+---
+= il comando di avvio snapdrived non riesce
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In alcune condizioni `snapdrived start` il comando potrebbe non riuscire. Per risolvere questo problema, sono disponibili alcuni passaggi per la risoluzione dei problemi.
+
+* Controllare se la porta daemon è specificata in `snapdrive.conf` il file è già in uso da un'altra applicazione.
+* Controllare se un'istanza precedente di daemon viene arrestata correttamente.
+* Controllare se viene raggiunto il limite del semaforo a livello di sistema, nel qual caso l'avvio del daemon non funziona.
+* Controllare se sul computer non sono in esecuzione servizi come iSCSI, VxVM.
+* Se HTTPS è impostato su `on`, controllare se il certificato autofirmato è installato nella directory specificata.
+

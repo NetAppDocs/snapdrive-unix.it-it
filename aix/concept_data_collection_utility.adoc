@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_data_collection_utility.html 
+sidebar: sidebar 
+keywords: snap, snapshot, data, collection, utility, troubleshoot 
+summary: 'L"utility di raccolta dati di SnapDrive è uno strumento per la risoluzione dei problemi che raccoglie informazioni per diagnosticare i problemi.' 
+---
+= Utility per la raccolta dei dati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'utility di raccolta dati di SnapDrive è uno strumento per la risoluzione dei problemi che raccoglie informazioni per diagnosticare i problemi.
+
+SnapDrive per UNIX offre un'utility di raccolta dati (snapdrive.DC) che raccoglie informazioni diagnostiche su SnapDrive per UNIX, il controllo della configurazione di SnapDrive e l'installazione del sistema.

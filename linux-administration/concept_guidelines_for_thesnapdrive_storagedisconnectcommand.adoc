@@ -1,0 +1,25 @@
+---
+permalink: linux-administration/concept_guidelines_for_thesnapdrive_storagedisconnectcommand.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, disconnect, command, guidelines 
+summary: Seguire queste linee guida quando si utilizza il comando di disconnessione dello storage SnapDrive. 
+---
+= Linee guida per il comando di disconnessione dello storage SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire queste linee guida quando si utilizza `snapdrive storage disconnect` comando:
+
+* Quando si disconnette un file system, SnapDrive per UNIX rimuove sempre il punto di montaggio.
++
+Gli host Linux consentono di collegare più file system a un singolo punto di montaggio. Tuttavia, SnapDrive per UNIX richiede un punto di montaggio univoco per ogni file system. Il `snapdrive storage disconnect` il comando non riesce se viene utilizzato per disconnettere i file system collegati a un singolo punto di montaggio.
+
+* Se si utilizza `-lun` Opzione per specificare il nome di un LUN membro di un gruppo di dischi host o di un file system, la `snapdrive storage disconnect` comando non riuscito.
+* Se si utilizza `-lun` Opzione per specificare il nome del LUN non rilevato dal software multipathing sull'host, la `snapdrive storage disconnect` comando non riuscito.
+
+
+
+NOTE: `snapdrive storage disconnect` Il comando non riesce durante l'utilizzo del LUN RDM, se l'igroup di mappatura ha più di due nomi di porte mondiali (WWPN), nelle release precedenti a SnapDrive 5.2 per UNIX.

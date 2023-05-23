@@ -1,0 +1,33 @@
+---
+permalink: solaris/task_deleting_a_user_for_a_vserver.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, user, vserver 
+summary: È possibile eliminare le informazioni di accesso da un server virtuale eseguendo il comando SnapDrive config delete. 
+---
+= Eliminazione di un utente da un Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare le informazioni di accesso da un Vserver eseguendo `snapdrive config delete` comando.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*snapdrive config delete _appliance_name_*`
+
++
+`_appliance_name_` È il nome del Vserver su cui si desidera eliminare le informazioni di accesso.
+
++
+[listing]
+----
+# snapdrive config delete clstr-vs2
+Deleted configuration for appliance: clstr-vs2
+----
++
+SnapDrive per UNIX rimuove le informazioni di accesso per il server virtuale specificato.
+
+

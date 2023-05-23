@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_snapdrive_for_unix_installation_and_upgrade.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, install, upgrade, unix 
+summary: 'Per installare SnapDrive per UNIX sui sistemi host, è necessario eseguire alcune operazioni. Prima di iniziare l"installazione, è necessario conoscere i vari requisiti di sistema e le considerazioni sulla configurazione.' 
+---
+= Installazione o aggiornamento di SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per installare SnapDrive per UNIX sui sistemi host, è necessario eseguire alcune operazioni. Prima di iniziare l'installazione, è necessario conoscere i vari requisiti di sistema e le considerazioni sulla configurazione.

@@ -1,0 +1,69 @@
+---
+permalink: solaris/task_connecting_to_asnapshot_copy_thatcontains_luns.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, snapshot, copy, lun 
+summary: È possibile connettersi a una copia Snapshot contenente LUN utilizzando il comando SnapDrive SNAP Connect. 
+---
+= Connessione a una copia Snapshot contenente LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile connettersi a una copia Snapshot contenente LUN utilizzando `snapdrive snap connect` comando.
+
+.Fasi
+. Immettere la seguente sintassi di comando per connettersi a una copia Snapshot contenente LUN:
++
+`*snapdrive snap connect -lun _s_lun_name d_lun_name_ [[-lun] _s_lun_name d_lun_name..._ -snapname _long_snap_name_ [-igroup _ig_name_ [_ig_name..._]] [-split]*`
+
++
+
+NOTE: Il `_s_lun_name_` e. `_d_lun_name_` dovrebbe essere nel formato lun_name o qtree_name/lun_name.
+
+
+
+SnapDrive per UNIX clona i LUN specificati e li connette a una nuova posizione.
+
+Nell'esempio seguente viene collegato il LUN mylun1, in hornet/vol/vol1/tuesdaysnapshot a mylun1copy:
+
+[listing]
+----
+# ./snapdrive snap connect -lun mylun1 mylun1copy -snapname
+hornet:/vol/vol1:tuesdaysnapshot
+connecting hornet:/vol/vol1/mylun1:
+LUN copy mylun1copy ... created
+(original: hornet:/vol/vol1/mylun1) mapping new lun(s) ... done
+discovering new lun(s) ... done
+----
+Nell'esempio seguente vengono collegate due LUN, mylun1 e mylun2, rispettivamente a mylun1copy e mylun2copy:
+
+[listing]
+----
+# ./snapdrive snap connect -lun mylun1 mylun1copy -lun mylun2
+mylun2copy -snapname hornet:/vol/vol1:tuesdaysnapshot
+connecting hornet:/vol/vol1/mylun1:
+LUN copy mylun1copy ... created
+(original: hornet:/vol/vol1/mylun1)
+mapping new lun(s) ... done
+connecting hornet:/vol/vol1/mylun2:
+LUN copy mylun2copy ... created
+(original: hornet:/vol/vol1/mylun2)
+mapping new lun(s) ... done
+discovering new lun(s) ... done
+----
+Il seguente esempio collega il LUN lun 1_0 a snapshot lech:/vol/vol1:rrt:
+
+[listing]
+----
+
+snapdrive snap connect -fs /mnt/fs /mnt/fs1  -snapname lech:/vol/vol1:rrt
+connecting /mnt/fs:
+   LUN copy lun1_0 ... created
+     (original: lech:/vol/vol1/lun1)
+   exporting new lun(s) to Guest OS ... done
+   discovering new lun(s) ... done
+Successfully connected to snapshot lech:/vol/vol1:rrt
+        file system: /mnt/fs1
+----

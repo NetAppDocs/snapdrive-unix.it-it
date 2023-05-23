@@ -1,0 +1,36 @@
+---
+permalink: solaris/concept_verification_of_storage_system_readiness_and_licenses.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, licenses, verfiy 
+summary: Prima di installare SnapDrive per UNIX, è necessario verificare la disponibilità del sistema di storage e verificare la disponibilità delle licenze di determinati software. 
+---
+= Verifica della preparazione e delle licenze del sistema storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di installare SnapDrive per UNIX, è necessario verificare la disponibilità del sistema di storage e verificare la disponibilità delle licenze di determinati software.
+
+È necessario assicurarsi che siano soddisfatte le seguenti condizioni:
+
+* I sistemi storage sono online.
+* I sistemi storage soddisfano i requisiti minimi di sistema per SnapDrive per UNIX.
+* Gli HBA o le schede di interfaccia di rete (NIC) dei sistemi storage soddisfano i requisiti del sistema operativo host.
++
+Per ulteriori informazioni sulle schede HBA, consultare la matrice di interoperabilità.
+
+* Gli host e i sistemi di storage possono comunicare utilizzando un protocollo Internet (IP).
+* Sono valide le licenze per:
++
+** SnapRestore
+** Software MultiStore
+** Accesso HTTP sicuro al sistema storage
+
+
+
+
+*Informazioni correlate*
+
+https://mysupport.netapp.com/NOW/products/interoperability["Interoperabilità NetApp"]

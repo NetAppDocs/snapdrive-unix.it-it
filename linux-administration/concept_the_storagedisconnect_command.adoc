@@ -1,0 +1,23 @@
+---
+permalink: linux-administration/concept_the_storagedisconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, disconnect, lun, remove 
+summary: 'L"operazione di disconnessione dello storage rimuove le LUN o le LUN e le entità di storage che sono state mappate all"host utilizzando il comando di creazione dello storage SnapDrive o di connessione dello storage SnapDrive.' 
+---
+= Il comando di disconnessione dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il `storage disconnect` L'operazione rimuove le LUN o le LUN e le entità di storage che sono state mappate all'host utilizzando `snapdrive storage create` oppure `snapdrive storage connect` comando.
+
+Utilizzare `snapdrive storage disconnect` comando per disconnettere:
+
+* LUN
+* File system creato direttamente su un LUN
+* Gruppi di dischi, volumi host e file system creati sulle LUN
+
+
+Quando SnapDrive per UNIX rimuove le mappature LUN, esporta i gruppi di dischi o i file system contenuti nelle LUN. Questa azione, che contrassegna il disco e il file system come esportati, è l'unica modifica che la disconnessione delle mappature ha sul contenuto delle LUN.

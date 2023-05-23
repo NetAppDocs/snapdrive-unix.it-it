@@ -1,0 +1,26 @@
+---
+permalink: solaris/concept_guidelines_for_disconnecting_snapshot_copies_in_a_host_clusterenvironment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, snapshot, copy, host, cluster 
+summary: 'Durante la disconnessione di una copia Snapshot per un"entità NFS, SnapDrive per UNIX smonta il file system, rimuove la voce di montaggio nel file system, rimuove il punto di montaggio e così via.' 
+---
+= Linee guida per la disconnessione delle copie Snapshot in un ambiente cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante la disconnessione di una copia Snapshot per un'entità NFS, SnapDrive per UNIX smonta il file system, rimuove la voce di montaggio nel file system, rimuove il punto di montaggio e così via.
+
+* Il `snapdrive snap disconnect` il comando può essere eseguito da qualsiasi nodo del cluster host.
+* Affinché l'operazione di disconnessione Snapshot abbia esito positivo, è necessario che si tratti di una delle seguenti condizioni:
++
+** Le entità di storage devono essere condivise tra tutti i nodi del cluster host.
+** Le LUN devono essere mappate a tutti i nodi del cluster host.
+
+
+* È possibile scollegare un'entità di storage da un nodo specifico utilizzando `-devicetype dedicated` o il `shared` opzione. Se si disconnette un'entità di storage che si trova in una modalità dedicata, è possibile omettere `-devicetype` dalla sintassi della riga di comando, perché il valore predefinito è dedicato.
+* Il `snapdrive snap disconnect` Il comando genera un errore se un'entità di storage condivisa o un LUN viene disconnesso con `dedicated` Oppure se un'entità di storage dedicata o un LUN viene disconnesso con l'opzione condivisa.
+* SnapDrive per UNIX esegue `snapdrive snap disconnect` sul nodo master. Distrugge le entità di storage, disconnette le LUN su tutti i nodi non master, quindi disconnette le LUN dal nodo master nel cluster host. In caso di errore, l'operazione di disconnessione Snapshot non riesce.
+

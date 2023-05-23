@@ -1,0 +1,18 @@
+---
+permalink: solaris/concept_stale_devices_in_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, lun, clone, stale, device 
+summary: 'L"eliminazione DI LUN e cloni potrebbe lasciare dispositivi obsoleti in UNIX e l"eliminazione di questi dispositivi obsoleti non viene eseguita da SnapDrive per UNIX.' 
+---
+= L'eliminazione di LUN e cloni lascia dispositivi obsoleti in UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'eliminazione DI LUN e cloni potrebbe lasciare dispositivi obsoleti in UNIX e l'eliminazione di questi dispositivi obsoleti non viene eseguita da SnapDrive per UNIX.
+
+Quando si creano dispositivi per LUN e cloni di LUN da copie Snapshot, manualmente o con SnapDrive per UNIX, le voci dei dispositivi vengono create automaticamente in UNIX. L'eliminazione di dispositivi per LUN e cloni di LUN dalle copie Snapshot con SnapDrive per UNIX potrebbe portare a dispositivi obsoleti in UNIX.
+
+L'eliminazione dei dispositivi obsoleti è responsabilità dell'utente finale e deve essere eseguita da un amministratore UNIX.

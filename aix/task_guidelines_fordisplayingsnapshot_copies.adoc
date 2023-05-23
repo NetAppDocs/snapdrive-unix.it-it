@@ -1,0 +1,32 @@
+---
+permalink: aix/task_guidelines_fordisplayingsnapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, display, snapshot, copy 
+summary: È possibile utilizzare i caratteri jolly per visualizzare le copie Snapshot. È possibile visualizzare tutte le copie Snapshot presenti in un oggetto specifico. 
+---
+= Linee guida per la visualizzazione delle copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare i caratteri jolly per visualizzare le copie Snapshot. È possibile visualizzare tutte le copie Snapshot presenti in un oggetto specifico.
+
+Prima di utilizzare le copie Snapshot, tenere presenti i seguenti punti:
+
+* È possibile utilizzare il carattere jolly (*) nei nomi delle copie Snapshot. L'operazione Snapshot show (Mostra snapshot) consente di utilizzare il carattere jolly per visualizzare tutti i nomi delle copie Snapshot corrispondenti a un determinato modello o a tutti i nomi delle copie Snapshot di un determinato volume. Le seguenti regole si applicano quando si utilizza il carattere jolly nei nomi delle copie Snapshot:
++
+** È possibile utilizzare un carattere jolly solo alla fine del nome. Non è possibile utilizzare il carattere jolly all'inizio o al centro del nome di una copia Snapshot.
+** Non è possibile utilizzare il carattere jolly nei campi del volume del sistema di storage o del sistema di storage di un nome di copia Snapshot.
+
+
+* È inoltre possibile utilizzare questo comando per elencare tutte le copie Snapshot su oggetti specifici, inclusi i sistemi di storage e i relativi volumi, gruppi di dischi, gruppi di volumi host, file system, volumi host, e volumi logici.
+* Se si immette un `snapdrive snap show` Command and SnapDrive for UNIX non individua alcuna copia Snapshot, ma visualizza il messaggio "`nessuna copia Snapshot corrispondente`". Se si specificano argomenti nella riga di comando e alcune parti di essi non esistono, SnapDrive per UNIX restituisce un elenco parziale di quelli per i quali vengono trovate le copie Snapshot. Elenca anche gli argomenti non validi.
+* Se il `snapdrive snap create` il comando viene interrotto bruscamente, un comando incompleto `.stoc.xml` il file viene memorizzato nel volume del sistema di storage. Per questo motivo, tutte le copie Snapshot pianificate eseguite dal sistema di storage avranno una copia del file incompleto `.stoc.xml` file. Per `snapdrive snap list` per funzionare correttamente, completare i seguenti passaggi:
+
+
+.Fasi
+. Eliminare l'incompleto `.stoc.xml` file nel volume.
+. Eliminare le copie Snapshot pianificate eseguite dal sistema di storage che contengono il file incompleto `.stoc.xml` file.
+

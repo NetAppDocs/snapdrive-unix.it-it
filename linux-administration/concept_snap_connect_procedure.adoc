@@ -1,0 +1,34 @@
+---
+permalink: linux-administration/concept_snap_connect_procedure.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, procedure, ontap, operation 
+summary: La procedura di connessione SNAP è valida per Data ONTAP 7.2 o versioni successive e spiega i passaggi per il funzionamento della connessione SNAP. 
+---
+= Procedura di connessione SNAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La procedura di connessione SNAP è valida per Data ONTAP 7.2 o versioni successive e spiega i passaggi per il funzionamento della connessione SNAP.
+
+La seguente procedura descrive la procedura di connessione SNAP:
+
+.Fasi
+. SnapDrive per UNIX ottiene il nome della specifica del file e il nome di Snapshot dall'interfaccia CLI di SNAP CONNECT. Quindi, individua i volumi del sistema di storage originale in cui risiedono gli snapshot.
+. SnapDrive per UNIX sceglie un metodo di cloning appropriato per le entità del sistema storage in base alle opzioni di configurazione CLI.
++
+
+NOTE: Se viene specificata l'opzione CLI, sovrascrive sempre `snapdrive.conf` opzione file.
+
++
+.. Se `-clone lunclone` L'opzione è specificata nella CLI o nella `san-clone-method=lunclone` in `snapdrive.conf` Quindi, SnapDrive per UNIX crea un clone LUN nello stesso volume a partire dallo snapshot specificato.
+.. Se `-clone unrestricted` L'opzione è specificata nella CLI o nella `san-clone-method=unrestricted` in `snapdrive.conf` Quindi, SnapDrive per UNIX crea o riutilizza FlexClone all-purpose dall'istantanea data.
+.. Se `-clone optimal` L'opzione è specificata nella CLI o nella `san-clone-method=optimal` in `snapdrive.conf` File, quindi SnapDrive per UNIX sceglie automaticamente tra FlexClone limitato e clone LUN, in base alla configurazione del sistema storage.
+
+
+
+
+
+NOTE: Per impostazione predefinita, i cloni creati da SnapDrive per UNIX sono cloni di backup.

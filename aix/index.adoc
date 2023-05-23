@@ -1,0 +1,14 @@
+---
+permalink: aix/index.html 
+sidebar: sidebar 
+keywords: guide, documentation, installation, administration 
+summary: Descrive come installare, configurare e utilizzare SnapDrive per UNIX su una piattaforma AIX. 
+---
+= Guida all'installazione e all'amministrazione per IBM AIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa guida descrive come installare, configurare e utilizzare SnapDrive 5.3.2 per UNIX su una piattaforma AIX.

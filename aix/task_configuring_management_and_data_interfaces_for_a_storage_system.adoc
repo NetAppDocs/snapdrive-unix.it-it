@@ -1,0 +1,40 @@
+---
+permalink: aix/task_configuring_management_and_data_interfaces_for_a_storage_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configure, data, interface, storage, system 
+summary: È possibile configurare più interfacce dati per una singola interfaccia di gestione in un ambiente NFS, in modo da separare il traffico di gestione dal traffico dati sul sistema storage. 
+---
+= Configurazione delle interfacce di gestione e dati per un sistema storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare più interfacce dati per una singola interfaccia di gestione in un ambiente NFS, in modo da separare il traffico di gestione dal traffico dati sul sistema storage.
+
+.Fasi
+. Impostare la configurazione per la nuova interfaccia di gestione:
++
+`*snapdrive config set root*`
+
++
+[listing]
+----
+# snapdrive config set root f3050-197-91
+Password for root:
+Retype password:
+----
+. Configurare l'interfaccia dati per la nuova interfaccia di gestione:
++
+`*snapdrive config set*`
+
++
+[listing]
+----
+# snapdrive config set -mgmtpath f3050-197-91 f3050-220-91#
+----
++
+Nel comando precedente, `f3050-197-191` è l'interfaccia di gestione e. `f3050-220-91` è l'interfaccia dati.
+
+

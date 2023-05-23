@@ -1,0 +1,32 @@
+---
+permalink: solaris/concept_guidelines_for_storage_create_operation_in_a_host_cluster_environment.html 
+sidebar: sidebar 
+keywords: snap, snapshot, storage, create, host cluster 
+summary: Quando si crea lo storage in un ambiente di cluster host, è necessario seguire alcune linee guida. 
+---
+= Linee guida per la creazione di operazioni di storage in un ambiente di cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si crea lo storage in un ambiente di cluster host, è necessario seguire alcune linee guida.
+
+* È possibile eseguire `snapdrive storage create` da qualsiasi nodo del cluster host.
+* Perché l'operazione di creazione dello storage abbia successo, non dovrebbe essere vero:
++
+** Le entità di storage non devono essere presenti in alcun nodo del cluster host.
+** Le LUN non devono essere mappate a nessun nodo del cluster host.
+
+
+* È possibile creare un'entità di storage su un nodo specifico utilizzando `-devicetype` dedicato o il `-devicetype shared` opzione. Se si crea un'entità di storage in modalità dedicata, è possibile omettere `-devicetype` poiché il valore predefinito è `dedicated`.
+* La creazione dello storage a livello di cluster host di un file system è supportata sui gruppi di dischi che utilizzano il gestore di volumi Veritas con il file system Veritas (VxFS). Questa operazione non supporta LUN raw; la `-nolvm` non supporta anche l'opzione.
+* Il `-igroup` l'opzione non è supportata nell'operazione di creazione dello storage.
+* L'operazione di creazione dello storage non riesce se si verifica una delle seguenti situazioni:
++
+** Se durante il processo di creazione di un'entità di storage viene visualizzato un messaggio di errore. SnapDrive per UNIX esegue l'operazione di creazione dello storage dal nodo master in un cluster host. Prima di creare le entità di storage condivise, SnapDrive per UNIX crea LUN, esegue il mapping delle LUN al nodo master, quindi esegue il mapping delle LUN a tutti i nodi non master. SnapDrive per UNIX crea e gestisce internamente gli igroups per tutti i nodi.
+** Se un nodo del cluster host si spegne e si riavvia prima di avviare il CVM (host Clustered Volume Manager), il gruppo di dischi condivisi utilizzato dalle LUN deve essere rilevato sul nodo. Per impostazione predefinita, i LUN sono visibili se l'indirizzo della porta FC non viene modificato; in caso contrario, è necessario mappare i LUN utilizzando `snapdrive storage connect` comando.
+
+
+

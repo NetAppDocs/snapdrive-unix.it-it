@@ -1,0 +1,29 @@
+---
+permalink: aix/concept_pure_nfs_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, pure, nfs, environment 
+summary: 'Se si configura un sistema per più sottoreti e uno o più volumi NFS vengono montati tramite l"interfaccia di gestione, è necessario configurare sempre la prima interfaccia dati come interfaccia di gestione.' 
+---
+= Ambiente NFS puro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si configura un sistema per più sottoreti e uno o più volumi NFS vengono montati tramite l'interfaccia di gestione, è necessario configurare sempre la prima interfaccia dati come interfaccia di gestione.
+
+Nell'esempio seguente, l'interfaccia di gestione è `10.72.221.19`e l'interfaccia dati è `10.72.220.45`.
+
+[listing]
+----
+# snapdrive config list
+username    appliance name   appliance type
+-------------------------------------------
+root        10.72.221.19     StorageSystem
+
+# snapdrive config list -mgmtpath
+system name    management interface   datapath interface
+--------------------------------------------------------
+f2040-221-19   10.72.221.19           10.72.220.45
+----

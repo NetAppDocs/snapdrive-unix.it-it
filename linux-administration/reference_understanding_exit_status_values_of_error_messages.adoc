@@ -1,0 +1,27 @@
+---
+permalink: linux-administration/reference_understanding_exit_status_values_of_error_messages.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, exit, error, status, warning, admin, command, fatal 
+summary: 'Ogni messaggio di errore SnapDrive per UNIX è associato a un valore di stato di uscita. Il valore dello stato di uscita contiene la causa dell"errore e il relativo tipo: Warning (Avvertenza), Command (comando), Admin (Amministratore) o Fatal (irreversibile).' 
+---
+= Informazioni sui valori dello stato di uscita dei messaggi di errore
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ogni messaggio di errore SnapDrive per UNIX è associato a un valore di stato di uscita. Il valore dello stato di uscita contiene la causa dell'errore e il relativo tipo: Warning (Avvertenza), Command (comando), Admin (Amministratore) o Fatal (irreversibile).
+
+Ogni ID messaggio di errore SnapDrive è collegato a un valore di stato di uscita. I valori dello stato di uscita contengono le seguenti informazioni:
+
+* Exit status value (valore stato di uscita): Indica la causa di base della condizione di errore.
+* Type (tipo): Indica il tipo di errore. Il livello di gravità dipende dal messaggio, non dal valore. Di seguito sono riportati i valori possibili:
++
+** Attenzione: SnapDrive per UNIX ha eseguito il comando ma ha emesso un avviso sulle condizioni che potrebbero richiedere attenzione.
+** Command--SnapDrive per UNIX non è riuscito ad eseguire il comando a causa di un errore nella riga di comando. Controllare il formato della riga di comando per verificare che sia corretto.
+** Admin--SnapDrive per UNIX non è riuscito ad eseguire il comando a causa di incompatibilità nella configurazione del sistema. Contattare l'amministratore di sistema per esaminare i parametri di configurazione.
+** Fatal--SnapDrive per UNIX non è riuscito ad eseguire il comando a causa di una condizione imprevista. Gli errori irreversibili sono rari. Se si verifica un errore irreversibile e si riscontrano problemi nella risoluzione, contattare il supporto tecnico NetApp per ottenere assistenza nella determinazione delle procedure necessarie per il ripristino e la risoluzione di eventuali condizioni di errore.
+
+
+

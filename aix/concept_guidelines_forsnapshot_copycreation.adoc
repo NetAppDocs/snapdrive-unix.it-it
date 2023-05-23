@@ -1,0 +1,36 @@
+---
+permalink: aix/concept_guidelines_forsnapshot_copycreation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, guidelines, snapshot, copy, creation, create 
+summary: 'Durante la creazione di copie Snapshot con SnapDrive per UNIX, prendere in considerazione quanto segue. È possibile mantenere un massimo di 255 copie Snapshot per volume, SnapDrive per UNIX supporta solo le copie Snapshot create, non è possibile creare copie Snapshot di gruppi di dischi root, dispositivo di avvio o dispositivo di swap e SnapDrive per UNIX richiede un"operazione di blocco per mantenere la coerenza del crash.' 
+---
+= Linee guida per la creazione di copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante la creazione di copie Snapshot con SnapDrive per UNIX, considerare quanto segue: È possibile mantenere un massimo di 255 copie Snapshot per volume, SnapDrive per UNIX supporta solo le copie Snapshot create, non è possibile creare copie Snapshot di gruppi di dischi root, dispositivo di avvio o dispositivo di swap e SnapDrive per UNIX richiede un'operazione di blocco per mantenere la coerenza del crash.
+
+Seguire queste linee guida quando si immettono i comandi che creano le copie Snapshot:
+
+* È possibile conservare un massimo di 255 copie Snapshot per volume del sistema di storage. Questo limite viene impostato dal sistema di storage. Il numero totale può variare a seconda che altri strumenti utilizzino queste copie Snapshot.
++
+Quando il numero di copie Snapshot ha raggiunto il limite massimo, l'operazione di creazione Snapshot non riesce. È necessario eliminare alcune delle vecchie copie Snapshot prima di poter utilizzare SnapDrive per UNIX.
+
+* SnapDrive per UNIX non supporta le copie Snapshot non create. Ad esempio, non supporta le copie Snapshot create dalla console del sistema di storage, poiché tale pratica può causare incoerenze all'interno del file system.
+* Non è possibile utilizzare SnapDrive per UNIX per creare copie Snapshot di:
++
+** Gruppi di dischi root
++
+L'operazione di creazione di Snapshot non riesce quando si tenta di eseguire una copia Snapshot di un gruppo di dischi root per una LVM.
+
+** Dispositivo di boot o dispositivo di swap
++
+SnapDrive per UNIX non esegue una copia Snapshot di un dispositivo di avvio del sistema o di un dispositivo di swap del sistema.
+
+
+
+* Quando una copia Snapshot si estende su più sistemi storage o volumi di sistemi storage, SnapDrive per UNIX richiede un'operazione di blocco per garantire la coerenza del crash. Per informazioni sulla creazione di copie Snapshot su configurazioni per le quali non viene fornita un'operazione di blocco.
+

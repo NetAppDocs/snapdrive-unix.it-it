@@ -1,0 +1,28 @@
+---
+permalink: solaris/concept_command_to_use_torestore_snapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, restore, snapshot, copy 
+summary: Utilizzare il comando SnapDrive snap restore per ripristinare una copia Snapshot. 
+---
+= Comando da utilizzare per ripristinare le copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare il comando `snapdrive snap restore` Per ripristinare una copia Snapshot.
+
+Il `snapdrive snap restore` Il comando ripristina i dati della copia Snapshot specificata al prompt dei comandi nel sistema di storage. Questa operazione sostituisce il contenuto di `file_spec` Argomenti (ad esempio gruppi di dischi, file NFS, strutture di directory NFS, file system creati direttamente sulle LUN) specificati su `snapdrive snap restore` con il contenuto di `file_spec` Argomenti presenti nella copia Snapshot specificata.
+
+È anche possibile ripristinare le copie Snapshot per inesistenti `file_spec` argomenti. Ciò si verifica quando il valore specificato non esiste più sull'host, ma esisteva al momento della copia Snapshot. Ad esempio, potrebbe trattarsi di un file system che è stato dismontato o di un gruppo di dischi che è stato rimosso.
+
+In genere, le copie Snapshot vengono ripristinate dall'host in cui sono state eseguite le copie Snapshot (in altre parole, l'host di origine).
+
+[NOTE]
+====
+* In un'entità NFS, quando lo stesso volume viene montato su due IP diversi, le operazioni di ripristino SNAP possono essere eseguite solo per una specifica di file alla volta per questi volumi.
+* Se sei un utente non root, allora, da SnapDrive 4.1 per UNIX, dovresti avere una funzionalità di scrittura dello storage su Global oltre alla funzionalità GlobalSDSnapshot per il ripristino Snapshot.
+
+
+====

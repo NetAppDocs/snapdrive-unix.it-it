@@ -1,0 +1,30 @@
+---
+permalink: linux-administration/task_checking_version_of_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, version, unix, command 
+summary: È possibile verificare la versione di SnapDrive per UNIX immettendo il comando SnapDrive version. 
+---
+= Verifica della versione di SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile verificare la versione di SnapDrive per UNIX immettendo il comando SnapDrive version.
+
+. Al prompt della CLI, immettere il seguente comando:
++
+`*snapdrive version*`
+
++
+[listing]
+----
+# snapdrive version
+snapdrive Version 5.2
+snapdrive Daemon Version 5.2
+----
+
+
+
+NOTE: L'unico argomento accettato da questo comando è `-v`, che visualizza ulteriori dettagli sulla versione. Se si includono argomenti aggiuntivi, SnapDrive per UNIX visualizza un avviso e il numero di versione.

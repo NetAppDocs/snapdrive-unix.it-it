@@ -1,0 +1,26 @@
+---
+permalink: solaris/concept_reasons_to_deletesnapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, snapshot, copy 
+summary: Eliminare le copie Snapshot meno recenti per liberare spazio sul volume del sistema di storage o per conservare un numero inferiore di copie Snapshot. 
+---
+= Motivi per eliminare le copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Eliminare le copie Snapshot meno recenti per liberare spazio sul volume del sistema di storage o per conservare un numero inferiore di copie Snapshot.
+
+È possibile eliminare le copie Snapshot meno recenti per i seguenti motivi:
+
+* Per mantenere un numero inferiore di copie Snapshot memorizzate rispetto al limite massimo di 255 su un volume del sistema di storage. Una volta raggiunto il limite, i tentativi di creare nuove copie Snapshot non riescono.
+* Per liberare spazio sul volume del sistema di storage. Anche prima che la copia Snapshot raggiunga il limite, una copia Snapshot non riesce se il disco non dispone di spazio riservato sufficiente.
+* È inoltre possibile utilizzare il carattere jolly (*) nei nomi delle copie Snapshot. L'operazione Snapshot show consente di utilizzare il carattere jolly per visualizzare tutti i nomi delle copie Snapshot corrispondenti a un determinato modello. Le seguenti regole si applicano all'utilizzo del carattere jolly nei nomi delle copie Snapshot:
++
+** È possibile utilizzare un carattere jolly solo alla fine del nome. Non è possibile utilizzare il carattere jolly all'inizio o al centro del nome di una copia Snapshot.
+** Non è possibile utilizzare il carattere jolly nei campi del volume del sistema di storage o del sistema di storage di un nome di copia Snapshot.
+
+
+

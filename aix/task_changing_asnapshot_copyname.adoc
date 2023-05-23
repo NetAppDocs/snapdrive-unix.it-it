@@ -1,0 +1,34 @@
+---
+permalink: aix/task_changing_asnapshot_copyname.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, name, change 
+summary: 'È possibile modificare il nome di una copia Snapshot utilizzando il comando SnapDrive SNAP rename. L"operazione di ridenominazione Snapshot modifica il nome della copia Snapshot di origine con il nome specificato dall"argomento di destinazione.' 
+---
+= Modifica del nome di una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare il nome di una copia Snapshot utilizzando `snapdrive snap rename` comando. L'operazione di ridenominazione Snapshot modifica il nome della copia Snapshot di origine con il nome specificato dall'argomento di destinazione.
+
+Prima di eseguire questa sintassi, è necessario comprendere le opzioni, le parole chiave e gli argomenti menzionati in questo comando.
+
+.Fasi
+. Immettere il seguente comando per modificare il nome della copia Snapshot:
++
+`*snapdrive snap rename [-snapname] _old_long_snap_name_ _new_snap_name_ [-force [-noprompt]]*`
+
+
+
+Di seguito sono riportati alcuni esempi di `snapdrive snap rename` comando. La prima riga di comando include `-force` Opzione perché una copia Snapshot denominata `new snapshot` copia già esistente. Nel secondo esempio, entrambi i nomi delle copie Snapshot utilizzano la forma lunga del nome, ma entrambi si risolvono nello stesso volume del sistema di storage.
+
+[listing]
+----
+snapdrive snap rename -force filer1:/vol/vol1:oldsnap new snapshot
+----
+[listing]
+----
+snapdrive snap rename filer1:/vol/vol1:FridaySnap filer1:/vol/vol1:Snap040130
+----

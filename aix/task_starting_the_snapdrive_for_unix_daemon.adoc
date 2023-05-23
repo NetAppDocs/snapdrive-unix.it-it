@@ -1,0 +1,23 @@
+---
+permalink: aix/task_starting_the_snapdrive_for_unix_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, start, daemon, command 
+summary: È necessario avviare ed eseguire il daemon SnapDrive per UNIX prima di poter utilizzare qualsiasi comando SnapDrive per UNIX. 
+---
+= Avvio del daemon SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario avviare ed eseguire il daemon SnapDrive per UNIX prima di poter utilizzare qualsiasi comando SnapDrive per UNIX.
+
+Devi essere connesso come utente root.
+
+.Fasi
+. Avviare il daemon:
++
+`*snapdrived start*`
+
+

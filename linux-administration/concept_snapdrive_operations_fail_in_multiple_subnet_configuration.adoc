@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_snapdrive_operations_fail_in_multiple_subnet_configuration.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, operations, fail, subnet, configuration 
+summary: 'Le operazioni SnapDrive non vengono eseguite correttamente in più configurazioni di subnet, se l"accesso al protocollo dei messaggi di controllo Internet è disattivato o se i pacchetti ICMP vengono interrotti tra la rete del sistema di storage e l"host.' 
+---
+= Le operazioni SnapDrive non riescono in una configurazione di più subnet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le operazioni SnapDrive non vengono eseguite correttamente in più configurazioni di subnet, se l'accesso al protocollo ICMP è disattivato o se i pacchetti ICMP vengono interrotti tra la rete host e quella del sistema di storage.
+
+
+
+== Soluzione alternativa
+
+Assicurarsi che `_enable-ping-to-check-filer-reachability_` è impostato su `off`.

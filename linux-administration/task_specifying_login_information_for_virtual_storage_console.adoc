@@ -1,0 +1,56 @@
+---
+permalink: linux-administration/task_specifying_login_information_for_virtual_storage_console.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, login, virtual, storage, console, rdm, lun 
+summary: La console di storage virtuale deve essere configurata in SnapDrive per UNIX per il provisioning dei LUN RDM nel sistema operativo guest. Tuttavia, esistono un nome utente e una password che consentono a SnapDrive per UNIX di accedere alla console di storage virtuale. La Virtual Storage Console non autentica queste credenziali di accesso. 
+---
+= Specifica delle informazioni di accesso per Virtual Storage Console
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La console di storage virtuale deve essere configurata in SnapDrive per UNIX per il provisioning dei LUN RDM nel sistema operativo guest. Tuttavia, esistono un nome utente e una password che consentono a SnapDrive per UNIX di accedere alla console di storage virtuale. La Virtual Storage Console non autentica queste credenziali di accesso.
+
+Assicurarsi che Virtual Storage Console sia configurato con vCenter.
+
+. Immettere il seguente comando:
++
+`*snapdrive config set -viadmin <user> <viadmin_name>*`
+
++
+`_user_` è il nome utente del sistema di interfaccia virtuale.
+
++
+`_viadmin_name_` È il nome o l'indirizzo IP del sistema di interfaccia virtuale.
+
+. Quando richiesto, inserire la password, se presente.
++
+[NOTE]
+====
+Se non è stata impostata alcuna password, premere
+
+`Enter`
+
+(valore nullo) quando viene richiesta una password.
+
+====
++
+In questo esempio viene impostato un utente chiamato `sdadmin` per un'interfaccia virtuale:
+
++
+[listing]
+----
+guest# snapdrive config set -viadmin sdadmin ruffleskin
+Password for sdadmin:
+Retype Password:
+----
++
+SnapDrive per UNIX è ora pronto per il provisioning dei LUN RDM nel sistema operativo guest.
+
++
+
+NOTE: Se si desidera configurare una nuova interfaccia virtuale, i dettagli dell'interfaccia virtuale esistente vengono sovrascritti, in quanto SnapDrive per UNIX consente di configurare una sola interfaccia virtuale per un sistema operativo guest.
+
+

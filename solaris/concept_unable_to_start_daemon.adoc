@@ -1,0 +1,26 @@
+---
+permalink: solaris/concept_unable_to_start_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restart, daemon, host, communivation, storage 
+summary: 'Il daemon non può essere avviato quando l"host non è in grado di comunicare con nessun sistema storage configurato.' 
+---
+= Impossibile riavviare il daemon quando l'host non riesce a comunicare con il sistema di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il daemon non può essere avviato quando l'host non è in grado di comunicare con nessun sistema storage configurato.
+
+In questa condizione, quando si tenta di riavviare il daemon, il daemon non si avvia e viene visualizzato il seguente messaggio di errore.
+
+[listing]
+----
+Unable to start daemon...check daemon log file for more details
+----
+In primo luogo, è necessario assicurarsi che l'host stia comunicando con il sistema di storage eseguendo il comando ping al sistema di storage. Se l'host non è ancora in grado di comunicare con il sistema di storage, provare a utilizzare le seguenti opzioni:
+
+* Eliminare il sistema di storage che non comunica con l'host, quindi provare a riavviare il daemon.
+* Se non si desidera eliminare il sistema di storage configurato per l'host, disattivare l'opzione `_autosupport-enabled_` a. `_off_` in `snapdrive.conf` per eliminare il messaggio di errore.
+

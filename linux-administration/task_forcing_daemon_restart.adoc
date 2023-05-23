@@ -1,0 +1,26 @@
+---
+permalink: linux-administration/task_forcing_daemon_restart.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, force, restart, daemon, stop 
+summary: 'È possibile forzare il riavvio del daemon. Un riavvio forzato del daemon interrompe l"esecuzione di tutti i comandi in esecuzione.' 
+---
+= Forzare il riavvio del daemon
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile forzare il riavvio del daemon. Un riavvio forzato del daemon interrompe l'esecuzione di tutti i comandi in esecuzione.
+
+Assicurarsi di aver effettuato l'accesso come utente root.
+
+.Fasi
+. Immettere il seguente comando per riavviare forzatamente il daemon:
++
+`*snapdrived -force restart*`
+
++
+Una volta ricevuta la richiesta di riavvio forzato, il daemon arresta tutti i comandi in esecuzione e in coda. Il daemon viene riavviato solo dopo aver cancellato l'esecuzione di tutti i comandi in esecuzione.
+
+

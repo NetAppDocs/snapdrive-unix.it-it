@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_management_of_lvm_and_raw_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, lvm, raw, entities, managing 
+summary: SnapDrive per UNIX consente di gestire le entità LVM e raw. SnapDrive per UNIX offre inoltre comandi che aiutano a eseguire il provisioning e la gestione dello storage quando si creano entità di storage. 
+---
+= Gestione di una LVM e di entità raw
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive per UNIX consente di gestire le entità LVM (Logical Volume Manager) e raw. SnapDrive per UNIX offre inoltre comandi che aiutano a eseguire il provisioning e la gestione dello storage quando si creano entità di storage.

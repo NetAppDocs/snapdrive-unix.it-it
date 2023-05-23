@@ -1,0 +1,66 @@
+---
+permalink: solaris/concept_connecting_to_a_single_filespec_in_a_lun.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, filespec, lun 
+summary: 'È possibile connettersi a un singolo filespec che risiede in una LUN. Nell"esempio seguente viene descritto come completare questa operazione.' 
+---
+= Connessione a un singolo filespec in un LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile connettersi a un singolo filespec che risiede in una LUN. Nell'esempio seguente viene descritto come completare questa operazione.
+
+
+NOTE: Filespec può essere qualsiasi file system, volume host, gruppo di dischi o LUN.
+
+Per creare FlexClone con restrizioni, è necessario impostare l'opzione `san-clone-method =optimal` poll `snapdrive.conf` file o dare `-clone optimal` prima di collegare il filespec. Questo esempio visualizza i risultati quando si desidera collegare un filespec `/mnt/fs1` Che risiede in un utente LUN:`/vol/vol1/lun1`
+
+Il layout del file system di origine `/mnt/fs1` di seguito:
+
+[listing]
+----
+# snapdrive storage show -fs /mnt/fs_1 -capabilities
+raw device: /dev/sdc1 mount point: /mnt/fs_1 (persistent) fstype
+				ufs
+allowed operations: all
+
+device filename adapter path size proto state clone lun path backing snapshot
+-------------- ------- ---- ---- ----- ----- ----- -------- ----------------
+/dev/sdc -  P 100m iscsi online No homer:/vol/vol1/lun1  -
+----
+[listing]
+----
+# snapdrive snap connect -fs /mnt/fs_1 -snapname homer:/vol/vol1:snap1 -autorename
+
+ connecting /mnt/fs_1:
+        creating restricted volume clone homer:/vol/Snapdrive_vol1_volume_clone_from_snap1_snapshot ... success
+
+        mapping new lun(s) ... done
+        discovering new lun(s) ... done
+Successfully connected to snapshot homer:/vol/vol1:snap1
+        file system: /mnt/fs_1_0
+----
+In questo caso, SnapDrive per UNIX ha scelto automaticamente di creare un FlexClone limitato `Snapdrive_vol1_0_volume_clone_from_snap1_snapshot` Da Snapshot Snap1 e lo ha collegato al testlun1 del LUN in questo FlexClone per creare un file system host clonato /mnt/fs_1_0.
+
+[listing]
+----
+# snapdrive storage show -fs /mnt/fs_1_0 -capabilities
+
+raw device: /dev/sde1   mount point: /mnt/fs_1_0 (persistent) fstype ufs
+allowed operations: snap disconnect; snap list; snap show; storage show; storage list
+
+device filename adapter path size  proto  state  clone  lun path backing snapshot
+--------------- ------- ---- ----- ------ ------ ------ -------- ----------------
+/dev/sde  -  P  100m iscsi online flex-clone homer:/vol/Snapdrive_vol1_volume_clone_from_snap1_snapshot/lun1 vol1:snap1
+----
+SnapDrive per UNIX definisce FlexClone di destinazione con il prefisso indicato nell'interfaccia CLI.
+
+Se il nome FlexClone generato (con prefisso) è già in uso, SnapDrive per UNIX visualizza un messaggio di errore. In questo caso, è possibile utilizzare `-autorename` insieme a `-prefixfv` per generare automaticamente i nomi dei volumi clonati.
+
+`-prefixfv` L'opzione CLI è applicabile solo per filespecs basati SU SAN. Il `-destfv` L'opzione CLI viene ignorata da SnapDrive per UNIX per filespecs basati SU SAN durante l'operazione FlexClone.
+
+
+NOTE: SnapDrive per UNIX visualizza un avviso quando una copia Snapshot è bloccata a causa di cloni LUN. Tuttavia, SnapDrive per UNIX procede con `snap connect` operazione.

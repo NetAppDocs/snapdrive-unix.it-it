@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/task_stopping_the_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, daemon, configuration 
+summary: Se si modifica il file di configurazione di SnapDrive per UNIX, è necessario arrestare e riavviare il daemon. Puoi fermare il demone in modo non forzato o forzato. 
+---
+= Arrestare il daemon
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si modifica il file di configurazione di SnapDrive per UNIX, è necessario arrestare e riavviare il daemon. Puoi fermare il demone in modo non forzato o forzato.

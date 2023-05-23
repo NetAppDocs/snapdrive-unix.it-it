@@ -1,0 +1,27 @@
+---
+permalink: solaris/task_deleting_a_data_interface_entry_of_a_management_interface.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, data, interface, management, entry 
+summary: 'È possibile eliminare una voce dell"interfaccia dati associata a una specifica interfaccia di gestione in un ambiente NFS utilizzando il comando SnapDrive config delete -mgmtpath.' 
+---
+= Eliminazione di una voce dell'interfaccia dati per un'interfaccia di gestione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare una voce dell'interfaccia dati associata a una specifica interfaccia di gestione in un ambiente NFS utilizzando `snapdrive config delete -mgmtpath` comando.
+
+.Fasi
+. Nella CLI, immettere il seguente comando:
++
+`*snapdrive config delete -mgmtpath _data_interface_*`
+
++
+[listing]
+----
+#snapdrive config delete –mgmtpath f3050-197-91
+Deleted configuration for appliance: f3050-197-91
+----
+

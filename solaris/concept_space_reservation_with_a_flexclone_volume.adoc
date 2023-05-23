@@ -1,0 +1,24 @@
+---
+permalink: solaris/concept_space_reservation_with_a_flexclone_volume.html 
+sidebar: sidebar 
+keywords: snapdrive, snap, space, flexclone, volume, reservation 
+summary: È possibile eseguire operazioni di prenotazione dello spazio su volumi FlexClone con restrizioni e senza restrizioni. Per impostazione predefinita, i volumi FlexClone non dispongono di riserve di scrittura. 
+---
+= Prenotazione di spazio con un volume FlexClone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eseguire operazioni di prenotazione dello spazio su volumi FlexClone con restrizioni e senza restrizioni. Per impostazione predefinita, i volumi FlexClone non dispongono di riserve di scrittura.
+
+Di seguito sono riportate le impostazioni di riserva dello spazio per FlexClone per volumi FlexClone senza restrizioni e limitati:
+
+*Volumi FlexClone senza restrizioni:* If `-reserve` L'opzione viene fornita nella CLI o. `flexclone-writereserve-enabled = on` poll `snapdrive.conf`, La riserva di spazio viene impostata su volume su FlexClone, altrimenti non è alcuna. SnapDrive per UNIX visualizza un messaggio di errore se lo spazio disponibile sull'aggregato non è sufficiente per rispettare questa impostazione.
+
+*Volumi FlexClone limitati:*
+
+* L'impostazione della riserva di spazio a livello di volume è sempre disattivata, ovvero la riserva di spazio è impostata SU NESSUNO.
+* Se `-reserve` oppure `-noreserve` L'opzione viene fornita nella CLI, quindi la riserva di spazio viene attivata o disattivata rispettivamente sulle LUN che appartengono alla specifica del file host. In caso contrario, le LUN relative alle specifiche del file host in FlexClone ereditano la riserva di spazio dalle LUN del volume padre.
+

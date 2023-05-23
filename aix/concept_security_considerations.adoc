@@ -1,0 +1,18 @@
+---
+permalink: aix/concept_security_considerations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, security, considerations, login 
+summary: 'È possibile abilitare SnapDrive per UNIX per accedere ai sistemi di storage connessi all"host e configurare l"host in modo che utilizzi i nomi di accesso e le password assegnati ai sistemi di storage. Se non si forniscono queste informazioni, SnapDrive per UNIX non è in grado di comunicare con il sistema di storage.' 
+---
+= Considerazioni sulla sicurezza
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile abilitare SnapDrive per UNIX per accedere ai sistemi di storage connessi all'host e configurare l'host in modo che utilizzi i nomi di accesso e le password assegnati ai sistemi di storage. Se non si forniscono queste informazioni, SnapDrive per UNIX non è in grado di comunicare con il sistema di storage.
+
+Un utente root può consentire ad altri utenti di eseguire comandi specifici, a seconda dei ruoli assegnati. Non è necessario essere un utente root per eseguire le operazioni di gestione dello storage e dello snap.
+
+SnapDrive per UNIX memorizza le informazioni di autenticazione dell'utente relative all'host in un file crittografato. Negli host AIX, per impostazione predefinita, SnapDrive crittografa le informazioni relative alla password e le invia in rete. SnapDrive per UNIX comunica utilizzando HTTPS sulla connessione IP standard.

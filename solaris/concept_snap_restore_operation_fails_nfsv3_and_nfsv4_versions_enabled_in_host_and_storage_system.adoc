@@ -1,0 +1,22 @@
+---
+permalink: solaris/concept_snap_restore_operation_fails_nfsv3_and_nfsv4_versions_enabled_in_host_and_storage_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, fail, nfsv3, nfsv4, host, storage, version 
+summary: 'L"operazione di ripristino SNAP non riesce quando sono abilitate le versioni nfsv3 e nfsv4 nel sistema host e di storage.' 
+---
+= L'operazione di ripristino SNAP non riesce quando sono abilitate le versioni nfsv3 e nfsv4 nel sistema host e di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'operazione di ripristino SNAP non riesce quando sono abilitate le versioni nfsv3 e nfsv4 nel sistema host e di storage.
+
+Se nel sistema host e di storage sono abilitate le versioni nfsv3 e nfsv4 e il volume viene montato sull'host senza `-o vers` quindi `nobody:nobody` la proprietà è impostata per file e directory.
+
+
+
+== Soluzione alternativa
+
+Si consiglia di utilizzare `-o vers` durante il montaggio del volume nfs o controllare le opzioni predefinite nfs su un valore appropriato sull'host.

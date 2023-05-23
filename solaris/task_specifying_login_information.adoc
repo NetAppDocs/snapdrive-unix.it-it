@@ -1,0 +1,58 @@
+---
+permalink: solaris/task_specifying_login_information.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, login, information, specify 
+summary: È necessario specificare le informazioni di accesso utente per un sistema di storage. A seconda di quanto specificato al momento della configurazione del sistema di storage, ciascun sistema di storage potrebbe utilizzare lo stesso nome utente o password oppure un nome utente o una password univoci. Se tutti i sistemi di storage utilizzano le stesse informazioni relative al nome utente o alla password, è necessario eseguire una sola volta le seguenti operazioni. Se i sistemi di storage utilizzano nomi utente o password univoci, è necessario ripetere la procedura seguente per ciascun sistema di storage. 
+---
+= Specifica delle informazioni di accesso
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario specificare le informazioni di accesso utente per un sistema di storage. A seconda di quanto specificato al momento della configurazione del sistema di storage, ciascun sistema di storage potrebbe utilizzare lo stesso nome utente o password oppure un nome utente o una password univoci. Se tutti i sistemi di storage utilizzano le stesse informazioni relative al nome utente o alla password, è necessario eseguire una sola volta le seguenti operazioni. Se i sistemi di storage utilizzano nomi utente o password univoci, è necessario ripetere la procedura seguente per ciascun sistema di storage.
+
+Assicurarsi di aver effettuato l'accesso come utente root.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*snapdrive config set _user_name filername_ [_filername..._]*`
+
++
+`_user_name_` è il nome utente specificato per il sistema di storage al momento della prima configurazione.
+
++
+`_filername_` è il nome del sistema di storage.
+
++
+[`_filername..._`] definisce che è possibile inserire più nomi di sistemi di storage su una riga di comando se tutti hanno lo stesso nome utente o password. Immettere il nome di almeno un sistema storage.
+
+. Quando richiesto, inserire la password, se presente.
++
+
+NOTE: Se non è stata impostata alcuna password, premere Invio (il valore nullo) quando viene richiesta una password.
+
++
+In questo esempio viene impostato un utente chiamato `root` per un sistema di storage chiamato toaster:
+
++
+[listing]
+----
+# snapdrive config set root toaster
+Password for root:
+Retype Password:
+----
++
+In questo esempio viene impostato un utente chiamato `root` per tre sistemi storage:
+
++
+[listing]
+----
+# snapdrive config set root toaster oven broiler
+Password for root:
+Retype Password:
+----
+. Se si dispone di un altro sistema di storage con un nome utente o una password diversi, ripetere la procedura.
+

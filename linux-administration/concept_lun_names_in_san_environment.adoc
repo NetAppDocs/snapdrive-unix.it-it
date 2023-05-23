@@ -1,0 +1,29 @@
+---
+permalink: linux-administration/concept_lun_names_in_san_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, lun, names, san, host 
+summary: 'In tutte le operazioni SAN, il formato dei nomi LUN deve sempre corrispondere al nome host, indipendentemente dal fatto che si risolva in un indirizzo IP. In un ambiente SAN puro, non esiste un concetto di percorso dei dati. Il mapping dell"interfaccia di gestione deve essere lo stesso dell"interfaccia del percorso dati.' 
+---
+= Nomi LUN in ambiente SAN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In tutte le operazioni SAN, il formato dei nomi LUN deve sempre corrispondere al nome host, indipendentemente dal fatto che si risolva in un indirizzo IP. In un ambiente SAN puro, non esiste un concetto di percorso dei dati. Il mapping dell'interfaccia di gestione deve essere lo stesso dell'interfaccia del percorso dati.
+
+
+
+== Output dell'elenco di configurazione in un ambiente SAN con più subnet
+
+[listing]
+----
+
+#snapdrive config set -mgmtpath f3050-197-91 f3050-197-91
+
+#snapdrive config list -mgmtpath
+system name        management interface   datapath interface
+------------------------------------------------------------
+bart               10.72.197.91           10.72.197.91
+----

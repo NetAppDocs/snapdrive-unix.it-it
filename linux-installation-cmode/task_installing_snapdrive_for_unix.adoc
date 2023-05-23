@@ -1,0 +1,34 @@
+---
+permalink: linux-installation-cmode/task_installing_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, install, unix, host, command, interface 
+summary: 'È possibile installare SnapDrive per UNIX sull"host Linux dall"interfaccia della riga di comando.' 
+---
+= Installazione di SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile installare SnapDrive per UNIX sull'host Linux dall'interfaccia della riga di comando.
+
+.Fasi
+. Scaricare il programma di installazione di SnapDrive per UNIX per Linux dal sito di supporto NetApp http://mysupport.netapp.com/NOW/cgi-bin/software[NetApp Download: Software] e copiare il file sull'host Linux.
+. Accedere al sistema host come utente root.
++
+Se il file del programma di installazione viene eseguito in remoto e la configurazione del sistema non consente di accedere come utente root, utilizzare `su` per accedere come utente root.
+
+. Accedere alla directory dell'host Linux in cui è stato copiato il programma di installazione.
+. Installare SnapDrive per UNIX:
++
+`*rpm-ivh _installer_file_name_*`
+
+
+
+Il daemon SnapDrive si avvia automaticamente dopo l'installazione.
+
+[listing]
+----
+Starting snapdrive daemon: Successfully started daemon
+----

@@ -1,0 +1,26 @@
+---
+permalink: solaris/concept_nfs_configuration_checks.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, nfs, configuration, check 
+summary: 'Per le configurazioni che utilizzano NFS (Network file System), è necessario verificare che i client NFS funzionino correttamente, prima di configurare i sistemi host e storage.' 
+---
+= Verifiche della configurazione NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per le configurazioni che utilizzano NFS (Network file System), è necessario verificare che i client NFS funzionino correttamente, prima di configurare i sistemi host e storage.
+
+Se si dispone di una configurazione che utilizza NFS, è necessario completare le seguenti operazioni:
+
+* Assicurarsi che i client NFS funzionino correttamente.
++
+Per ulteriori informazioni sulla gestione dei protocolli NFS, consultare link:https://library.netapp.com/ecm/ecm_download_file/ECMP1401220["File Access and Protocols Management Guide for 7-Mode"] Se si utilizza Data ONTAP 7-Mode, consultare la sezione link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["File Access Management Guide per NFS"] Se si utilizza Clustered Data ONTAP.
+
+* Configurare i sistemi host e storage.
++
+Per utilizzare SnapDrive per UNIX con directory montate su NFS sui sistemi di storage, è necessario assicurarsi che le directory del sistema di storage siano esportate correttamente nell'host. Se l'host dispone di più interfacce IP (Internet Protocol) e di dati e interfacce di gestione per il sistema storage, è necessario assicurarsi che la directory sia esportata correttamente sia nelle interfacce dati che di gestione. SnapDrive per UNIX emette avvisi a meno che tutte queste interfacce non dispongano di permessi di lettura o scrittura o nel caso di `snapdrive snap connect` con il `-readonly` almeno permessi di sola lettura. Il `snapdrive snap restore` e. `snapdrive snap connect` i comandi non vengono eseguiti se nessuna di queste interfacce dispone dell'autorizzazione per accedere alla directory.
+
+

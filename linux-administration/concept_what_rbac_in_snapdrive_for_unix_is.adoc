@@ -1,0 +1,26 @@
+---
+permalink: linux-administration/concept_what_rbac_in_snapdrive_for_unix_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, rbac, access, control, role, storage, limited, user 
+summary: 'RBAC consente agli amministratori di SnapDrive di limitare l"accesso a un sistema storage per varie operazioni SnapDrive. Questo accesso limitato o completo per le operazioni di storage dipende dal ruolo assegnato all"utente.' 
+---
+= Che cos'è il RBAC (role-based access control) in SnapDrive per UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RBAC consente agli amministratori di SnapDrive di limitare l'accesso a un sistema storage per varie operazioni SnapDrive. Questo accesso limitato o completo per le operazioni di storage dipende dal ruolo assegnato all'utente.
+
+SnapDrive 4.0 per UNIX e versioni successive richiede un controllo dell'accesso RBAC per tutte le operazioni di SnapDrive per UNIX. Questo comportamento consente agli amministratori dello storage di limitare le operazioni che gli utenti SnapDrive possono eseguire in base ai ruoli assegnati. RBAC viene implementato utilizzando l'infrastruttura di Operations Manager. Nelle versioni precedenti a SnapDrive 4.0 per UNIX, il controllo degli accessi era limitato e solo l'utente root poteva eseguire operazioni SnapDrive per UNIX. SnapDrive 4.0 per UNIX e versioni successive fornisce supporto per utenti locali non root e utenti NIS (Network Information System) utilizzando l'infrastruttura RBAC della console di Operations Manager. SnapDrive per UNIX non richiede la password root del sistema di storage, ma comunica con il sistema di storage utilizzando un utente sd-<hostname>.
+
+Per impostazione predefinita, la funzionalità RBAC della console di Operations Manager non viene utilizzata. È necessario attivare la funzionalità RBAC impostando la variabile `_rbac-method=dfm_` in `snapdrive.conf` Archiviare e riavviare il daemon SnapDrive per UNIX.
+
+Prima di poter utilizzare questa funzione, è necessario soddisfare i seguenti requisiti:
+
+* Console Operations Manager 3.7 o successiva.
+* Il server della console di Operations Manager deve essere presente e configurato nella rete IP che contiene gli host SnapDrive e i sistemi di storage.
+* Le impostazioni di comunicazione della console di Operations Manager devono essere configurate durante l'installazione di SnapDrive.
+* SnapDrive per UNIX daemon dovrebbe essere in esecuzione.
+

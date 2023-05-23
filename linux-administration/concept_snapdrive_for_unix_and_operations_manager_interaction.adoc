@@ -1,0 +1,33 @@
+---
+permalink: linux-administration/concept_snapdrive_for_unix_and_operations_manager_interaction.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, console, interaction, manager, storage, console, user 
+summary: 'L"utilizzo del controllo degli accessi basato sui ruoli dipende dall"infrastruttura della console di Operations Manager. L"amministratore della console di Operations Manager deve creare nomi utente per l"utilizzo di SnapDrive per UNIX. Tutte le richieste relative alle operazioni di storage vengono prima inviate alla console di Operations Manager per un controllo dell"accesso. Dopo che la console di Operations Manager ha verificato un"operazione di storage da parte di un utente SnapDrive specifico, l"operazione viene completata.' 
+---
+= Interazione della console di SnapDrive per UNIX e Operations Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'utilizzo del RBAC (role-based access control) dipende dall'infrastruttura della console di Operations Manager. L'amministratore della console di Operations Manager deve creare nomi utente per l'utilizzo di SnapDrive per UNIX. Tutte le richieste relative alle operazioni di storage vengono prima inviate alla console di Operations Manager per un controllo dell'accesso. Dopo che la console di Operations Manager ha verificato un'operazione di storage da parte di un utente SnapDrive specifico, l'operazione viene completata.
+
+Il seguente diagramma illustra l'intero RBAC per le operazioni di storage.
+
+image::../media/sdu_rbac_process_01_linux.gif[sdu rbac process 01 linux]
+
+. L'amministratore della console di Operations Manager aggiunge l'utente di amministrazione sd alla console di Operations Manager.
+. L'amministratore della console di Operations Manager crea un utente con nome host sd sul sistema di storage.
+. L'amministratore della console di Operations Manager invia le credenziali sd-admin e sd-hostname all'amministratore di SnapDrive per UNIX.
+. L'amministratore di SnapDrive configura SnapDrive con le credenziali utente ricevute.
+. La console di Operations Manager esegue il controllo dell'accesso per l'utilizzo di SnapDrive per UNIX con le credenziali utente aggiunte dall'amministratore di SnapDrive.
+. Dopo l'autenticazione dell'utente SnapDrive, l'utente può connettersi al sistema di storage.
+
+
+Quando un utente SnapDrive desidera eseguire alcune operazioni di storage, invia il comando corrispondente alla riga di comando. La richiesta viene inviata alla console di Operations Manager per un controllo dell'accesso. La console di Operations Manager verifica se l'utente richiesto dispone delle autorizzazioni appropriate per eseguire l'operazione SnapDrive. Il risultato della verifica dell'accesso viene restituito a SnapDrive. A seconda del risultato, all'utente è consentito o meno eseguire le operazioni di storage sul sistema di storage.
+
+Se l'utente viene verificato dopo il controllo dell'accesso, si connette al sistema di storage come nome host sd.
+
+
+NOTE: i nomi utente consigliati sono sd-hostname e sd-admin. È possibile configurare SnapDrive per UNIX con altri nomi utente.

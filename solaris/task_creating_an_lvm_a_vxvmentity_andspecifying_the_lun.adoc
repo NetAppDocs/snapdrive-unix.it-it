@@ -1,0 +1,43 @@
+---
+permalink: solaris/task_creating_an_lvm_a_vxvmentity_andspecifying_the_lun.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, create, vxvm, lun 
+summary: 'È possibile creare un"entità host come un file system, un volume logico o un gruppo di dischi e specificare il LUN creato come parte di esso.' 
+---
+= Creazione di un'entità VxVM e specifica del LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare un'entità host come un file system, un volume logico o un gruppo di dischi e specificare il LUN creato come parte di esso.
+
+.Fasi
+. Nella riga di comando, immettere il seguente comando:
++
+`*snapdrive storage create _-host_lvm_fspec_ -lun _long_lun_name_ [_lun_name..._] -lunsize _size_ [-igroup _ig_name_ [_ig_name..._]] [{ -reserve | -noreserve }]*`
+
++
+Questo esempio su un host Solaris crea il file system acctfs su tre LUN e assegna un nome esplicito al gruppo di volumi e al volume host sottostante. Ogni LUN è di 10 GB:
+
++
+`# snapdrive storage create -fs /mnt/acctfs -hostvol acctfsdg/acctfshv -lun acctfiler:/vol/vol1/lunA lunB lunC -lunsize 10g`
+
++
+[listing]
+----
+LUN acctfiler:/vol/vol1/lunA ... created
+LUN acctfiler:/vol/vol1/lunB ... created
+LUN acctfiler:/vol/vol1/lunC ... created
+mapping new lun(s) ... done
+discovering new lun(s) ... done
+LUN to device file mappings:
+- acctfiler:/vol/vol1/lunA => /dev/vx/rdmp/c4t0d3s2
+- acctfiler:/vol/vol1/lunB => /dev/vx/rdmp/c4t0d7s2
+- acctfiler:/vol/vol1/lunC => /dev/vx/rdmp/c4t0d8s2
+disk group acctfsvg created
+host volume acctfshv created
+file system /mnt/acctfs created
+----
+

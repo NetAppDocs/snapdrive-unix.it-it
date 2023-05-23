@@ -1,0 +1,20 @@
+---
+permalink: aix/concept_guidelines_forrenaming_snapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, guidelines, snapshot, copy 
+summary: Durante la ridenominazione delle copie Snapshot, assicurarsi che le due copie Snapshot non abbiano lo stesso nome. 
+---
+= Linee guida per la ridenominazione delle copie Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante la ridenominazione delle copie Snapshot, assicurarsi che le due copie Snapshot non abbiano lo stesso nome.
+
+Seguire queste linee guida quando si utilizza `snapdrive snap rename` comando:
+
+* Se si tenta di rinominare una copia Snapshot in un volume diverso del sistema di storage, viene visualizzato un messaggio di errore.
+* Se il nuovo nome della copia Snapshot esiste già, viene visualizzato un messaggio di errore. È possibile utilizzare `-force` Opzione per forzare SnapDrive per UNIX a modificare il nome senza generare un messaggio di errore.
+

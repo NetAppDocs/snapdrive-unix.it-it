@@ -1,0 +1,38 @@
+---
+permalink: solaris/concept_guidelines_for_storage_deletion_in_a_host_cluster_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, delete, host, cluster 
+summary: 'È necessario conoscere alcune linee guida per l"utilizzo del comando di eliminazione dello storage thesnapdrive in un ambiente di cluster host.' 
+---
+= Linee guida per l'eliminazione dello storage in un ambiente di cluster host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario conoscere alcune linee guida per l'utilizzo di `snapdrive storage delete` in un ambiente di cluster host.
+
+* Se si avvia `snapdrive storage delete` comando con `-devicetype` opzione condivisa da qualsiasi nodo non master nel cluster host, il comando viene inviato al nodo master ed eseguito. Affinché ciò accada, è necessario assicurarsi che il rsh o ssh `access-without-password-prompt` è consentito su tutti i nodi del cluster host.
+* Il `snapdrive storage delete` il comando può essere eseguito da qualsiasi nodo del cluster host.
+* Affinché l'operazione di eliminazione dello storage abbia esito positivo, nessuno dei due deve essere falso:
++
+** Le entità di storage devono essere condivise.
+** Le LUN devono essere mappate a tutti i nodi del cluster host.
+
+
+* È possibile eliminare un'entità di storage su un nodo specifico utilizzando `-devicetype dedicated` oppure omettendo il `-devicetype` nella sintassi della riga di comando, in quanto il valore predefinito è dedicato.
+* Il `snapdrive storage delete` Il comando visualizza un messaggio di errore se un'entità di storage condivisa o un LUN viene cancellato con `-devicetype dedicated` Oppure se un'entità di storage dedicata o un LUN viene eliminato con l'opzione condivisa.
+* L'operazione di eliminazione dello storage non riesce se si verifica una delle seguenti condizioni:
++
+** Se si verifica un errore durante il processo di eliminazione di un'entità di storage.
++
+SnapDrive per UNIX elimina le entità di storage, disconnette le LUN da tutti i nodi non master, quindi disconnette ed elimina le LUN dal nodo master nel cluster host.
+
+** Se un nodo nel cluster host si spegne e si riavvia prima di `snapdrive storage delete` il comando viene eseguito.
++
+Questo accade perché i LUN sono ancora mappati al nodo non esistente. Per evitare questo problema, utilizzare `-force` opzione.
+
+
+
+

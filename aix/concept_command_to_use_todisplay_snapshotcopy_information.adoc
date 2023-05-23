@@ -1,0 +1,25 @@
+---
+permalink: aix/concept_command_to_use_todisplay_snapshotcopy_information.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, display, snapshot, copy, information 
+summary: 'Utilizzare il comando SnapDrive SNAP show (o list) per visualizzare le informazioni sulle copie Snapshot.' 
+---
+= Comando da utilizzare per visualizzare le informazioni di copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare `snapdrive snap show` (o. `list`) Per visualizzare le informazioni sulle copie Snapshot.
+
+È possibile utilizzare `snapdrive snap show` (O list) per visualizzare le informazioni relative a ciascuna copia Snapshot creata da SnapDrive per UNIX. È possibile utilizzare questo comando per visualizzare informazioni su:
+
+* Sistemi storage
+* Volumi sui sistemi storage
+* Entità di storage come file NFS e strutture di directory, gruppi di volumi, gruppi di dischi, file system, volumi logici, e dei volumi host
+* Copie Snapshot
+
+
+
+NOTE: Il `show` e. `list` le forme di questo comando sono sinonimi. Per SnapDrive 2.0 per UNIX e versioni successive, è necessario utilizzare la forma lunga del nome della copia Snapshot quando si visualizzano le informazioni sulle copie Snapshot.

@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_volume_based_snaprestore_check_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snaprestore, volume, based, check, fail 
+summary: 'Controllo SnapRestore basato su volume non riuscito (quando NFS tenta di esportare l"elenco che non ha host esterni) nel computer client (SLES 11) che ha due IP diversi per un nome host nel file /etc/hosts.' 
+---
+= Controllo SnapRestore basato sul volume non riuscito
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il controllo Vbsr (Volume-Based SnapRestore) non riesce (quando NFS tenta di esportare l'elenco che non ha host esterni) nel computer client (SLES 11) che ha due IP diversi per un nome host in `/etc/hosts` file.
+
+Per risolvere il problema, assicurarsi di disporre di un solo IP per un nome host in `/etc/hosts` file.

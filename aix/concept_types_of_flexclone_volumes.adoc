@@ -1,0 +1,18 @@
+---
+permalink: aix/concept_types_of_flexclone_volumes.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, flexclone, volume, restricted, unrestricted 
+summary: I volumi FlexClone possono essere classificati come temporanei o multiuso a seconda del modo in cui vengono utilizzati da SnapDrive per UNIX. 
+---
+= Tipi di volumi FlexClone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I volumi FlexClone possono essere classificati come temporanei o multiuso a seconda del modo in cui vengono utilizzati da SnapDrive per UNIX.
+
+* *Volume FlexClone limitato o temporaneo*: Volume FlexClone (creato durante `snap connect`) viene utilizzato principalmente per verificare i dati. Operazioni di provisioning e Snapshot (eccetto `snap disconnect`) Tramite SnapDrive per UNIX non sono consentiti su questo volume FlexClone.
+* *Volume FlexClone senza restrizioni o universale*: Volume FlexClone (creato durante `snap connect`) Può essere utilizzato anche come back-end per le operazioni di provisioning e Snapshot, proprio come i normali volumi flessibili. È possibile eseguire tutte le normali operazioni SnapDrive su questo volume FlexClone.
+

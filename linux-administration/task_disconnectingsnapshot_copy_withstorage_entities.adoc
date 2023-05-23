@@ -1,0 +1,93 @@
+---
+permalink: linux-administration/task_disconnectingsnapshot_copy_withstorage_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, snapshot, command 
+summary: È possibile utilizzare il comando SnapDrive SNAP disconnect per disconnettere una copia Snapshot che contiene entità di storage. 
+---
+= Disconnessione della copia Snapshot con le entità di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare `snapdrive snap disconnect` Comando per disconnettere una copia Snapshot che contiene entità di storage.
+
+.Fasi
+. Immettere il seguente comando:
++
+`*SnapDrive snap disconnect {-dg | -fs | -hostvol} _file_spec_ [_file_spec..._]{-dg | -fs | -hostvol} _file_spec_ [file_spec...]] [-full] [-fstype type] [-vmtype type type] [-split]
+
++
+Questo comando deve sempre iniziare con l'entità di storage, ad esempio `-lun`, `-dg`, `-hostvol`, o. `-fs`.
+
++
+** Se si specifica un LUN  `-lun`), immettere il nome LUN lungo. Non è possibile specificare un LUN con `-lun` sulla stessa riga di comando delle altre entità di storage (`-vg`,`-dg`,`-fs`,`-lvol`, o. `-hostvol` opzioni).
+** Se si specifica un LUN RDM  `-lun`), immettere il nome LUN RDM lungo. Non è possibile specificare un LUN RDM con `-lun` sulla stessa riga di comando delle altre entità di storage (`-vg`,`-dg`,`-fs`,`-lvol`, o. `-hostvol` opzioni).
+** Se si specifica un punto di montaggio NFS, non è possibile specificare entità non NFS (`-vg`, `-dg`, `-fs`, `-lvol`, o. `-hostvol`) sulla stessa riga di comando. È necessario utilizzare un comando separato per specificare il punto di montaggio NFS.
+
+
+
+
+
+NOTE: Se l'entità host utilizza LUN che non fanno parte della copia Snapshot, viene visualizzato un messaggio di errore. Un errore si verifica anche se si specifica un sottoinsieme dei volumi host e/o dei file system contenuti in ciascun gruppo di dischi di destinazione.
+
+SnapDrive per UNIX rimuove i mapping per le entità di storage specificate nella riga di comando.
+
+Questa riga di comando rimuove le mappature a tutte le LUN sottostanti il volume host dg5/myvolume. Rimuove tutte le LUN temporanee create con un'operazione di connessione Snapshot:
+
+[listing]
+----
+# snapdrive snap disconnect -hostvol dg5/myvolume
+----
+Questa riga di comando rimuove le mappature a tutte le LUN sottostanti il volume host dg5/myvolume. Rimuove tutte le LUN temporanee create con un'operazione di connessione Snapshot:
+
+[listing]
+----
+# snapdrive snap disconnect -hostvol dg5/myvolume
+----
+Questo comando disconnette la mappatura al gruppo di dischi 1 (dg1) e al LUN sottostante. Inoltre, rimuove tutte le LUN temporanee create con l'operazione di connessione Snapshot:
+
+[listing]
+----
+# snapdrive snap disconnect -lun toaster:/vol/vol1/luna -dg dg1
+----
+Questa riga di comando rimuove la mappatura al file system fs1 e al LUN RDM sottostante. Inoltre, rimuove tutti i LUN RDM temporanei creati con l'operazione di connessione Snapshot:
+
+[listing]
+----
+# snapdrive snap disconnect -fs mnt/RDMNew
+----
+Questa riga di comando rimuove la mappatura al file system fs1 e al LUN sottostante. Inoltre, rimuove tutte le LUN temporanee create con l'operazione di connessione Snapshot:
+
+[listing]
+----
+# snapdrive snap disconnect -fs mnt/fs1
+----
+Questa riga di comando rimuove le mappature per i gruppi di dischi dg1, dg2 e dg3. Rimuove tutte le LUN temporanee create con l'operazione di connessione Snapshot:
+
+[listing]
+----
+# snapdrive snap disconnect -dg dg1 dg2 dg3
+----
+Questo esempio disconnette una copia Snapshot con il file system, gruppo di dischi sullo stack LVM:
+
+[listing]
+----
+# snapdrive snap disconnect -fs /mnt/fs1_clone -fstype ext3
+
+delete file system /mnt/fs1_clone
+- fs /mnt/fs1_clone ... deleted
+- hostvol lvm1_0/fs1_SdHv_0 ... deleted
+- dg lvm1_0 ... deleted
+- LUN snoopy:/vol/vol1/lunLvm1_0 ... deleted
+----
+Questo esempio disconnette una copia Snapshot con il file system:
+
+[listing]
+----
+# snapdrive snap disconnect -fs /mnt/fs1
+delete file system /mnt/fs1
+- fs /mnt/fs1 ... deleted
+- LUN lech:/vol/vol1/lun1_0 ... deleted
+----

@@ -1,0 +1,156 @@
+---
+permalink: solaris/task_steps_to_cleanup_the_mapped_rdm_luns_in_the_guest_os_or_esx_server.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, mapped, rdm, lun, guest, esx, server, system 
+summary: È necessario ripulire le LUN RDM nel sistema operativo guest e nel server ESX. 
+---
+= Pulizia dei LUN RDM mappati nel sistema operativo guest e nel server ESX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario ripulire le LUN RDM nel sistema operativo guest e nel server ESX.
+
+
+
+== Pulizia dei LUN RDM mappati nel sistema operativo guest
+
+[role="lead"]
+Le seguenti operazioni devono essere eseguite nel sistema operativo guest.
+
+.Fasi
+. Dal riquadro di navigazione *vCenter*, selezionare la macchina virtuale in cui viene eseguita la mappatura RDM.
+. Fare clic con il pulsante destro del mouse sulla macchina virtuale e spegnere il sistema operativo guest.
+. Fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare *Modifica impostazioni*.
++
+Viene visualizzata la finestra di dialogo *virtual machine properties* (Proprietà macchina virtuale).
+
+. Nella finestra di dialogo *virtual machine properties*, selezionare la scheda *hardware*.
++
+L'intera voce RDM mappata è così `_Mapped RAW LUN_` Per ogni voce RDM.
+
+. Selezionare la voce RDM mappata e fare clic su *Remove* (Rimuovi).
++
+Le *Opzioni di rimozione* vengono visualizzate nel riquadro di destra.
+
+. In *Removal Options*, selezionare *Remove from virtual machine and delete files from disk* (Rimuovi dalla macchina virtuale ed elimina i file dal disco).
+. Fare clic su *OK*.
++
+Tutte le voci mappate RDM vengono rimosse dal sistema operativo guest.
+
++
+Dopo aver rimosso le voci LUN RDM dal sistema operativo guest, è necessario rimuoverle dal server ESX.
+
+
+
+
+
+== Pulizia dei LUN RDM mappati nel server ESX
+
+[role="lead"]
+I seguenti passaggi devono essere eseguiti solo dall'amministratore del server ESX per una pulizia completa di tutte le voci LUN RDM nel server ESX.
+
+Spegnere la macchina virtuale prima di lavorare sulla directory della macchina virtuale.
+
+.Fasi
+. Accedere alla directory della macchina virtuale.
+. Passare alla directory `cd /vmfs/volumes/Data` percorso del negozio.
++
+[listing]
+----
+# ls -l
+total 1024
+drwxr-xr-t 1 root root 1540 Apr 19 23:54 4bc702de-fa7ec190-992b-001a6496f353
+lrwxr-xr-x 1 root root   35 May 11 07:56 local_storage (1) -> 4bc702de-fa7ec190-992b-001a6496f353
+----
++
+Tutti i file e le directory sono elencati qui.
+
+. Selezionare l'archivio dati appropriato in cui risiedono le macchine virtuali.
+. Modificare la directory in archivio dati.
++
+Viene visualizzata la directory della macchina virtuale.
+
+. Modificare la directory in una macchina virtuale in cui si desidera eliminare la mappatura LUN RDM.
++
+Tutti i file sono elencati nella directory della macchina virtuale.
+
+. Elimina tutto `vmdk` File, che hanno una stringa SMVI incorporata. In alternativa, è anche possibile identificare il file vmdk utilizzando il nome del LUN.
++
+In alternativa, è possibile identificare anche `vmdk` File che utilizza il nome del LUN.
+
++
+Se si dispone di un `vmdk` File del nome del LUN come `_rdm1_`, solo eliminazione `_rhel4u8-141-232_SMVI_vol_esx3u5_rdm1-rdmp.vmdk_` e. `_rhel4u8-141-232_SMVI_vol_esx3u5_rdm1.vmdk files_`.
+
++
+Eliminare `_vmlnx5U4-197-23_SMVI_10.72.197.93_C4koV4XzK2HT_22-rdmp.vmdk_` e. `_vmlnx5U4-197-23_SMVI_10.72.197.93_C4koV4XzK2HT_22.vmdk vmlnx5U4-197-23_SMVI_10.72.197.93_C4koV4YG4NuD_53-rdmp.vmdkfiles_`.
+
+. Rimuovere `vmdk` voci del file dal file di configurazione della macchina virtuale (`vmx`).
++
+Di seguito viene riportato un esempio di rimozione delle voci del file vmdk dal file vmx.
+
++
+|===
+| *Nome* | *Descrizione* 
+
+
+ a| 
+`_rhel4u8-141-232_`
+ a| 
+Nome della macchina virtuale
+
+
+
+ a| 
+`_SMVI_`
+ a| 
+Indica che il file vmdk viene creato da SnapManager per il server dell'infrastruttura virtuale
+
+
+
+ a| 
+`_vol_esx3u5_`
+ a| 
+Nome del volume in cui viene creata la LUN
+
+
+
+ a| 
+`_rdm1_`
+ a| 
+Nome del LUN
+
+
+
+ a| 
+`_rdmp_`
+ a| 
+Indica che si tratta di un LUN RDM fisicamente compatibile
+
+
+
+ a| 
+`_vmdk_`
+ a| 
+Virtual Machine Disk file (file disco macchina virtuale)
+
+|===
++
+[listing]
+----
+[root@ rhel4u8-141-232]# vi rhel4u8-141-232.vmx
+		:
+		:
+scsi3:1.fileName = "rhel4u8-141-232_SMVI__vol_esx3u5_rdm1.vmdk"
+scsi3:1.mode = "independent-persistent"
+scsi3:1.ctkEnabled = "FALSE"
+scsi3:1.deviceType = "scsi-hardDisk"
+scsi3:1.present = "TRUE"
+scsi3:1.redo = ""
+----
+. Eliminare le voci come specificato nell'esempio precedente, incluse le virgolette e le virgole ad eccezione di `_scsi3:1.present_` voce, che si dovrebbe modificare in `_FALSE_` da `_TRUE_`.
+. Salvare e chiudere il file.
+. Accendere la macchina virtuale.
+

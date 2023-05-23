@@ -1,0 +1,53 @@
+---
+permalink: solaris/reference_limitations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, limitations 
+summary: 'Quando si lavora con SnapDrive per UNIX, è necessario conoscere alcune limitazioni che potrebbero influire sull"ambiente.' 
+---
+= Limitazioni
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si lavora con SnapDrive per UNIX, è necessario conoscere alcune limitazioni che potrebbero influire sull'ambiente.
+
+
+
+== Limitazioni generiche
+
+* SnapDrive per UNIX richiede che le macchine virtuali utilizzino il BIOS durante l'avvio per il supporto di SnapManager per infrastruttura virtuale (SMVI). L'utilizzo di Unified Extensible firmware Interface (UEFI) non è supportato.
+* SnapDrive per UNIX non supporta la configurazione MetroCluster in un ambiente RDM (Raw Device Mapping) in un sistema operativo guest perché la configurazione MetroCluster non è supportata dalla console di storage virtuale (VSC).
+* SnapDrive per UNIX non supporta le operazioni Snapshot su un punto di montaggio NFS quando il volume viene esportato con i tipi di autenticazione di sicurezza Kerberos krb5, krb5i o krb5p.
+* Le operazioni di Snapshot potrebbero non essere coerenti se si esegue un'operazione di ripristino SNAP su un punto di montaggio in cui è montata un'entità diversa da quella creata nella copia Snapshot.
+* SnapDrive per UNIX non supporta operazioni su specifiche di file o LUN se si trovano in Data ONTAP e operano in sistemi di storage 7-Mode e Clustered Data ONTAP.
+* Se si utilizza Clustered Data ONTAP per configurare una macchina virtuale di storage con SnapDrive per UNIX, verificare che l'indirizzo IP della LIF della SVM sia mappato al nome della SVM nel DNS o nel `/etc/hosts` file.
++
+È inoltre necessario verificare che il nome SVM sia configurato in SnapDrive per UNIX utilizzando `snapdrive config set _vsadmin Vserver name_` comando.
+
+* SnapDrive per UNIX modifica le autorizzazioni del punto di montaggio da un utente non root a un utente root per un qtree dopo le operazioni VBSR.
+* SnapDrive per UNIX non supporta ambienti con lingue diverse dall'inglese.
+* L'operazione di ripristino SNAP non riesce se viene ripristinata dalla copia Snapshot creata prima dello spostamento dei LUN in un altro volume.
+* Se si utilizza ONTAP 8.2 o versione successiva, le operazioni Snapshot su una copia Snapshot potrebbero non riuscire se un'operazione di cloning in corso utilizza la stessa copia Snapshot.
++
+Riprovare l'operazione in un secondo momento.
+
+* OnCommand Unified Manager 6.0 o versione successiva non supporta Gestione protezione su Clustered Data ONTAP. Di conseguenza, l'integrazione tra OnCommand Unified Manager 6.0 o versione successiva e SnapDrive per UNIX non è supportata e le seguenti funzionalità di SnapDrive per UNIX non sono supportate:
++
+** Integrazione RBAC (Role-Based Access Control) con OnCommand Unified Manager 6.0 o versione successiva su ONTAP
+** Integrazione di Protection Manager con OnCommand Unified Manager 6.0 o versione successiva su ONTAP
+
+
+* È necessario assegnare gli aggregati che contengono volumi SVM all'elenco aggregato di SVM per configurare SVM ed eseguire SnapDrive per le operazioni UNIX.
+* SnapDrive per UNIX non supporta automount, l'utilizzo di qualsiasi tipo di automount potrebbe causare il malfunzionamento delle operazioni di SnapDrive per UNIX.
+
+
+
+
+== Limitazioni su Solaris
+
+* LUN superiori a 1 TB con etichetta SMI (Storage Management Initiative) non sono supportati.
+* Le LUN Extensible firmware Interface (EFI) e SMI dello stesso gruppo di dischi non sono supportate.
+* Il `snapdrive lun fixpaths` il comando non è supportato in un sistema operativo guest.
+

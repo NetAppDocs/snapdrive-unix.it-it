@@ -1,0 +1,27 @@
+---
+permalink: linux-administration/concept_snapdrive_limitations_for_data_ontap_operating_in_cluster_mode.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, clustered, ontap, limitations, operations 
+summary: Alcune funzionalità e operazioni di SnapDrive non sono supportate per Clustered Data ONTAP. 
+---
+= Limitazioni di SnapDrive per Clustered Data ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Alcune funzionalità e operazioni di SnapDrive non sono supportate per Clustered Data ONTAP.
+
+* Le operazioni di provisioning dello storage e gestione Snapshot non sono supportate sul volume root del Vserver.
+* Non sono supportate le operazioni sulle specifiche dei file o sui LUN che si estendono su Data ONTAP in modalità 7 e i sistemi storage in esecuzione su Clustered Data ONTAP.
+* I collegamenti simbolici che risiedono all'interno di un punto di montaggio non sono supportati.
+* Gli aggregati che contengono volumi Vserver devono essere assegnati all'elenco aggregato del Vserver per configurare il Vserver ed eseguire le operazioni SnapDrive.
+* SnapDrive per UNIX non supporta la migrazione di Vserver perché non è supportata da Clustered Data ONTAP.
+* Operazione di connessione SNAP con `-readonly` l'opzione consente di montare solo il `.snapshot` directory sull'host e non crea il volume clone.
++
+In Clustered Data ONTAP, la policy di esportazione viene definita solo a livello di volume e non a livello di directory. Pertanto, il `.snapshot` impossibile esportare la directory sull'host secondario (l'host che non dispone dell'autorizzazione di esportazione sul volume padre).
+
+* SnapDrive per UNIX non supporta le operazioni VBSR (Volume-Based SnapRestore) da una copia Snapshot creata prima della copia Snapshot di base, quando il volume è in un'operazione SnapMirror o SnapVault.
+* SnapDrive per UNIX non supporta `snapdelete` Operazione della copia Snapshot creata prima dell'aggiornamento di SnapVault, quando il volume è in relazione SnapVault (XDP).
+

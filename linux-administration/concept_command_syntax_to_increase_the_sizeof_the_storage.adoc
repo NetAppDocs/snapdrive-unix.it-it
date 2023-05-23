@@ -1,0 +1,30 @@
+---
+permalink: linux-administration/concept_command_syntax_to_increase_the_sizeof_the_storage.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, syntax, size, storage, increase 
+summary: Per aumentare le dimensioni dello storage, è necessario conoscere la sintassi corretta da utilizzare. 
+---
+= Sintassi dei comandi per aumentare le dimensioni dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per aumentare le dimensioni dello storage, è necessario conoscere la sintassi corretta da utilizzare.
+
+`snapdrive storage resize -dg _file_spec_ { -growby | -growto } size [-addlun [-igroup _ig_name_ [_ig_name ..._]]] [{ -reserve | - noreserve}]] [-fstype _type_] [-vmtype _type_]`
+
+[NOTE]
+====
+Non è possibile utilizzare `snapdrive storage resize` per ridurre le dimensioni di un'entità. È possibile aumentare le dimensioni solo utilizzando questo comando.
+
+Il `snapdrive storage resize` command non supporta direttamente i volumi logici o i file system. Ad esempio, non è possibile utilizzare `snapdrive storage resize` Comando per ridimensionare un file system su un LUN.
+
+*Risultato*: Questo comando aumenta le dimensioni dell'entità di storage (volume logico o gruppo di dischi) in base a uno dei seguenti elementi:
+
+* Aggiunta di byte allo storage (`-growby`).
+* Aumentando la dimensione del byte in base alle dimensioni specificate (`-growto`).
+
+
+====
