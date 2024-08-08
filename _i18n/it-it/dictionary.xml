@@ -74,7 +74,6 @@
   <block id="627a2cec3863a60ee1eb9fe78d73c96f" category="doc">Thin provisioning in SnapDrive per UNIX</block>
   <block id="b5e25c86b8fc4729491227e86c44097c" category="paragraph">In SnapDrive per UNIX, non è possibile impostare il valore di riserva frazionale e non esiste alcuna integrazione con le funzionalità di Data ONTAP come l'eliminazione automatica e la dimensionamento automatico. Queste funzionalità di Data ONTAP possono essere utilizzate in modo sicuro con SnapDrive per UNIX; tuttavia, SnapDrive per UNIX non è consapevole del fatto che si verifichi un evento di autoeliminazione o di dimensionamento automatico.</block>
   <block id="0fbd8971220ee7d0340edcc5aa07a5c0" category="inline-link">Report tecnico di NetApp 3483: Thin provisioning in un ambiente NetApp SAN o IP SAN Enterprise</block>
-  <block id="d067ada9dffcf5d06f760689bd642d06" category="paragraph"><block ref="d067ada9dffcf5d06f760689bd642d06" category="inline-link-rx"></block></block>
   <block id="20d83e03bb71997409eaff2ed4788857" category="summary">SnapDrive per UNIX consente di determinare il numero di LUN che è possibile creare sull'host senza superare il limite.</block>
   <block id="5d0e2d032ad1aa1e2b7c2ce121374ac1" category="doc">Determinare il numero di LUN che è possibile creare</block>
   <block id="d73c17083c51451ec5c88c86c407054e" category="paragraph">È possibile utilizzare<block ref="2fb3212b321be34b7c09f8dee41b01de" prefix=" " category="inline-code"></block> per determinare questo valore.</block>
@@ -6001,4 +6000,5 @@
   <block id="f8627092c31ff43a006814ef7cf773a5" category="sidebar">Amministrazione per Linux</block>
   <block id="42bd37a4c5629f76f268e0de7f45570f" category="sidebar">Installazione e amministrazione per Solaris</block>
   <block id="80dd8a6d27a4c1b305d26c223c52a9a7" category="sidebar">Installazione e amministrazione per IBM AIX</block>
+  <block id="2a7e0c5b8e814e03c21799cbb69f2d18" category="paragraph"><block ref="2a7e0c5b8e814e03c21799cbb69f2d18" category="inline-link-rx"></block></block>
 </blocks>

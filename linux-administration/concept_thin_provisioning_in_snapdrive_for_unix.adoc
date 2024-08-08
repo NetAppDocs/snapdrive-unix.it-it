@@ -17,4 +17,4 @@ In SnapDrive per UNIX, non è possibile impostare il valore di riserva frazional
 
 *Informazioni correlate*
 
-http://www.netapp.com/us/media/tr-3483.pdf["Report tecnico di NetApp 3483: Thin provisioning in un ambiente NetApp SAN o IP SAN Enterprise"]
+https://www.netapp.com/pdf.html?item=/media/19670-tr-3483.pdf["Report tecnico di NetApp 3483: Thin provisioning in un ambiente NetApp SAN o IP SAN Enterprise"^]
